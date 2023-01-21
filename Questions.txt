@@ -1,0 +1,15 @@
+A ejecutar en un ordenador nuevo
+	add-migration InitialCreate -p BlazingPissza.EFCore.Repositories -s BlazingPissza.EFCore.Repositories
+	update-database -p BlazingPissza.EFCore.Repositories -s BlazingPissza.EFCore.Repositories
+
+Projecto BlazingClient:
+	- Inciso. En los globalUsing y _Imports. Si la clase esta en GlobalUsing tambien la ve la vista, no hace falta en _Imports
+
+Projecto BlazingWpfClient:
+	- como poner el icono en el wpf ?
+
+Projecto BlazingControllers
+	- El controlador debe de tener el AWAIT obligatoriamente o podria directamente devolver la tarea y el que lo ejecuta de forma asincrona seria solo el invocador del controllador?
+
+
+

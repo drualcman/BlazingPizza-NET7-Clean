@@ -1,0 +1,9 @@
+﻿global using BlazingPissza.EFCore.Repositories.DataContext;
+global using BlazingPissza.EFCore.Repositories.Entities;
+global using BlazingPissza.EFCore.Repositories.Mappers;
+global using BlazingPizza.BussinesObjects.Interfaces.Commond;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Design;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.Extensions.DependencyInjection;
+global using System.Reflection;

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazingPissza.EFCore.Repositories\BlazingPissza.EFCore.Repositories.csproj" />
+    <ProjectReference Include="..\BlazingPizza.Controllers\BlazingPizza.Controllers.csproj" />
+    <ProjectReference Include="..\BlazingPizza.UseCases\BlazingPizza.UseCases.csproj" />
+  </ItemGroup>
+
+</Project>
