@@ -4,7 +4,7 @@
         {
             @foreach(PizzaSpecial special in ViewModel.Specials)
             {
-                <li style="background-image:url('https://ticapacitacion.blob.core.windows.net/blazingpizzaimages/@special.ImageUrl')">
+                <li style="background-image:url('@special.ImageUrl')">
                     <div class="pizza-info">
                         <span class="title">@special.Name</span>
                         @special.Description

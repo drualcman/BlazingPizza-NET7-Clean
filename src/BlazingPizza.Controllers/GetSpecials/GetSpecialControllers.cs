@@ -2,12 +2,15 @@
 public class GetSpecialControllers : IGetSpecialsController
 {
     readonly IGetSpecialsInputPort InputPort;
+    readonly IGetSpecialsPresenter Presenter;
 
-    public GetSpecialControllers(IGetSpecialsInputPort inputPort)
+    public GetSpecialControllers(IGetSpecialsInputPort inputPort, IGetSpecialsPresenter presenter)
     {
         InputPort = inputPort;
+        Presenter = presenter;
     }
 
-    public Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync()   =>
-        InputPort.GetSpecialsAsync();
+    public async Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync()   =>
+        //await Presenter.GetSpecialsAsync(await InputPort.GetSpecialsAsync());
+        await Presenter.GetSpecialsAsync();
 }

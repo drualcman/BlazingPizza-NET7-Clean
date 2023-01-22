@@ -27,34 +27,40 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Razor.Views", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.IoC.Frontend", "src\BlazingPizza.IoC.Frontend\BlazingPizza.IoC.Frontend.csproj", "{99C9118F-71F7-40B2-BD58-9629E5F54346}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{49846A86-FFDD-44E7-AA35-76CB8E8E0062}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UIs", "UIs", "{49846A86-FFDD-44E7-AA35-76CB8E8E0062}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.BlazorClient", "src\BlazingPizza.BlazorClient\BlazingPizza.BlazorClient.csproj", "{BF2D3CEE-CE58-4F04-BCAE-A60BD3293559}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.WpfClient", "src\BlazingPizza.WpfClient\BlazingPizza.WpfClient.csproj", "{4BC76746-CD9D-4F31-A145-7031857CCD93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.WpfClient", "src\BlazingPizza.WpfClient\BlazingPizza.WpfClient.csproj", "{4BC76746-CD9D-4F31-A145-7031857CCD93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.WinFormsClient", "src\BlazingPizza.WinFormsClient\BlazingPizza.WinFormsClient.csproj", "{4CBFE5A5-707F-4FC5-ABF3-7C1617103E9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.WinFormsClient", "src\BlazingPizza.WinFormsClient\BlazingPizza.WinFormsClient.csproj", "{4CBFE5A5-707F-4FC5-ABF3-7C1617103E9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.MauiClient", "src\BlazingPizza.MauiClient\BlazingPizza.MauiClient.csproj", "{166E1F14-EF5D-40C7-BDEA-D2505FE4A662}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.MauiClient", "src\BlazingPizza.MauiClient\BlazingPizza.MauiClient.csproj", "{166E1F14-EF5D-40C7-BDEA-D2505FE4A662}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.UseCases", "src\BlazingPizza.UseCases\BlazingPizza.UseCases.csproj", "{24FCAE6B-55BB-4E16-BF87-85C1450C5A50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.UseCases", "src\BlazingPizza.UseCases\BlazingPizza.UseCases.csproj", "{24FCAE6B-55BB-4E16-BF87-85C1450C5A50}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{73C1D108-6F59-4E6B-8345-96AED80725CA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{92D0F541-C5B0-4492-8CCA-362D891B2630}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPissza.EFCore.Repositories", "src\BlazingPissza.EFCore.Repositories\BlazingPissza.EFCore.Repositories.csproj", "{B6C03A43-88C5-46D4-9018-15D72D76B926}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPissza.EFCore.Repositories", "src\BlazingPissza.EFCore.Repositories\BlazingPissza.EFCore.Repositories.csproj", "{B6C03A43-88C5-46D4-9018-15D72D76B926}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controllers", "Controllers", "{E25E76CD-1FAD-46D5-A35B-70A42E4CB962}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.Controllers", "src\BlazingPizza.Controllers\BlazingPizza.Controllers.csproj", "{8E900736-8267-4D5C-8A45-A66AA31BA5AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Controllers", "src\BlazingPizza.Controllers\BlazingPizza.Controllers.csproj", "{8E900736-8267-4D5C-8A45-A66AA31BA5AE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C658BDA9-EE33-4EA7-9E04-5EEAC17AB258}"
 	ProjectSection(SolutionItems) = preProject
 		Questions.txt = Questions.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.Ioc.Backend", "src\BlazingPizza.Ioc.Backend\BlazingPizza.Ioc.Backend.csproj", "{8BFD2E4E-5980-4550-BFB1-E767825C3EF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Ioc.Backend", "src\BlazingPizza.Ioc.Backend\BlazingPizza.Ioc.Backend.csproj", "{8BFD2E4E-5980-4550-BFB1-E767825C3EF8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.WebApi", "src\BlazingPizza.WebApi\BlazingPizza.WebApi.csproj", "{DB5EE881-4468-4F75-80FA-421EEAAC2113}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presenters", "Presenters", "{B116B1D8-CA68-4955-8016-E8A06ED59BA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.Presenters", "src\BlazingPizza.Presenters\BlazingPizza.Presenters.csproj", "{D8DC5433-BA87-4048-B4C7-54B151D7EAF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -116,6 +122,14 @@ Global
 		{8BFD2E4E-5980-4550-BFB1-E767825C3EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BFD2E4E-5980-4550-BFB1-E767825C3EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BFD2E4E-5980-4550-BFB1-E767825C3EF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB5EE881-4468-4F75-80FA-421EEAAC2113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB5EE881-4468-4F75-80FA-421EEAAC2113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB5EE881-4468-4F75-80FA-421EEAAC2113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB5EE881-4468-4F75-80FA-421EEAAC2113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8DC5433-BA87-4048-B4C7-54B151D7EAF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8DC5433-BA87-4048-B4C7-54B151D7EAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8DC5433-BA87-4048-B4C7-54B151D7EAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8DC5433-BA87-4048-B4C7-54B151D7EAF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +155,9 @@ Global
 		{E25E76CD-1FAD-46D5-A35B-70A42E4CB962} = {E64A4656-E2C5-4914-B079-246C6FA07CB2}
 		{8E900736-8267-4D5C-8A45-A66AA31BA5AE} = {E25E76CD-1FAD-46D5-A35B-70A42E4CB962}
 		{8BFD2E4E-5980-4550-BFB1-E767825C3EF8} = {E64A4656-E2C5-4914-B079-246C6FA07CB2}
+		{DB5EE881-4468-4F75-80FA-421EEAAC2113} = {49846A86-FFDD-44E7-AA35-76CB8E8E0062}
+		{B116B1D8-CA68-4955-8016-E8A06ED59BA3} = {E64A4656-E2C5-4914-B079-246C6FA07CB2}
+		{D8DC5433-BA87-4048-B4C7-54B151D7EAF4} = {B116B1D8-CA68-4955-8016-E8A06ED59BA3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19CECF98-13B4-4B95-8AE5-2BDBD4E8BE49}
