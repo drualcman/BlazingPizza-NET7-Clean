@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using BlazingPizza.BussinesObjects.ValueObjects;
+using Microsoft.Extensions.Configuration;
+using System.Windows;
 
 namespace BlazingPizza.WpfClient;
 
@@ -17,7 +19,10 @@ public partial class MainWindow : Window
     {
         ServiceCollection services = new ServiceCollection();
         services.AddWpfBlazorWebView();
-        services.AddBlazingPizzaFrontendServices();
+        IConfiguration configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .Build();
+        services.AddBlazingPizzaFrontendServices(configuration.GetSection("BlazzingPizzaEndpoint").Get<EndpointsOptions>());
         Resources.Add("Services", services.BuildServiceProvider()); 
     }
 }
