@@ -22,7 +22,6 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
 
-        builder.Services.AddSingleton<WeatherForecastService>();
         using Stream configurationStream = FileSystem.OpenAppPackageFileAsync("appsettings.json").Result;
         builder.Configuration.AddJsonStream(configurationStream);
 
