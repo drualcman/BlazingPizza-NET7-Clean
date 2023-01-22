@@ -1,8 +1,4 @@
-﻿using BlazingPizza.BussinesObjects.ValueObjects;
-using Microsoft.Extensions.Configuration;
-using System.Windows;
-
-namespace BlazingPizza.WpfClient;
+﻿namespace BlazingPizza.WpfClient;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
@@ -22,7 +18,11 @@ public partial class MainWindow : Window
         IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
-        services.AddBlazingPizzaFrontendServices(configuration.GetSection("BlazzingPizzaEndpoint").Get<EndpointsOptions>());
-        Resources.Add("Services", services.BuildServiceProvider()); 
+
+        services.AddSingleton<IConfiguration>(configuration);
+        services.AddBlazingPizzaBackendServices(configuration.GetConnectionString("BlazingPizzaDb"),
+                                                configuration["ImageBaseUrl"]);   
+        services.AddBlazingPizzaDesktopServices();
+        Resources.Add("Services", services.BuildServiceProvider());
     }
 }

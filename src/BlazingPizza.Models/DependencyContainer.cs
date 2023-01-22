@@ -6,5 +6,10 @@ public static class DependencyContainer
     {
         services.AddScoped<ISpecialsModel, SpecialsModel>();
         return services;
+    } 
+    public static IServiceCollection AddDesktopModelsServices(this IServiceCollection services)
+    {
+        services.AddScoped<ISpecialsModel, DesktopSpecialModel>();
+        return services;
     }
 }

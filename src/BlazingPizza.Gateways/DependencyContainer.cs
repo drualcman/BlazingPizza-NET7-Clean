@@ -14,5 +14,5 @@ public static class DependencyContainer
         });
         httpClientConfiguration?.Invoke(httpClientBuilder);
         return services;
-    }
+    } 
 }
