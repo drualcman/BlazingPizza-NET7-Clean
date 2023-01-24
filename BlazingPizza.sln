@@ -60,11 +60,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.WebApi", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presenters", "Presenters", "{B116B1D8-CA68-4955-8016-E8A06ED59BA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.Presenters", "src\BlazingPizza.Presenters\BlazingPizza.Presenters.csproj", "{D8DC5433-BA87-4048-B4C7-54B151D7EAF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Presenters", "src\BlazingPizza.Presenters\BlazingPizza.Presenters.csproj", "{D8DC5433-BA87-4048-B4C7-54B151D7EAF4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApiGateways", "WebApiGateways", "{95645F00-849A-4896-9173-C0E393E49662}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.Gateways", "src\BlazingPizza.Gateways\BlazingPizza.Gateways.csproj", "{D2248800-1E24-4C12-A586-FBBB59FCE82C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Gateways", "src\BlazingPizza.Gateways\BlazingPizza.Gateways.csproj", "{D2248800-1E24-4C12-A586-FBBB59FCE82C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

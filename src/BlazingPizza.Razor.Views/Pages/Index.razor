@@ -5,11 +5,5 @@
 
 @if(ViewModel.ShowingConfigureDialog)
 {
-    <div>
-        <p>@ViewModel.ConfiguringPizza.PizzaSpecial.Name</p>
-        <p>@ViewModel.ConfiguringPizza.PizzaSpecial.GetFormattedPrice()</p>
-        <p>@ViewModel.ConfiguringPizza.GetFormattedTotalPrice()</p>
-        <button type="button" @onclick=ViewModel.ConfirmConfigurePizzaDialog class="button is-success">Ordenar</button>
-        <button type="button" @onclick=ViewModel.CancelConfigurePizzaDialog class="button is-danger">Cancelar</button>
-    </div>
+    <ConfigurePizzaDialog Pizza=ViewModel.ConfiguringPizza OnCancel=ViewModel.CancelConfigurePizzaDialog OnAdd=ViewModel.ConfirmConfigurePizzaDialog />    
 }

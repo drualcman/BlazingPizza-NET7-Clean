@@ -2,13 +2,13 @@
 public class Pizza
 {
     readonly List<Topping> ToppingsField;
-    public PizzaSpecial PizzaSpecial { get; }
+    public PizzaSpecial Special { get; }
     public int Size { get; private set; }
     public IReadOnlyCollection<Topping> Toppings => ToppingsField;
 
     public Pizza(PizzaSpecial pizzaSpecial)
     {
-        PizzaSpecial = pizzaSpecial;
+        Special = pizzaSpecial;
         Size = (int)PizzaSize.Default;
         ToppingsField = new List<Topping>();
     }
@@ -30,7 +30,7 @@ public class Pizza
         ToppingsField.Remove(topping);
 
     public decimal GetBasePrice() => 
-        (decimal)Size / (decimal)PizzaSize.Default * PizzaSpecial.BasePrice;
+        (decimal)Size / (decimal)PizzaSize.Default * Special.BasePrice;
 
     public decimal GetTotalPrice() =>
         GetBasePrice() + ToppingsField.Sum(t => t.Price);

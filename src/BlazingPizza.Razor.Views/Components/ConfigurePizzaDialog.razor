@@ -1,0 +1,24 @@
+﻿<div class="dialog-container">
+    <div class="dialog">
+        <div class="dialog-title">            
+            <PizzaSpecialComponent Special=Pizza.Special />
+        </div>
+        <form class="dialog-body">
+            @if(ViewModel.Toppings is not null)
+            {
+
+            }
+            else
+            {
+                <p>Loading...</p>
+            }
+        </form>
+        <div class="dialog-buttons">
+            <button type="button" class="button is-danger" @onclick=OnCancel>Cancelar</button>
+            <span class="text-centered">
+                Precio: <span class="price">@ViewModel.Pizza.GetFormattedTotalPrice()</span>
+            </span>
+            <button type="button" class="button is-success" @onclick=OnAdd>Ordenar &gt;</button>
+        </div>
+    </div>
+</div>
