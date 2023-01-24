@@ -2,5 +2,4 @@
 public interface IGetSpecialsPresenter
 {
     Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync(IReadOnlyCollection<PizzaSpecial> specials);
-    Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync();
 }

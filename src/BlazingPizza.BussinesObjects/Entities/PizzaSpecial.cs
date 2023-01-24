@@ -8,5 +8,5 @@ public class PizzaSpecial
     public decimal BasePrice { get; set; }
     public string ImageUrl { get; set; }
     public string GetFormattedPrice() => 
-        BasePrice.ToString("$#.##");
+        BasePrice.ToString("$#.##");  
 }

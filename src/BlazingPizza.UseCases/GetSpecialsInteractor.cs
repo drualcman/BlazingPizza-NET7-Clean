@@ -1,6 +1,6 @@
 ﻿namespace BlazingPizza.UseCases;
 
-public class GetSpecialsInteractor : IGetSpecialsInputPort
+internal class GetSpecialsInteractor : IGetSpecialsInputPort
 {
     readonly IBlazingPizzaRepository Repository;
 

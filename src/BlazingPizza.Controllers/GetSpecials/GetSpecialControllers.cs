@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.Controllers.GetSpecials;
-public class GetSpecialControllers : IGetSpecialsController
+internal class GetSpecialControllers : IGetSpecialsController
 {
     readonly IGetSpecialsInputPort InputPort;
     readonly IGetSpecialsPresenter Presenter;
@@ -11,6 +11,5 @@ public class GetSpecialControllers : IGetSpecialsController
     }
 
     public async Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync()   =>
-        //await Presenter.GetSpecialsAsync(await InputPort.GetSpecialsAsync());
-        await Presenter.GetSpecialsAsync();
+        await Presenter.GetSpecialsAsync(await InputPort.GetSpecialsAsync());
 }

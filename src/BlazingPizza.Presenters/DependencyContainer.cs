@@ -4,8 +4,7 @@ public static class DependencyContainer
 {
     public static IServiceCollection AddPresenterServices(this IServiceCollection services, string imagesBaseUrl)
     {
-        //services.AddScoped<IGetSpecialsPresenter>(provider => new GetSpecialsPresenter(imagesBaseUrl));
-        services.AddScoped<IGetSpecialsPresenter, GetSpecialsPresenter>();
+        services.AddScoped<IGetSpecialsPresenter>(provider => new GetSpecialsPresenter(imagesBaseUrl));        
         return services;
     }
 }
