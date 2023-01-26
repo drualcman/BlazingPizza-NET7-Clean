@@ -1,0 +1,13 @@
+﻿<div class="cart-item">
+    <button type="button" @onclick=OnRemoved class="delete-item">X</button>
+    <div class="title">
+        <span>@Pizza.Size</span> @Pizza.Special.Name
+    </div>
+    <ul>
+        @foreach(Topping topping in Pizza.Toppings)
+        {
+            <li>+ @topping.Name</li>
+        }
+    </ul>
+    <div class="item-price">@Pizza.GetFormattedTotalPrice()</div>
+</div>

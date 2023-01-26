@@ -1,9 +1,12 @@
 ﻿@import url('font/quicksand.css');
-body, html {
+body, html, #app {
     height: 100%;
     overflow: hidden;
 }
 body{
     font-family: 'quicksand';
-    overflow-y: scroll;
+}
+
+.button {
+    cursor: revert
 }

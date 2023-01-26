@@ -1,29 +1,33 @@
 ﻿namespace BlazingPizza.ViewModels;
 public class IndexViewModel : IIndexViewModel
 {
+    readonly IOrderStateService OrderService;
+
+    public IndexViewModel(IOrderStateService orderService) => OrderService = orderService;
+
     public Pizza ConfiguringPizza { get ; set ; }
     public bool ShowingConfigureDialog  { get ; set ; }
 
-    public Task CancelConfigurePizzaDialog() 
-    {
-        ConfiguringPizza = null;
-        ShowingConfigureDialog = false;
-        return Task.CompletedTask;
-    }
+    public Task CancelConfigurePizzaDialog() =>
+        ResetPizza();
 
-    public Task ConfirmConfigurePizzaDialog()
+    public async Task ConfirmConfigurePizzaDialog()
     {                      
-        //TODO: Agregar la pizza a la orden
-                    
-        ConfiguringPizza = null;
-        ShowingConfigureDialog = false;     
-        return Task.CompletedTask;
+        OrderService.Order.AddPizza(ConfiguringPizza);
+        await ResetPizza();
     }
 
     public Task ShowConfigurePizzaDialog(PizzaSpecial special)
     {                              
         ConfiguringPizza = new Pizza(special);
         ShowingConfigureDialog = true;
+        return Task.CompletedTask;
+    }
+
+    Task ResetPizza()
+    {                         
+        ConfiguringPizza = null;
+        ShowingConfigureDialog = false;  
         return Task.CompletedTask;
     }
 }

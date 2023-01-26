@@ -2,4 +2,5 @@
 public partial class Index
 {
     [Inject] IIndexViewModel ViewModel { get; set; }
+    [Inject] IOrderStateService OrderStateService { get; set; }
 }

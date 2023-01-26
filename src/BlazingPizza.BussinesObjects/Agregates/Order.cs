@@ -7,6 +7,8 @@ public class Order : BaseOrder
         PizzasField = new();
     }
 
+    public bool HasPizzas => PizzasField.Any();
+
     public Address DeliveryAddress { get; private set; }
     public LatLong DeliveryLocation { get; private set; }
     public IReadOnlyCollection<Pizza> Pizzas => PizzasField;

@@ -5,5 +5,9 @@
 
 @if(ViewModel.ShowingConfigureDialog)
 {
-    <ConfigurePizzaDialog Pizza=ViewModel.ConfiguringPizza OnCancel=ViewModel.CancelConfigurePizzaDialog OnAdd=ViewModel.ConfirmConfigurePizzaDialog />    
+    <ConfigurePizzaDialog Pizza=ViewModel.ConfiguringPizza 
+        OnCancel=ViewModel.CancelConfigurePizzaDialog 
+        OnConfirm=ViewModel.ConfirmConfigurePizzaDialog />
 }
+
+<ConfiguredPizzas Order=OrderStateService.Order />
