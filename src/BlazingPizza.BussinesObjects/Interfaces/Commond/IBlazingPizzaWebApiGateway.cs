@@ -2,4 +2,5 @@
 public interface IBlazingPizzaWebApiGateway
 {
     Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync();
+    Task<IReadOnlyCollection<Topping>> GetToppingsAsync();
 }

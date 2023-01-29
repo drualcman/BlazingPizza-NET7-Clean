@@ -1,17 +1,58 @@
 ﻿<div class="dialog-container">
     <div class="dialog">
-        <div class="dialog-title">            
+        <div class="dialog-title">
             <PizzaSpecialComponent Special=Pizza.Special />
         </div>
         <form class="dialog-body">
-            @if(ViewModel.Toppings is not null)
-            {
-
-            }
-            else
-            {
-                <p>Loading...</p>
-            }
+            <div>
+                <label>Tamaño:</label>
+                <input type="range"
+                       min="@((int)PizzaSize.Minimum)" max="@((int)PizzaSize.Maximum)" step="@((int)PizzaSize.Increment)"
+                       @bind=@ViewModel.ConfiguredPizzaSize
+                       @bind:event="oninput" />
+                <span class="size-label">
+                    @ViewModel.Pizza.GetFormattedSizeWithTotalPrice()
+                </span>
+            </div>
+            <div>
+                <label>Complementos adicionales:</label>
+                @if(ViewModel.Toppings is null)
+                {
+                    <select class="custom-select">
+                        <option>Cagando ...</option>
+                    </select>
+                }
+                else if(ViewModel.Pizza.HasMaximumToppings)
+                {
+                    <div>
+                        Maximo alcanzado
+                    </div>
+                }
+                else
+                {
+                    <div class="select">
+                    <select @onchange="(e) => ViewModel.Pizza.AddTopping(ViewModel.Toppings.ElementAt(Convert.ToInt32(e.Value)))">
+                        <option value="-1" disabled selected>Selecciona un ingrediente</option>
+                        @for(int i = 0; i < ViewModel.Toppings.Count; i++)
+                        {
+                            <option value="@i">@ViewModel.Toppings.ElementAt(i).GetFormattedToppingNameWithPrice()</option>
+                        }
+                    </select>
+                    </div>
+                }
+            </div>
+            <div class="toppings">
+                @foreach(Topping topping in ViewModel.Pizza.Toppings)
+                {
+                    <div class="topping">
+                        @topping.Name
+                        <span class="topping-price">
+                            @topping.GetFormattedPrice()
+                        </span>
+                        <button type="button" class="delete-topping" @onclick="() => ViewModel.RemoveToping(topping)">X</button>
+                    </div>
+                }
+            </div>
         </form>
         <div class="dialog-buttons">
             <button type="button" class="button is-danger" @onclick=OnCancel>Cancelar</button>

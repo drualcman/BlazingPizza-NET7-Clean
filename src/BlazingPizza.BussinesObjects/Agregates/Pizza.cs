@@ -6,6 +6,9 @@ public class Pizza
     public int Size { get; private set; }
     public IReadOnlyCollection<Topping> Toppings => ToppingsField;
 
+    public bool HasMaximumToppings => Toppings.Count >= 6;
+
+
     public Pizza(PizzaSpecial pizzaSpecial)
     {
         Special = pizzaSpecial;
@@ -39,6 +42,6 @@ public class Pizza
         GetTotalPrice().ToString("$#.##");
 
     public string GetFormattedSizeWithTotalPrice() =>
-        $"{Size} cm ({GetFormattedTotalPrice})";
+        $"{Size} cm ({GetFormattedTotalPrice()})";
 
 }

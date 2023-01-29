@@ -2,6 +2,7 @@
 public interface IConfigurePizzaDialogViewModel
 {
     Pizza Pizza { get; set; }
+    int ConfiguredPizzaSize { get; set; }
     IReadOnlyCollection<Topping> Toppings { get; }
     Task GetToppingsAsync();
     void AddToping(Topping topping);

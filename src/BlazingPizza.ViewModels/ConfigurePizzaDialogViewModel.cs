@@ -6,8 +6,15 @@ internal class ConfigurePizzaDialogViewModel : IConfigurePizzaDialogViewModel
     public ConfigurePizzaDialogViewModel(IConfigurePizzaDialogModel model) => Model = model;
 
     public Pizza Pizza { get; set; }
+    
+    public int ConfiguredPizzaSize { get => Pizza.Size; set => Pizza.SetSize(value);  }
 
-    public IReadOnlyCollection<Topping> Toppings { get; private set; }
+    private IReadOnlyCollection<Topping> ToppingsBK;
+    public IReadOnlyCollection<Topping> Toppings 
+    { 
+        get { return ToppingsBK?.OrderBy(t => t.Name).ToList(); }
+        private set { ToppingsBK = value; } 
+    }
 
     public void AddToping(Topping topping) =>
         Pizza.AddTopping(topping);

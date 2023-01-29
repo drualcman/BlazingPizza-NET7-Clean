@@ -49,11 +49,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controllers", "Controllers"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Controllers", "src\BlazingPizza.Controllers\BlazingPizza.Controllers.csproj", "{8E900736-8267-4D5C-8A45-A66AA31BA5AE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C658BDA9-EE33-4EA7-9E04-5EEAC17AB258}"
-	ProjectSection(SolutionItems) = preProject
-		Questions.txt = Questions.txt
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Ioc.Backend", "src\BlazingPizza.Ioc.Backend\BlazingPizza.Ioc.Backend.csproj", "{8BFD2E4E-5980-4550-BFB1-E767825C3EF8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.WebApi", "src\BlazingPizza.WebApi\BlazingPizza.WebApi.csproj", "{DB5EE881-4468-4F75-80FA-421EEAAC2113}"

@@ -9,7 +9,6 @@ public static class Specials
             IReadOnlyCollection<PizzaSpecial> result = await controller.GetSpecialsAsync();
             return Results.Ok(result);
         });
-        app.MapGet("/hello", (HttpContext context) => context.Response.WriteAsync("Hello, World"));
         return app;
     }
 }

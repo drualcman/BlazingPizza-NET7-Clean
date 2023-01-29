@@ -14,5 +14,11 @@ public class BlazingPizzaRepository : IBlazingPizzaRepository
         return await Context.Specials.Select( s=> s.ToPizzaSpecial())
                                      .ToListAsync();
     }
+
+    public async Task<IReadOnlyCollection<BlazingPizza.BussinesObjects.Entities.Topping>> GetToppingsAsync()
+    {
+        return await Context.Toppings.Select(t=> t.ToTopping())
+                                     .ToListAsync();
+    }
 }
 

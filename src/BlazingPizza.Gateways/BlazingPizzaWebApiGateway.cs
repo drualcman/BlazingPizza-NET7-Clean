@@ -15,4 +15,9 @@ public class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
     {
         return await Client.GetFromJsonAsync<IReadOnlyCollection<PizzaSpecial>>(EndpointsOptions.Specials);
     }
+    
+    public async Task<IReadOnlyCollection<Topping>> GetToppingsAsync()
+    {
+        return await Client.GetFromJsonAsync<IReadOnlyCollection<Topping>>(EndpointsOptions.Toppings);
+    }
 }

@@ -3,6 +3,7 @@ using BlazingPissza.EFCore.Repositories.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazingPissza.EFCore.Repositories.Migrations
 {
     [DbContext(typeof(BlazingPizzaContext))]
-    partial class BlazingPizzaContextModelSnapshot : ModelSnapshot
+    [Migration("20230127035129_AddToppings")]
+    partial class AddToppings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
