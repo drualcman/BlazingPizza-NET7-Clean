@@ -1,3 +1,5 @@
+using BlazingPizza.BussinesObjects.ValueObjects;
+
 namespace BlazingPizza.WinFormsClient;
 
 public partial class Form1 : Form
@@ -20,9 +22,9 @@ public partial class Form1 : Form
         services.AddSingleton<IConfiguration>(configuration);
         services.AddBlazingPizzaBackendServices(configuration.GetConnectionString("BlazingPizzaDb"),
                                                 configuration["ImageBaseUrl"]); 
-        services.AddBlazingPizzaDesktopServices();
-        blazorWebView1.HostPage = "wwwroot/index.html";
-        blazorWebView1.RootComponents.Add<Razor.Views.Pages.Index>("#app");
+        services.AddBlazingPizzaFrontendServices(configuration.GetSection("BlazzingPizzaEndpoint").Get<EndpointsOptions>());
+        blazorWebView1.HostPage = "wwwroot\\index.html";
+        blazorWebView1.RootComponents.Add<App>("#app");
         blazorWebView1.Services = services.BuildServiceProvider();
     }
 }

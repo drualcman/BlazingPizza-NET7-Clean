@@ -35,6 +35,7 @@
             // 
             this.blazorWebView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.blazorWebView1.Location = new System.Drawing.Point(0, 0);
+            this.blazorWebView1.Margin = new System.Windows.Forms.Padding(0);
             this.blazorWebView1.Name = "blazorWebView1";
             this.blazorWebView1.Size = new System.Drawing.Size(757, 450);
             this.blazorWebView1.TabIndex = 0;
