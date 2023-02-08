@@ -61,6 +61,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApiGateways", "WebApiGat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Gateways", "src\BlazingPizza.Gateways\BlazingPizza.Gateways.csproj", "{D2248800-1E24-4C12-A586-FBBB59FCE82C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDemo", "BlazorDemo\BlazorDemo.csproj", "{4C90EB13-5AE4-4BDC-B066-58186441EB9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,10 @@ Global
 		{D2248800-1E24-4C12-A586-FBBB59FCE82C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2248800-1E24-4C12-A586-FBBB59FCE82C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2248800-1E24-4C12-A586-FBBB59FCE82C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C90EB13-5AE4-4BDC-B066-58186441EB9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C90EB13-5AE4-4BDC-B066-58186441EB9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C90EB13-5AE4-4BDC-B066-58186441EB9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C90EB13-5AE4-4BDC-B066-58186441EB9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -163,6 +169,7 @@ Global
 		{D8DC5433-BA87-4048-B4C7-54B151D7EAF4} = {B116B1D8-CA68-4955-8016-E8A06ED59BA3}
 		{95645F00-849A-4896-9173-C0E393E49662} = {73C1D108-6F59-4E6B-8345-96AED80725CA}
 		{D2248800-1E24-4C12-A586-FBBB59FCE82C} = {95645F00-849A-4896-9173-C0E393E49662}
+		{4C90EB13-5AE4-4BDC-B066-58186441EB9F} = {49846A86-FFDD-44E7-AA35-76CB8E8E0062}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19CECF98-13B4-4B95-8AE5-2BDBD4E8BE49}
