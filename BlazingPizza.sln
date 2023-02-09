@@ -61,7 +61,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApiGateways", "WebApiGat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Gateways", "src\BlazingPizza.Gateways\BlazingPizza.Gateways.csproj", "{D2248800-1E24-4C12-A586-FBBB59FCE82C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDemo", "BlazorDemo\BlazorDemo.csproj", "{4C90EB13-5AE4-4BDC-B066-58186441EB9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDemo", "BlazorDemo\BlazorDemo.csproj", "{4C90EB13-5AE4-4BDC-B066-58186441EB9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
