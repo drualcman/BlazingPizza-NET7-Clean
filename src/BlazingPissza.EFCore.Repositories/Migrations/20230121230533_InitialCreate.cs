@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace BlazingPissza.EFCore.Repositories.Migrations
+namespace BlazingPizza.EFCore.Repositories.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

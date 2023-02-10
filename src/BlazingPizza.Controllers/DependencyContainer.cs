@@ -6,6 +6,7 @@ public static class DependencyContainer
     {
         services.AddScoped<IGetSpecialsController, GetSpecialController>();
         services.AddScoped<IGetToppingsController, GetToppingsController>();
+        services.AddScoped<IPlaceOrderController, PlaceOrderController>();
         return services;
     }
 }

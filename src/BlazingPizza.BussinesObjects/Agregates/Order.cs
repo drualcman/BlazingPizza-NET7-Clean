@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.BussinesObjects.Agregates;
+﻿using BlazingPizza.BussinesObjects.Dtos;
+
+namespace BlazingPizza.BussinesObjects.Agregates;
 public class Order : BaseOrder
 {
     readonly List<Pizza> PizzasField;
@@ -36,5 +38,14 @@ public class Order : BaseOrder
 
     public string GetFormatedTotalPrice() =>
         GetTotalPrice().ToString("$ #.##");
+    
+    public static explicit operator PlaceOrderOrderDto(Order order) => new PlaceOrderOrderDto
+    {
+        UserId= order.UserId,
+        DeliveryAddress= order.DeliveryAddress,
+        DeliveryLocation= order.DeliveryLocation,
+        Pizzas = order.Pizzas.Select(p => (PlaceOrderPizzaDto)p).ToList()
+    };
+
 
 }

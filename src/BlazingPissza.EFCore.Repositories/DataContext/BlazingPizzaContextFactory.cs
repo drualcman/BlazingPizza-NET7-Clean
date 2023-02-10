@@ -1,4 +1,4 @@
-﻿namespace BlazingPissza.EFCore.Repositories.DataContext;
+﻿namespace BlazingPizza.EFCore.Repositories.DataContext;
 internal class BlazingPizzaContextFactory : IDesignTimeDbContextFactory<BlazingPizzaContext>
 {
     public BlazingPizzaContext CreateDbContext(string[] args) 

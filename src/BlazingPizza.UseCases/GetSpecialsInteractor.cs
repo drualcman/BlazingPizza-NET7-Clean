@@ -2,9 +2,9 @@
 
 internal class GetSpecialsInteractor : IGetSpecialsInputPort
 {
-    readonly IBlazingPizzaRepository Repository;
+    readonly IBlazingPizzaQueriesRepository Repository;
 
-    public GetSpecialsInteractor(IBlazingPizzaRepository repository)
+    public GetSpecialsInteractor(IBlazingPizzaQueriesRepository repository)
     {
         Repository = repository;
     }

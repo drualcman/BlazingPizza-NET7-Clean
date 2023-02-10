@@ -1,4 +1,7 @@
-﻿namespace BlazingPizza.BussinesObjects.Agregates;
+﻿using BlazingPizza.BussinesObjects.Dtos;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace BlazingPizza.BussinesObjects.Agregates;
 public class Pizza
 {
     readonly List<Topping> ToppingsField;
@@ -43,5 +46,26 @@ public class Pizza
 
     public string GetFormattedSizeWithTotalPrice() =>
         $"{Size} cm ({GetFormattedTotalPrice()})";
+
+    public PlaceOrderPizzaDto GetPlaceOrderPizzaDto() => new PlaceOrderPizzaDto
+    {
+        PizzaSpecialId = Special.Id,
+        Size = Size,
+        ToppingsIds = Toppings.Select(s => s.Id).ToList(),
+    };
+
+    public PlaceOrderPizzaDto PlaceOrderPizzaDto => new PlaceOrderPizzaDto
+    {
+        PizzaSpecialId = Special.Id,
+        Size = Size,
+        ToppingsIds = Toppings.Select(s => s.Id).ToList(),
+    };
+
+    public static explicit operator PlaceOrderPizzaDto(Pizza pizza) => new PlaceOrderPizzaDto
+    {
+        PizzaSpecialId = pizza.Special.Id,
+        Size = pizza.Size,
+        ToppingsIds = pizza.Toppings.Select(t => t.Id).ToList()
+    };
 
 }

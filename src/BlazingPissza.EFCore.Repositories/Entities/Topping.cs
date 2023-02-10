@@ -1,4 +1,4 @@
-﻿namespace BlazingPissza.EFCore.Repositories.Entities;
+﻿namespace BlazingPizza.EFCore.Repositories.Entities;
 public class Topping
 {
     public int Id { get; set; }

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazingPissza.EFCore.Repositories\BlazingPissza.EFCore.Repositories.csproj" />
+    <ProjectReference Include="..\BlazingPissza.EFCore.Repositories\BlazingPizza.EFCore.Repositories.csproj" />
     <ProjectReference Include="..\BlazingPizza.Controllers\BlazingPizza.Controllers.csproj" />
     <ProjectReference Include="..\BlazingPizza.Presenters\BlazingPizza.Presenters.csproj" />
     <ProjectReference Include="..\BlazingPizza.UseCases\BlazingPizza.UseCases.csproj" />

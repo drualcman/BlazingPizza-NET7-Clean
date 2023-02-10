@@ -1,4 +1,4 @@
-﻿namespace BlazingPissza.EFCore.Repositories.Configurations;
+﻿namespace BlazingPizza.EFCore.Repositories.Configurations;
 public class ToppingConfiguration : IEntityTypeConfiguration<Topping>
 {
     public void Configure(EntityTypeBuilder<Topping> builder) 

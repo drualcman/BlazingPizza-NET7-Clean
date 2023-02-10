@@ -43,7 +43,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{73
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{92D0F541-C5B0-4492-8CCA-362D891B2630}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPissza.EFCore.Repositories", "src\BlazingPissza.EFCore.Repositories\BlazingPissza.EFCore.Repositories.csproj", "{B6C03A43-88C5-46D4-9018-15D72D76B926}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.EFCore.Repositories", "src\BlazingPissza.EFCore.Repositories\BlazingPizza.EFCore.Repositories.csproj", "{B6C03A43-88C5-46D4-9018-15D72D76B926}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controllers", "Controllers", "{E25E76CD-1FAD-46D5-A35B-70A42E4CB962}"
 EndProject

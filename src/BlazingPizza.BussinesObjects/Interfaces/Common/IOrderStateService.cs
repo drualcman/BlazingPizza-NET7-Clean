@@ -1,4 +1,4 @@
-﻿namespace BlazingPizza.BussinesObjects.Interfaces.Commond;
+﻿namespace BlazingPizza.BussinesObjects.Interfaces.Common;
 public interface IOrderStateService
 {
     Order Order { get; }

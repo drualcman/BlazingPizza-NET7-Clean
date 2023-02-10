@@ -1,11 +1,11 @@
-﻿namespace BlazingPissza.EFCore.Repositories;
+﻿namespace BlazingPizza.EFCore.Repositories;
 
 public static class DependencyContainer
 {
     public static IServiceCollection AddRepositoryServices(this IServiceCollection services, string connectionString)
     {
         services.AddDbContext<BlazingPizzaContext>(options => options.UseSqlServer(connectionString));
-        services.AddScoped<IBlazingPizzaRepository, BlazingPizzaRepository>();
+        services.AddScoped<IBlazingPizzaQueriesRepository, BlazingPizzaQueriesRepository>();
         return services;
     }
 }

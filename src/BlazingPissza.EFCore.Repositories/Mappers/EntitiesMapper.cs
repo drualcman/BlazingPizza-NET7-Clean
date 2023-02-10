@@ -1,4 +1,4 @@
-﻿namespace BlazingPissza.EFCore.Repositories.Mappers;
+﻿namespace BlazingPizza.EFCore.Repositories.Mappers;
 internal static class EntitiesMapper
 {
     public static BlazingPizza.BussinesObjects.Entities.PizzaSpecial ToPizzaSpecial(this PizzaSpecial pizzaSpecial) =>

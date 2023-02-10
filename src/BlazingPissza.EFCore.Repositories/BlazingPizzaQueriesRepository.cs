@@ -1,9 +1,9 @@
-﻿namespace BlazingPissza.EFCore.Repositories;
-public class BlazingPizzaRepository : IBlazingPizzaRepository
+﻿namespace BlazingPizza.EFCore.Repositories;
+public class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
 {
     readonly BlazingPizzaContext Context;
 
-    public BlazingPizzaRepository(BlazingPizzaContext context)
+    public BlazingPizzaQueriesRepository(BlazingPizzaContext context)
     {
         Context = context;
         Context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;

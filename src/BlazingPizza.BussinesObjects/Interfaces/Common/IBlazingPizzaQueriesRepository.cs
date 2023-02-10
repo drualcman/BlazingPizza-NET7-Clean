@@ -1,6 +1,6 @@
-﻿namespace BlazingPizza.BussinesObjects.Interfaces.Commond;
+﻿namespace BlazingPizza.BussinesObjects.Interfaces.Common;
 
-public interface IBlazingPizzaRepository
+public interface IBlazingPizzaQueriesRepository
 {       
     Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync();
     Task<IReadOnlyCollection<Topping>> GetToppingsAsync();

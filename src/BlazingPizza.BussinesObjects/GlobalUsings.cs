@@ -2,4 +2,5 @@
 global using BlazingPizza.BussinesObjects.Enums;
 global using BlazingPizza.BussinesObjects.Agregates;
 global using BlazingPizza.BussinesObjects.ValueObjects;
+global using BlazingPizza.BussinesObjects.Dtos;
 
