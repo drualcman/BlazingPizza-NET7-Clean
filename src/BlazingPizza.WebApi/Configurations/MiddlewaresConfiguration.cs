@@ -13,6 +13,7 @@ public static class MiddlewaresConfiguration
         app.UseHttpsRedirection();
         app.UseSpecialsEndpoints();
         app.UseToppingsEndpoints();
+        app.UseOrdersEndpoints();
         app.UseCors();
         return app;
     }

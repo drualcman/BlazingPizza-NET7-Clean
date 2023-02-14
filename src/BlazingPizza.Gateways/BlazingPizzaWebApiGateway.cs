@@ -1,7 +1,4 @@
-﻿
-using BlazingPizza.BussinesObjects.Agregates;
-
-namespace BlazingPizza.Gateways;
+﻿namespace BlazingPizza.Gateways;
 public class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
 {
     readonly HttpClient Client;
@@ -24,8 +21,13 @@ public class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
     }
 
     public async Task<int> PlaceOrderAsync(Order order) 
-    {                               
-        HttpResponseMessage response = await Client.PostAsJsonAsync(EndpointsOptions.Order, order);
-        return await response.Content.ReadFromJsonAsync<int>();
+    {
+        int orderId = 0;
+        HttpResponseMessage response = await Client.PostAsJsonAsync(EndpointsOptions.PlaceOrder, (PlaceOrderOrderDto)order);
+        if(response.IsSuccessStatusCode)
+        {
+            orderId = await response.Content.ReadFromJsonAsync<int>();
+        }
+        return orderId;
     }
 }

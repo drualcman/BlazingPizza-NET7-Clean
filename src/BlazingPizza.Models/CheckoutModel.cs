@@ -1,8 +1,12 @@
 ﻿namespace BlazingPizza.Models;
 public class CheckoutModel : ICheckoutModel
 {
-    public Task<int> PlaceOrderAsync(Order order)
+    readonly IBlazingPizzaWebApiGateway Gateway;
+
+    public CheckoutModel(IBlazingPizzaWebApiGateway gateway) => Gateway = gateway;
+
+    public async Task<int> PlaceOrderAsync(Order order)
     {
-        return Task.FromResult(0);
+        return await Gateway.PlaceOrderAsync(order);
     }
 }

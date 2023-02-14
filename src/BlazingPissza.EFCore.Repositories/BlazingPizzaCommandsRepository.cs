@@ -6,7 +6,6 @@ public class BlazingPizzaCommandsRepository : IBlazingPizzaCommandsRepository
     public BlazingPizzaCommandsRepository(BlazingPizzaContext context)
     {
         Context = context;
-        Context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
     }
 
     public async Task<int> PlaceOrderAsync(PlaceOrderOrderDto order)
