@@ -1,6 +1,4 @@
-﻿using BlazingPizza.BussinesObjects.Dtos;
-
-namespace BlazingPizza.BussinesObjects.Agregates;
+﻿namespace BlazingPizza.BussinesObjects.Agregates;
 public class Order : BaseOrder
 {
     readonly List<Pizza> PizzasField;
@@ -11,8 +9,8 @@ public class Order : BaseOrder
 
     public bool HasPizzas => PizzasField.Any();
 
-    public Address DeliveryAddress { get; private set; }
-    public LatLong DeliveryLocation { get; private set; }
+    public Address DeliveryAddress { get; private set; } = new Address("", "", "", "", "", "", "");
+    public LatLong DeliveryLocation { get; private set; } = new LatLong();
     public IReadOnlyCollection<Pizza> Pizzas => PizzasField;
 
     public Order AddPizza(Pizza pizza)
@@ -30,7 +28,7 @@ public class Order : BaseOrder
         return this;
     }
 
-    public void SetDeliveryLocation(LatLong deliveryLocation) => 
+    public void SetDeliveryLocation(LatLong deliveryLocation) =>
         DeliveryLocation = deliveryLocation;
 
     public decimal GetTotalPrice() =>
@@ -38,12 +36,12 @@ public class Order : BaseOrder
 
     public string GetFormatedTotalPrice() =>
         GetTotalPrice().ToString("$ #.##");
-    
+
     public static explicit operator PlaceOrderOrderDto(Order order) => new PlaceOrderOrderDto
     {
-        UserId= order.UserId,
-        DeliveryAddress= order.DeliveryAddress,
-        DeliveryLocation= order.DeliveryLocation,
+        UserId = order.UserId,
+        DeliveryAddress = order.DeliveryAddress,
+        DeliveryLocation = order.DeliveryLocation,
         Pizzas = order.Pizzas.Select(p => (PlaceOrderPizzaDto)p).ToList()
     };
 
