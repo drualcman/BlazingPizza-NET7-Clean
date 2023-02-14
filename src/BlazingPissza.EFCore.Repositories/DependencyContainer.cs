@@ -6,6 +6,7 @@ public static class DependencyContainer
     {
         services.AddDbContext<BlazingPizzaContext>(options => options.UseSqlServer(connectionString));
         services.AddScoped<IBlazingPizzaQueriesRepository, BlazingPizzaQueriesRepository>();
+        services.AddScoped<IBlazingPizzaCommandsRepository, BlazingPizzaCommandsRepository>();
         return services;
     }
 }

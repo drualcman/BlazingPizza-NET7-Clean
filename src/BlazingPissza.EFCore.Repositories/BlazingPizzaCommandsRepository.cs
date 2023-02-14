@@ -9,9 +9,12 @@ public class BlazingPizzaCommandsRepository : IBlazingPizzaCommandsRepository
         Context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
     }
 
-    public Task<int> PlaceOrderAsync(PlaceOrderOrderDto order)
+    public async Task<int> PlaceOrderAsync(PlaceOrderOrderDto order)
     {
-        throw new NotImplementedException();
+        Order Order = order.ToEFPizza();
+        Context.Orders.Add(Order);
+        await Context.SaveChangesAsync();
+        return Order.Id;
     }
 }
 
