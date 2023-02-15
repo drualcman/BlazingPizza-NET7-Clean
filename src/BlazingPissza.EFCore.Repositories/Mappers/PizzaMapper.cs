@@ -12,4 +12,19 @@ internal static class PizzaMapper
                             ToppingId = id 
                         }).ToList()
         };
+
+    internal static BussinesObjects.Agregates.Pizza ToPizza(this Pizza pizza)
+    {
+        BussinesObjects.Agregates.Pizza pizzaAgregate = new BussinesObjects.Agregates.Pizza(pizza.PizzaSpecial.ToPizzaSpecial());
+        pizzaAgregate.SetSize(pizza.Size);
+        pizza.Toppings?.ForEach(t => pizzaAgregate.AddTopping(t.Topping.ToTopping()));
+        //if(pizza.Toppings != null)
+        //{
+        //    foreach(PizzaTopping toppings in pizza.Toppings)
+        //    {
+        //        pizzaAgregate.AddTopping(toppings.Topping.ToTopping());
+        //    }
+        //}
+        return pizzaAgregate;
+    }
 }

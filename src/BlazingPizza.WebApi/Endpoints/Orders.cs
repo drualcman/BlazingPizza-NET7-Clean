@@ -9,6 +9,7 @@ public static class Orders
             int orderId = await controller.PlaceOrderAsync(order);
             return Results.Ok(orderId);
         });
+         app.MapGet("/getorders", async (IGetOrdersController controller) => await controller.GetOrdersAsync());
         return app;
     }
 }

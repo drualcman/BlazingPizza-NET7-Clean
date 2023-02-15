@@ -7,15 +7,28 @@ public class Order : BaseOrder
         PizzasField = new();
     }
 
+    public Order(int orderId, DateTime createDate, string userId) : this()
+    {
+        Id = orderId;
+        CreatedTime = createDate;
+        UserId = userId;
+    }
+
     public bool HasPizzas => PizzasField.Any();
 
-    public Address DeliveryAddress { get; private set; } = new Address("", "", "", "", "", "", "");
+    public Address DeliveryAddress { get; private set; } = new Address("", "", "", "", "", "");
     public LatLong DeliveryLocation { get; private set; } = new LatLong();
     public IReadOnlyCollection<Pizza> Pizzas => PizzasField;
 
     public Order AddPizza(Pizza pizza)
     {
         PizzasField.Add(pizza);
+        return this;
+    }
+
+    public Order AddPizzas(IEnumerable<Pizza> pizzas)
+    {
+        if (pizzas == null) PizzasField.AddRange(pizzas);
         return this;
     }
 
@@ -28,8 +41,11 @@ public class Order : BaseOrder
         return this;
     }
 
-    public void SetDeliveryLocation(LatLong deliveryLocation) =>
+    public Order SetDeliveryLocation(LatLong deliveryLocation)
+    {
         DeliveryLocation = deliveryLocation;
+        return this;
+    }
 
     public decimal GetTotalPrice() =>
         PizzasField.Sum(p => p.GetTotalPrice());

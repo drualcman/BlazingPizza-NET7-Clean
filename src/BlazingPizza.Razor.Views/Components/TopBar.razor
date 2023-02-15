@@ -3,15 +3,12 @@
     <a class="logo" href="">
         <img src="@ImagePath/logo.svg" />
     </a>
-    <NavLink href="" class="nav-tab" Match="NavLinkMatch.All" >
+    <NavLink href="" class="nav-tab" Match="NavLinkMatch.All">
         <img src="@ImagePath/pizza-slice.svg" />
         <div>Elegir Pizza</div>
     </NavLink>
-    @if (OrderState.Order.HasPizzas)
-    {
-        <NavLink href="checkout" class="nav-tab" Match="NavLinkMatch.All">
-            <img src="@ImagePath/pizza-slice.svg" />
-            <div>Check Order</div>
-        </NavLink>
-    }
+    <NavLink href="myorders" class="nav-tab" Match="NavLinkMatch.All">
+        <img src="@ImagePath/bike.svg" />
+        <div>My Orders</div>
+    </NavLink>
 </nav>

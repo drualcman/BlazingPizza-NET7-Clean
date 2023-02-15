@@ -10,15 +10,11 @@ public class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
         EndpointsOptions = endpointsOptions;
     }
 
-    public async Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync()
-    {
-        return await Client.GetFromJsonAsync<IReadOnlyCollection<PizzaSpecial>>(EndpointsOptions.Specials);
-    }
-    
-    public async Task<IReadOnlyCollection<Topping>> GetToppingsAsync()
-    {
-        return await Client.GetFromJsonAsync<IReadOnlyCollection<Topping>>(EndpointsOptions.Toppings);
-    }
+    public async Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync() => 
+        await Client.GetFromJsonAsync<IReadOnlyCollection<PizzaSpecial>>(EndpointsOptions.Specials);
+
+    public async Task<IReadOnlyCollection<Topping>> GetToppingsAsync() => 
+        await Client.GetFromJsonAsync<IReadOnlyCollection<Topping>>(EndpointsOptions.Toppings);
 
     public async Task<int> PlaceOrderAsync(Order order) 
     {
@@ -30,4 +26,7 @@ public class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
         }
         return orderId;
     }
+
+    public async Task<IReadOnlyCollection<OrderWithStatusDto>> GetOrdersAsync() =>
+        await Client.GetFromJsonAsync<IReadOnlyCollection<OrderWithStatusDto>>(EndpointsOptions.GetOrders);
 }

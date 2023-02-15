@@ -4,4 +4,5 @@ global using Microsoft.Extensions.DependencyInjection;
 global using BlazingPizza.BussinesObjects.Interfaces.GetToppings;
 global using BlazingPizza.BussinesObjects.Dtos;
 global using BlazingPizza.BussinesObjects.Interfaces.PlaceOrder;
+global using BlazingPizza.BussinesObjects.Interfaces.GetOrders;
 

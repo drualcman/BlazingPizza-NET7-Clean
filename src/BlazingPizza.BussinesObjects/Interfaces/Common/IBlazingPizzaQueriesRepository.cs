@@ -4,4 +4,5 @@ public interface IBlazingPizzaQueriesRepository
 {       
     Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync();
     Task<IReadOnlyCollection<Topping>> GetToppingsAsync();
+    Task<IReadOnlyCollection<OrderWithStatusDto>> GetOrdersAsync();
 }

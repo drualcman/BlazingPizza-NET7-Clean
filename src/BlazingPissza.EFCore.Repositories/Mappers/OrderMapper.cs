@@ -1,7 +1,7 @@
 ﻿namespace BlazingPizza.EFCore.Repositories.Mappers;
 internal static class OrderMapper
 {
-    internal static Order ToEFPizza(this PlaceOrderOrderDto order) =>
+    internal static Order ToEFOrder(this PlaceOrderOrderDto order) =>
         new Order
         {
             CreatedTime = DateTime.Now,
@@ -10,4 +10,9 @@ internal static class OrderMapper
             DeliveryLocation = order.DeliveryLocation.ToEFLatLong(),
             Pizzas = order.Pizzas.Select(p=> p.ToEFPizza()).ToList()
         };
+    internal static BussinesObjects.Agregates.Order ToOrder(this Order order) => 
+        new BussinesObjects.Agregates.Order(order.Id, order.CreatedTime, order.UserId)
+            .SetDeliveryAddress(order.DeliveryAddress.ToAddress())
+            .SetDeliveryLocation(order.DeliveryLocation.ToLatLong())
+            .AddPizzas(order.Pizzas?.Select(p => p.ToPizza()));
 }

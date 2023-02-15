@@ -3,10 +3,10 @@ public class BlazingPizzaContext : DbContext
 {
 	public BlazingPizzaContext(DbContextOptions options) : base(options) { }
 
-	public DbSet<EFEntities.PizzaSpecial> Specials { get; set; }
-	public DbSet<EFEntities.Topping> Toppings { get; set; }
-	public DbSet<EFEntities.Pizza> Pizzas { get; set; }
-	public DbSet<EFEntities.Order> Orders { get; set; }
+	public DbSet<PizzaSpecial> Specials { get; set; }
+	public DbSet<Topping> Toppings { get; set; }
+	public DbSet<Pizza> Pizzas { get; set; }
+	public DbSet<Order> Orders { get; set; }
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder) 
 	{

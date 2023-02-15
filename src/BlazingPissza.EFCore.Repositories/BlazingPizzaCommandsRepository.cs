@@ -10,7 +10,7 @@ public class BlazingPizzaCommandsRepository : IBlazingPizzaCommandsRepository
 
     public async Task<int> PlaceOrderAsync(PlaceOrderOrderDto order)
     {
-        Order Order = order.ToEFPizza();
+        Order Order = order.ToEFOrder();
         Context.Orders.Add(Order);
         await Context.SaveChangesAsync();
         return Order.Id;
