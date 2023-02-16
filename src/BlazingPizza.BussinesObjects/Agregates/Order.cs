@@ -14,6 +14,15 @@ public class Order : BaseOrder
         UserId = userId;
     }
 
+    public static Order Create(int orderId, DateTime createdTime, string userId) 
+    {
+        Order result = new Order();
+        result.Id = orderId;
+        result.CreatedTime = createdTime;
+        result.UserId = userId;
+        return result;
+    }
+
     public bool HasPizzas => PizzasField.Any();
 
     public Address DeliveryAddress { get; private set; } = new Address("", "", "", "", "", "");
