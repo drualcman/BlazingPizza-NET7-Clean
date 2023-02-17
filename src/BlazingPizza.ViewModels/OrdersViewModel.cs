@@ -5,7 +5,7 @@ public class OrdersViewModel : IOrdersViewModel
 
     public OrdersViewModel(IOrdersModel model) => Model = model;
 
-    public IReadOnlyCollection<GetOrdersDto> OrdersWithStatus { get; private set; }
+    public IReadOnlyCollection<GetOrdersDto> Orders { get; private set; }
 
-    public async Task GetOrderAsync()  => OrdersWithStatus = await Model.GetOrdersAsync();
+    public async Task GetOrderAsync()  => Orders = await Model.GetOrdersAsync();
 }
