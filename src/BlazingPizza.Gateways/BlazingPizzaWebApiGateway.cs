@@ -27,6 +27,6 @@ public class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
         return orderId;
     }
 
-    public async Task<IReadOnlyCollection<OrderWithStatusDto>> GetOrdersAsync() =>
-        await Client.GetFromJsonAsync<IReadOnlyCollection<OrderWithStatusDto>>(EndpointsOptions.GetOrders);
+    public async Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync() =>
+        await Client.GetFromJsonAsync<IReadOnlyCollection<GetOrdersDto>>(EndpointsOptions.GetOrders);
 }

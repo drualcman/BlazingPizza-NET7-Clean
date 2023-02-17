@@ -1,10 +1,10 @@
-using BlazingPizza.BussinesObjects.Interfaces.MyOrders;
+using BlazingPizza.BussinesObjects.Interfaces.Orders;
 
 namespace BlazingPizza.Razor.Views.Pages;
 
-public partial class MyOrders
+public partial class Orders
 {
-    [Inject] public IMyOrdersViewModel ViewModel { get; set; }
+    [Inject] public IOrdersViewModel ViewModel { get; set; }
     
     protected override async Task OnInitializedAsync()
     {

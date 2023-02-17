@@ -13,21 +13,21 @@
     else
     {
         <div class="list-group order-list">
-        @foreach(OrderWithStatusDto item in ViewModel.OrdersWithStatus)
+            @foreach(GetOrdersDto item in ViewModel.OrdersWithStatus)
         {
               <div class="list-group-item columns">
-                    <div class="column">
-                        <h5 class="title">@item.CreatedTime.ToLongDateString()</h5>
+                    <div class="orders-list column">
+                        <h5>@item.CreatedTime.ToLongDateString()</h5>
                         Pizzas: <strong>@item.PizzasCount</strong>&nbsp;
                         Precio total: <strong>@item.GetFormatedTotalPrice()</strong>
                     </div>
-                    <div class="column">
+                    <div class="orders-list column">
                         Estado:
                         <strong>@item.StatusText</strong>
                     </div>
                     @if (item.IsDelivered == false)
                     {
-                        <div class="column has-text-right">
+                        <div class="orders-list column has-text-right">
                             <a href="myorders/@item.Id" class="button is-success">Rastrear &gt;</a>
                         </div>
                     }

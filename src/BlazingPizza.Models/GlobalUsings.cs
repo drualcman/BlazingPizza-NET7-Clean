@@ -8,6 +8,6 @@ global using BlazingPizza.BussinesObjects.Agregates;
 global using BlazingPizza.Models.Services;
 global using BlazingPizza.BussinesObjects.Interfaces.Checkout;
 global using BlazingPizza.BussinesObjects.Dtos;
-global using BlazingPizza.BussinesObjects.Interfaces.MyOrders;
+global using BlazingPizza.BussinesObjects.Interfaces.Orders;
 
 

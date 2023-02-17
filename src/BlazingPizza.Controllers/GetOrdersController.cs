@@ -5,5 +5,5 @@ public class GetOrdersController : IGetOrdersController
 
     public GetOrdersController(IGetOrdersInputPort inputPort) => InputPort = inputPort;
 
-    public Task<IReadOnlyCollection<OrderWithStatusDto>> GetOrdersAsync() => InputPort.GetOrdersAsync();
+    public Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync() => InputPort.GetOrdersAsync();
 }

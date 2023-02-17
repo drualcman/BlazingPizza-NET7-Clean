@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.BussinesObjects.Interfaces.GetOrders;
 public interface IGetOrdersInputPort
 {
-    Task<IReadOnlyCollection<OrderWithStatusDto>> GetOrdersAsync();
+    Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync();
 }

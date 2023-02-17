@@ -1,7 +1,7 @@
 ﻿namespace BlazingPizza.BussinesObjects.Dtos;
-public class OrderDetailsWithStatusDto : OrderWithStatusDto
+public class OrderDetailsWithStatusDto : BaseOrder
 {
-    public OrderDetailsWithStatusDto(Order order) : base(order)
+    public OrderDetailsWithStatusDto() : base()
     {
     }
 }
