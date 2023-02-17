@@ -15,7 +15,6 @@ public class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
             .Include(o => o.DeliveryAddress)
             .Include(o => o.DeliveryLocation)
             .Include(o => o.Pizzas).ThenInclude(p => p.PizzaSpecial)
-            //.Include(o => o.Pizzas).ThenInclude(p => p.Toppings).ThenInclude(t => t.Topping)
             .OrderByDescending(o => o.CreatedTime)
             .Select(o => new OrderWithStatusDto(o.ToOrder()))
             .ToListAsync();

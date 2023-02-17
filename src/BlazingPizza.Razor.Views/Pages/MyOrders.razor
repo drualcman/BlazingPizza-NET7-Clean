@@ -1,7 +1,40 @@
 ﻿@page "/myorders"
 
-<h3>MyOrders</h3>
+<div class="main">
+    @if(ViewModel.OrdersWithStatus is null)
+    {
+        <p>Cargando...</p>
+    }
+    else if(!ViewModel.OrdersWithStatus.Any())
+    {
+        <h2>No se ha realizado alguna orden.</h2>
+        <a class="button is-success" href="">Ordena alguna pizza</a>
+    }
+    else
+    {
+        <div class="list-group order-list">
+        @foreach(OrderWithStatusDto item in ViewModel.OrdersWithStatus)
+        {
+              <div class="list-group-item columns">
+                    <div class="column">
+                        <h5 class="title">@item.CreatedTime.ToLongDateString()</h5>
+                        Pizzas: <strong>@item.PizzasCount</strong>&nbsp;
+                        Precio total: <strong>@item.GetFormatedTotalPrice()</strong>
+                    </div>
+                    <div class="column">
+                        Estado:
+                        <strong>@item.StatusText</strong>
+                    </div>
+                    @if (item.IsDelivered == false)
+                    {
+                        <div class="column has-text-right">
+                            <a href="myorders/@item.Id" class="button is-success">Rastrear &gt;</a>
+                        </div>
+                    }
+              </div>
+        }
+        </div>
+    }
+</div>
 
-@code {
 
-}

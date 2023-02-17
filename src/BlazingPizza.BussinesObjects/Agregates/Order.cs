@@ -37,7 +37,7 @@ public class Order : BaseOrder
 
     public Order AddPizzas(IEnumerable<Pizza> pizzas)
     {
-        if (pizzas == null) PizzasField.AddRange(pizzas);
+        if (pizzas is not null) PizzasField.AddRange(pizzas);
         return this;
     }
 
