@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.UseCases;
-public class GetToppingsInteractor : IGetToppingsInputPort
+internal class GetToppingsInteractor : IGetToppingsInputPort
 {
     readonly IBlazingPizzaQueriesRepository Repository;
 

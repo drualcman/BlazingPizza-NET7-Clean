@@ -18,13 +18,14 @@ internal static class PizzaMapper
         BussinesObjects.Agregates.Pizza pizzaAgregate = new BussinesObjects.Agregates.Pizza(pizza.PizzaSpecial.ToPizzaSpecial());
         pizzaAgregate.SetSize(pizza.Size);
         pizza.Toppings?.ForEach(t => pizzaAgregate.AddTopping(t.Topping.ToTopping()));
-        //if(pizza.Toppings != null)
-        //{
-        //    foreach(PizzaTopping toppings in pizza.Toppings)
-        //    {
-        //        pizzaAgregate.AddTopping(toppings.Topping.ToTopping());
-        //    }
-        //}
+        return pizzaAgregate;
+    } 
+    
+    internal static BussinesObjects.Agregates.Pizza ToPizza(this BussinesObjects.Agregates.Pizza pizza)
+    {
+        BussinesObjects.Agregates.Pizza pizzaAgregate = new BussinesObjects.Agregates.Pizza(pizza.PizzaSpecial.ToPizzaSpecial());
+        pizzaAgregate.SetSize(pizza.Size);
+        pizza.Toppings?.ForEach(t => pizzaAgregate.AddTopping(t.Topping.ToTopping()));
         return pizzaAgregate;
     }
 }

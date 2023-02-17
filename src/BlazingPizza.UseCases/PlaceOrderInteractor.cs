@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.UseCases;
-public class PlaceOrderInteractor : IPlaceOrderInputPort
+internal class PlaceOrderInteractor : IPlaceOrderInputPort
 {
     readonly IBlazingPizzaCommandsRepository Repository;
 

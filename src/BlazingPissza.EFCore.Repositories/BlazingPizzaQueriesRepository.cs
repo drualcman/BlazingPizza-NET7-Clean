@@ -57,5 +57,38 @@ public class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
         return await Context.Toppings.Select(t => t.ToTopping())
                                      .ToListAsync();
     }
+
+    public async Task<GetOrderDto> GetOrderAsync(int id) 
+    {
+        Order order = await Context.Orders
+            .Where(o => o.Id == id)
+            .Include(o => o.Pizzas).ThenInclude(p => p.PizzaSpecial)
+            .Include(o => o.Pizzas).ThenInclude(p=> p.Toppings).ThenInclude(t=> t.Topping)
+            .FirstOrDefaultAsync();
+        return new GetOrderDto
+        {
+            Id = id,
+            CreatedTime = order.CreatedTime,
+            UserId = order.UserId,
+            Pizzas = order.Pizzas.Select(p => p.ToPizza()).ToList(),
+            StatusText = ""
+        };
+    }
+
+    
+    private GetOrderDto GetOrderDtoFake(BussinesObjects.Agregates.Order order)
+    {
+        string statusText;
+        bool isDelivered;
+        GetStatus(order, out statusText, out isDelivered);
+        return new GetOrderDto
+        {
+            Id = order.Id,
+            CreatedTime = order.CreatedTime,
+            UserId = order.UserId,
+            StatusText = statusText,
+            Pizzas = new()
+        };
+    }
 }
 
