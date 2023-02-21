@@ -9,7 +9,8 @@ public static class Orders
             int orderId = await controller.PlaceOrderAsync(order);
             return Results.Ok(orderId);
         });
-         app.MapGet("/getorders", async (IGetOrdersController controller) => await controller.GetOrdersAsync());
+        app.MapGet("/getorders", async (IGetOrdersController controller) => Results.Ok(await controller.GetOrdersAsync()));
+        app.MapGet("/getorder/{id}", async (int id, IGetOrderController controller) => Results.Ok(await controller.GetOrderAsync(id)));
         return app;
     }
 }

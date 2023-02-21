@@ -13,7 +13,5 @@ internal static class OrderMapper
 
     internal static BussinesObjects.Agregates.Order ToOrder(this Order order) => 
         BussinesObjects.Agregates.Order.Create(order.Id, order.CreatedTime, order.UserId)
-            .SetDeliveryAddress(order.DeliveryAddress.ToAddress())
-            .SetDeliveryLocation(order.DeliveryLocation.ToLatLong())
             .AddPizzas(order.Pizzas?.Select(p => p.ToPizza()));
 }

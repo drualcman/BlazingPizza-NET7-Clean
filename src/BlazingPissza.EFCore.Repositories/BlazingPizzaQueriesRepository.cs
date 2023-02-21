@@ -12,8 +12,6 @@ public class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
     public async Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync()
     {
         return (await Context.Orders
-            .Include(o => o.DeliveryAddress)
-            .Include(o => o.DeliveryLocation)
             .Include(o => o.Pizzas).ThenInclude(p => p.PizzaSpecial)
             .OrderByDescending(o => o.CreatedTime)
             .ToListAsync())
@@ -65,16 +63,8 @@ public class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
             .Include(o => o.Pizzas).ThenInclude(p => p.PizzaSpecial)
             .Include(o => o.Pizzas).ThenInclude(p=> p.Toppings).ThenInclude(t=> t.Topping)
             .FirstOrDefaultAsync();
-        return new GetOrderDto
-        {
-            Id = id,
-            CreatedTime = order.CreatedTime,
-            UserId = order.UserId,
-            Pizzas = order.Pizzas.Select(p => p.ToPizza()).ToList(),
-            StatusText = ""
-        };
+        return order == null ? new GetOrderDto() : GetOrderDtoFake(order.ToOrder());
     }
-
     
     private GetOrderDto GetOrderDtoFake(BussinesObjects.Agregates.Order order)
     {
@@ -86,8 +76,9 @@ public class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
             Id = order.Id,
             CreatedTime = order.CreatedTime,
             UserId = order.UserId,
+            Pizzas = order.Pizzas.Select(p=> (PizzaDto)p).ToList(),
             StatusText = statusText,
-            Pizzas = new()
+            IdDelivered= isDelivered
         };
     }
 }

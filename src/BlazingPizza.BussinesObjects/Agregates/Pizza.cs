@@ -1,7 +1,4 @@
-﻿using BlazingPizza.BussinesObjects.Dtos;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace BlazingPizza.BussinesObjects.Agregates;
+﻿namespace BlazingPizza.BussinesObjects.Agregates;
 public class Pizza
 {
     readonly List<Topping> ToppingsField;
@@ -67,5 +64,8 @@ public class Pizza
         Size = pizza.Size,
         ToppingsIds = pizza.Toppings.Select(t => t.Id).ToList()
     };
+
+    public static explicit operator PizzaDto(Pizza pizza) => new PizzaDto(pizza.Special, pizza.Size, pizza.Toppings);
+
 
 }

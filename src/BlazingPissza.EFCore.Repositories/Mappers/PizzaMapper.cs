@@ -19,13 +19,5 @@ internal static class PizzaMapper
         pizzaAgregate.SetSize(pizza.Size);
         pizza.Toppings?.ForEach(t => pizzaAgregate.AddTopping(t.Topping.ToTopping()));
         return pizzaAgregate;
-    } 
-    
-    internal static BussinesObjects.Agregates.Pizza ToPizza(this BussinesObjects.Agregates.Pizza pizza)
-    {
-        BussinesObjects.Agregates.Pizza pizzaAgregate = new BussinesObjects.Agregates.Pizza(pizza.PizzaSpecial.ToPizzaSpecial());
-        pizzaAgregate.SetSize(pizza.Size);
-        pizza.Toppings?.ForEach(t => pizzaAgregate.AddTopping(t.Topping.ToTopping()));
-        return pizzaAgregate;
-    }
+    }     
 }
