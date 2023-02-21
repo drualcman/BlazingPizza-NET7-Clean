@@ -16,17 +16,24 @@ public class Pizza
         ToppingsField = new List<Topping>();
     }
 
-    public void SetSize(int size)
+    public Pizza SetSize(int size)
     {
         if(Size <= (int)PizzaSize.Maximum) Size = size;
         else if(Size >= (int)PizzaSize.Minimum) Size = size;
         else throw new ArgumentException($"Tamaño de la pizza no valido");
+        return this;
     }
 
     public void AddTopping(Topping topping)
     {
         if(ToppingsField.Find(t=> t.Id == topping.Id) == null) 
             ToppingsField.Add(topping);        
+    }   
+    public Pizza AddToppings(IEnumerable<Topping> toppings)
+    {   
+        if(toppings is not null)
+            ToppingsField.AddRange(toppings);        
+        return this;
     }
 
     public void RemoveToping(Topping topping) => 
@@ -66,6 +73,14 @@ public class Pizza
     };
 
     public static explicit operator PizzaDto(Pizza pizza) => new PizzaDto(pizza.Special, pizza.Size, pizza.Toppings);
+
+    public static implicit operator Pizza(PizzaDto pizza)
+    {
+        Pizza newPizza = new Pizza(pizza.Special);
+        newPizza.SetSize(pizza.Size);
+        newPizza.AddToppings(pizza.Toppings);
+        return newPizza;
+    }
 
 
 }

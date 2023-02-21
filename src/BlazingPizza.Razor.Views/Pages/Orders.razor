@@ -23,7 +23,7 @@
                     </div>
                     <div class="column">
                         Estado:
-                        <strong>@item.StatusText</strong>
+                        <strong>@item.Status.GetText()</strong>
                     </div>
                     @if (item.IsDelivered == false)
                     {

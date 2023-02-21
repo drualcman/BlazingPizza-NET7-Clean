@@ -29,4 +29,6 @@ public class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
 
     public async Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync() =>
         await Client.GetFromJsonAsync<IReadOnlyCollection<GetOrdersDto>>(EndpointsOptions.GetOrders);
+    public async Task<GetOrderDto> GetOrderAsync(int id) =>
+        await Client.GetFromJsonAsync<GetOrderDto>($"{EndpointsOptions.GetOrder}/{id}");
 }

@@ -14,7 +14,7 @@ public class Order : BaseOrder
         UserId = userId;
     }
 
-    public static Order Create(int orderId, DateTime createdTime, string userId) 
+    public static Order Create(int orderId, DateTime createdTime, string userId)
     {
         Order result = new Order();
         result.Id = orderId;
@@ -37,7 +37,7 @@ public class Order : BaseOrder
 
     public Order AddPizzas(IEnumerable<Pizza> pizzas)
     {
-        if (pizzas is not null) PizzasField.AddRange(pizzas);
+        if(pizzas is not null) PizzasField.AddRange(pizzas);
         return this;
     }
 
@@ -70,5 +70,29 @@ public class Order : BaseOrder
         Pizzas = order.Pizzas.Select(p => (PlaceOrderPizzaDto)p).ToList()
     };
 
+    //public static implicit operator Order(GetOrderDto order) =>
+    //    Create(order.Id, order.CreatedTime, order.UserId)            
+    //        .AddPizzas(order.Pizzas
+    //            .Select(p => new Pizza(p.Special)
+    //                .SetSize(p.Size)
+    //                .AddToppings(p.Toppings)));
+
+    
+    //public static implicit operator Order(GetOrderDto order)
+    //{
+    //    Order newOrder = Create(order.Id, order.CreatedTime, order.UserId);
+    //    foreach(PizzaDto item in order.Pizzas)
+    //    {
+    //        newOrder.AddPizza(item);
+    //    };
+    //    return newOrder;
+    //}
+
+    public static implicit operator Order(GetOrderDto order)
+    {
+        Order newOrder = Create(order.Id, order.CreatedTime, order.UserId);
+        newOrder.AddPizzas(order.Pizzas.Select(p => (Pizza)p));
+        return newOrder;
+    }
 
 }

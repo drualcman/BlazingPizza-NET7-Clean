@@ -5,4 +5,5 @@ public interface IBlazingPizzaWebApiGateway
     Task<IReadOnlyCollection<Topping>> GetToppingsAsync();   
     Task<int> PlaceOrderAsync(Order order);
     Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync();
+    Task<GetOrderDto> GetOrderAsync(int id);
 }

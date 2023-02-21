@@ -9,6 +9,7 @@ public static class DependencyContainer
         services.AddScoped<IConfigurePizzaDialogModel, ConfigurePizzaDialogModel>();
         services.AddScoped<ICheckoutModel, CheckoutModel>();
         services.AddScoped<IOrdersModel, OrdersModel>();
+        services.AddScoped<IOrderDetailsModel, OrderDetailsModel>();
         return services;
     } 
 
