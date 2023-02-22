@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.IoC.Frontend;
+﻿using BlazingPizza.BussinesObjects.ValueObjects.Options;
+
+namespace BlazingPizza.IoC.Frontend;
 
 public static class DependencyContainer
 {

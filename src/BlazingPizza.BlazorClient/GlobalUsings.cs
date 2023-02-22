@@ -4,3 +4,4 @@ global using Microsoft.AspNetCore.Components.Web;
 global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 global using Microsoft.Extensions.DependencyInjection;
 global using BlazingPizza.BussinesObjects.ValueObjects;
+global using BlazingPizza.Razor.Views.Shared;

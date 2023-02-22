@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.Gateways;
+﻿using BlazingPizza.BussinesObjects.ValueObjects.Options;
+
+namespace BlazingPizza.Gateways;
 public class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
 {
     readonly HttpClient Client;

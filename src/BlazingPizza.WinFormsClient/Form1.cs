@@ -1,4 +1,4 @@
-using BlazingPizza.BussinesObjects.ValueObjects;
+using BlazingPizza.BussinesObjects.ValueObjects.Options;
 
 namespace BlazingPizza.WinFormsClient;
 

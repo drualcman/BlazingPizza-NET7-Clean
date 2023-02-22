@@ -1,4 +1,4 @@
-﻿using BlazingPizza.BussinesObjects.ValueObjects;
+﻿using BlazingPizza.BussinesObjects.ValueObjects.Options;
 using Microsoft.Extensions.Configuration;
 
 namespace BlazingPizza.MauiClient;
