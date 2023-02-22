@@ -6,12 +6,12 @@ public static class DependencyContainer
 {
     public static IServiceCollection AddBlazingPizzaWebApiGateways
         (this IServiceCollection services, 
-         EndpointsOptions endpointsOptions,
+         IOptions<EndpointsOptions> endpointsOptions,
          Action<IHttpClientBuilder> httpClientConfiguration = null)
     {
         IHttpClientBuilder httpClientBuilder = services.AddHttpClient<IBlazingPizzaWebApiGateway, BlazingPizzaWebApiGateway>(httpClient =>
         {
-            httpClient.BaseAddress = new Uri(endpointsOptions.WebApiBaseAddress);
+            httpClient.BaseAddress = new Uri(endpointsOptions.Value.WebApiBaseAddress);
             return new BlazingPizzaWebApiGateway(httpClient, endpointsOptions);
         });
         httpClientConfiguration?.Invoke(httpClientBuilder);

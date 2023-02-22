@@ -5,3 +5,5 @@ global using Microsoft.Extensions.Configuration;
 global using BlazingPizza.Ioc.Backend;
 global using BlazingPizza.BussinesObjects.ValueObjects;
 global using BlazingPizza.Razor.Views.Shared;
+global using BlazingPizza.BussinesObjects.ValueObjects.Options;
+global using Microsoft.Extensions.Options;

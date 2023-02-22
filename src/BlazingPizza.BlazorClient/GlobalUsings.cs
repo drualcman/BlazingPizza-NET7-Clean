@@ -1,7 +1,7 @@
-﻿global using BlazingPizza.BlazorClient;
+﻿global using BlazingPizza.BussinesObjects.ValueObjects.Options;
 global using BlazingPizza.IoC.Frontend;
+global using BlazingPizza.Razor.Views.Shared;
 global using Microsoft.AspNetCore.Components.Web;
 global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 global using Microsoft.Extensions.DependencyInjection;
-global using BlazingPizza.BussinesObjects.ValueObjects;
-global using BlazingPizza.Razor.Views.Shared;
+global using Microsoft.Extensions.Options;

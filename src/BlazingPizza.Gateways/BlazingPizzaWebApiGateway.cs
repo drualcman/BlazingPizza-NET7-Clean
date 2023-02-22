@@ -1,15 +1,13 @@
-﻿using BlazingPizza.BussinesObjects.ValueObjects.Options;
-
-namespace BlazingPizza.Gateways;
+﻿namespace BlazingPizza.Gateways;
 public class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
 {
     readonly HttpClient Client;
     readonly EndpointsOptions EndpointsOptions;
 
-    public BlazingPizzaWebApiGateway(HttpClient client, EndpointsOptions endpointsOptions)
+    public BlazingPizzaWebApiGateway(HttpClient client, IOptions<EndpointsOptions> endpointsOptions)
     {
         Client = client;
-        EndpointsOptions = endpointsOptions;
+        EndpointsOptions = endpointsOptions.Value;
     }
 
     public async Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync() => 

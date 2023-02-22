@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.WebApi.Configurations;
+﻿using BlazingPizza.BussinesObjects.ValueObjects.Options;
+
+namespace BlazingPizza.WebApi.Configurations;
 
 public static class ServicesConfiguration
 {
@@ -6,8 +8,10 @@ public static class ServicesConfiguration
     {
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddBlazingPizzaBackendServices(builder.Configuration.GetConnectionString("BlazingPizzaDb"), 
-                                                        builder.Configuration["ImageBaseUrl"]);
+
+        builder.Services.Configure<SpecialsOptions>(builder.Configuration.GetSection(SpecialsOptions.SectionKey));
+
+        builder.Services.AddBlazingPizzaBackendServices(builder.Configuration.GetConnectionString("BlazingPizzaDb"));
         builder.Services.AddCors(options => 
         {
             options.AddDefaultPolicy(policy =>
