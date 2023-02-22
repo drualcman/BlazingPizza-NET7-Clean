@@ -1,0 +1,17 @@
+﻿@inherits LayoutComponentBase
+<header>
+    <h1>Blazing Pizza</h1>
+</header>
+<nav>
+    <a href="">Home</a>
+    <a href="FavoritePizza">Tell us your favorite</a>
+</nav>
+@Body 
+<footer>@TrademarkMessage</footer>
+
+
+
+@code {
+    public MarkupString TrademarkMessage { get; set; } = new MarkupString("All content is &copy; Blazing Pizzas 2023");
+} 
+                                                                   
