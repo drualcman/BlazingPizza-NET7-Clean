@@ -1,9 +1,9 @@
 ﻿namespace BlazingPizza.EFCore.Repositories;
-public class BlazingPizzaCommandsRepository : IBlazingPizzaCommandsRepository
+internal class BlazingPizzaCommandsRepository : IBlazingPizzaCommandsRepository
 {
-    readonly BlazingPizzaContext Context;
+    readonly IBlazingPizzaComandsContext Context;
 
-    public BlazingPizzaCommandsRepository(BlazingPizzaContext context)
+    public BlazingPizzaCommandsRepository(IBlazingPizzaComandsContext context)
     {
         Context = context;
     }

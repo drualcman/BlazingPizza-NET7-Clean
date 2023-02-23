@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.EFCore.Repositories.Entities;
-public class Address
+internal class Address
 {
     public int Id { get; set; }
     public string Name { get; set; }

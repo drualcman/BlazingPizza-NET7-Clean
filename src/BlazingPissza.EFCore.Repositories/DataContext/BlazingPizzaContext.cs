@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.EFCore.Repositories.DataContext;
-public class BlazingPizzaContext : DbContext
+internal class BlazingPizzaContext : DbContext
 {
 	readonly ConnectionStringOptions ConnectionStringOptions;
 	public BlazingPizzaContext(IOptions<ConnectionStringOptions> options)
@@ -17,8 +17,9 @@ public class BlazingPizzaContext : DbContext
 	public DbSet<Pizza> Pizzas { get; set; }
 	public DbSet<Order> Orders { get; set; }
 
-	protected override void OnModelCreating(ModelBuilder modelBuilder) 
+    protected override void OnModelCreating(ModelBuilder modelBuilder) 
 	{
 		modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 	}
+
 }

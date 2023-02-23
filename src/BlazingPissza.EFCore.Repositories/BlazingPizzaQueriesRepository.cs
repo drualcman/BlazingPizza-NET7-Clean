@@ -1,14 +1,11 @@
-﻿using BlazingPizza.BussinesObjects.Enums;
-
-namespace BlazingPizza.EFCore.Repositories;
-public class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
+﻿namespace BlazingPizza.EFCore.Repositories;
+internal class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
 {
-    readonly BlazingPizzaContext Context;
+    readonly IBlazingPizzaQueriesContext Context;
 
-    public BlazingPizzaQueriesRepository(BlazingPizzaContext context)
+    public BlazingPizzaQueriesRepository(IBlazingPizzaQueriesContext context)
     {
         Context = context;
-        Context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
     }
 
     public async Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync()

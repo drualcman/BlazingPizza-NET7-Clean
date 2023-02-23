@@ -11,3 +11,5 @@ global using BlazingPizza.BussinesObjects.Dtos;
 global using EFEntities = BlazingPizza.EFCore.Repositories.Entities;
 global using BlazingPizza.BussinesObjects.ValueObjects.Options;
 global using Microsoft.Extensions.Options;
+global using BlazingPizza.EFCore.Repositories.Interfaces;
+global using BlazingPizza.BussinesObjects.Enums;
