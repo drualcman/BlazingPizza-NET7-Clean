@@ -1,4 +1,4 @@
-﻿namespace BlazingPizza.BussinesObjects.Interfaces.PlaceOrder;
+﻿namespace BlazingPizza.Backend.BussinesObjects.Interfaces.PlaceOrder;
 public interface IPlaceOrderInputPort
 {
     Task<int> PlaceOrderAsync(PlaceOrderOrderDto order);

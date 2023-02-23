@@ -1,16 +1,13 @@
-﻿using BlazingPizza.BussinesObjects.ValueObjects.Options;
-using Microsoft.Extensions.Options;
-
-namespace BlazingPizza.Presenters.GetSpecials;
+﻿namespace BlazingPizza.Presenters.GetSpecials;
 internal class GetSpecialsPresenter : IGetSpecialsPresenter
 {
     readonly string ImagesBaseUrl;
 
-    public GetSpecialsPresenter(IOptions<SpecialsOptions> options) => ImagesBaseUrl = options.Value.ImagesBaseUrl ;
+    public GetSpecialsPresenter(IOptions<SpecialsOptions> options) => ImagesBaseUrl = options.Value.ImagesBaseUrl;
 
-    public Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync(IReadOnlyCollection<PizzaSpecial> specials) 
+    public Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync(IReadOnlyCollection<PizzaSpecial> specials)
     {
-        foreach (PizzaSpecial special in specials)
+        foreach(PizzaSpecial special in specials)
         {
             special.ImageUrl = $"{ImagesBaseUrl}/{special.ImageUrl}";
         }

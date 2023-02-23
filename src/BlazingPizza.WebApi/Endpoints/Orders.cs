@@ -1,4 +1,8 @@
-﻿namespace BlazingPizza.WebApi.Endpoints;
+﻿using BlazingPizza.Backend.BussinesObjects.Interfaces.GetOrder;
+using BlazingPizza.Backend.BussinesObjects.Interfaces.GetOrders;
+using BlazingPizza.Backend.BussinesObjects.Interfaces.PlaceOrder;
+
+namespace BlazingPizza.WebApi.Endpoints;
 
 public static class Orders
 {

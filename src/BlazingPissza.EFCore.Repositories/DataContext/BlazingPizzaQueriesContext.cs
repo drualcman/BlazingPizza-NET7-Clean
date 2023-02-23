@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.EFCore.Repositories.DataContext;
+﻿using BlazingPizza.Backend.BussinesObjects.ValueObjects.Options;
+
+namespace BlazingPizza.EFCore.Repositories.DataContext;
 internal class BlazingPizzaQueriesContext : BlazingPizzaContext, IBlazingPizzaQueriesContext
 {
     public BlazingPizzaQueriesContext(IOptions<ConnectionStringOptions> options) : base(options)

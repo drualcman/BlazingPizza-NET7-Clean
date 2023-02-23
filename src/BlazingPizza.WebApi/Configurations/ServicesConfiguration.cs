@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.WebApi.Configurations;
+﻿using BlazingPizza.Backend.BussinesObjects.ValueObjects.Options;
+
+namespace BlazingPizza.WebApi.Configurations;
 
 public static class ServicesConfiguration
 {

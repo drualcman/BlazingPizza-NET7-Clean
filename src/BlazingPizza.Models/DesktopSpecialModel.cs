@@ -1,13 +1,15 @@
-﻿namespace BlazingPizza.Models;
+﻿//using BlazingPizza.Backend.BussinesObjects.Interfaces.GetSpecials;
 
-public class DesktopSpecialModel : ISpecialsModel
-{
-    readonly IGetSpecialsController Gateway;
+//namespace BlazingPizza.Models;
 
-    public DesktopSpecialModel(IGetSpecialsController gateway) => Gateway = gateway;
+//public class DesktopSpecialModel : ISpecialsModel
+//{
+//    readonly IGetSpecialsController Gateway;
 
-    public async Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync()
-    {
-        return await Gateway.GetSpecialsAsync(); 
-    }
-}
+//    public DesktopSpecialModel(IGetSpecialsController gateway) => Gateway = gateway;
+
+//    public async Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync()
+//    {
+//        return await Gateway.GetSpecialsAsync(); 
+//    }
+//}

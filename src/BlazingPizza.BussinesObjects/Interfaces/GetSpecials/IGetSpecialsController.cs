@@ -1,6 +1,6 @@
-﻿namespace BlazingPizza.BussinesObjects.Interfaces.GetSpecials;
+﻿namespace BlazingPizza.Backend.BussinesObjects.Interfaces.GetSpecials;
 
 public interface IGetSpecialsController
-{              
+{
     Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync();
 }

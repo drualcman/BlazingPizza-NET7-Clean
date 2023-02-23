@@ -1,9 +1,8 @@
-﻿global using BlazingPizza.BussinesObjects.Entities;
-global using BlazingPizza.BussinesObjects.Interfaces.GetSpecials;
+﻿global using BlazingPizza.Shared.BussinesObjects.Entities;
+global using BlazingPizza.Backend.BussinesObjects.Interfaces.GetSpecials;
 global using Microsoft.Extensions.DependencyInjection;
-global using BlazingPizza.BussinesObjects.Interfaces.GetToppings;
-global using BlazingPizza.BussinesObjects.Dtos;
-global using BlazingPizza.BussinesObjects.Interfaces.PlaceOrder;
-global using BlazingPizza.BussinesObjects.Interfaces.GetOrders;
-global using BlazingPizza.BussinesObjects.Interfaces.GetOrder;
-
+global using BlazingPizza.Backend.BussinesObjects.Interfaces.GetToppings;
+global using BlazingPizza.Shared.BussinesObjects.Dtos;
+global using BlazingPizza.Backend.BussinesObjects.Interfaces.PlaceOrder;
+global using BlazingPizza.Backend.BussinesObjects.Interfaces.GetOrders;
+global using BlazingPizza.Backend.BussinesObjects.Interfaces.GetOrder;

@@ -12,8 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <ProjectReference Include="..\BlazingPizza.Ioc.Backend\BlazingPizza.Ioc.Backend.csproj" />
-    <ProjectReference Include="..\BlazingPizza.IoC.Frontend\BlazingPizza.IoC.Frontend.csproj" />
+      <ProjectReference Include="..\BlazingPizza.IoC.Frontend\BlazingPizza.IoC.Frontend.csproj" />
   </ItemGroup>
 
   <ItemGroup>

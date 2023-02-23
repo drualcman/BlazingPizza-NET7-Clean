@@ -13,10 +13,10 @@ public static class DependencyContainer
         return services;
     } 
 
-    public static IServiceCollection AddDesktopModelsServices(this IServiceCollection services)
-    {
-        services.AddScoped<ISpecialsModel, DesktopSpecialModel>();
-        services.AddScoped<IConfigurePizzaDialogModel, ConfigurePizzaDialogModel>();
-        return services;
-    }
+    //public static IServiceCollection AddDesktopModelsServices(this IServiceCollection services)
+    //{
+    //    services.AddScoped<ISpecialsModel, DesktopSpecialModel>();
+    //    services.AddScoped<IConfigurePizzaDialogModel, ConfigurePizzaDialogModel>();
+    //    return services;
+    //}
 }

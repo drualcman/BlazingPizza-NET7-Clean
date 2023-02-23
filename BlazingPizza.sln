@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Interface Adapters", "3.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Frameworks and Drivers", "4. Frameworks and Drivers", "{F3018A30-9BA9-469B-8B49-C93001D34539}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.BussinesObjects", "src\BlazingPizza.BussinesObjects\BlazingPizza.BussinesObjects.csproj", "{611773F2-8A6C-4321-A640-61DA7199F164}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Backend.BussinesObjects", "src\BlazingPizza.BussinesObjects\BlazingPizza.Backend.BussinesObjects.csproj", "{611773F2-8A6C-4321-A640-61DA7199F164}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{43ECB410-5747-41E5-9F67-CD6859BBD297}"
 EndProject
@@ -62,6 +62,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Gateways", "src\BlazingPizza.Gateways\BlazingPizza.Gateways.csproj", "{D2248800-1E24-4C12-A586-FBBB59FCE82C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDemo", "BlazorDemo\BlazorDemo.csproj", "{4C90EB13-5AE4-4BDC-B066-58186441EB9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BussinesObjects", "BussinesObjects", "{72BE5F60-92BE-4032-89FF-BFC90D9EC56B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.Shared.BussinesObjects", "src\BlazingPizza.Shared.BussinesObjects\BlazingPizza.Shared.BussinesObjects.csproj", "{ABFDF4C3-087F-4004-9FBA-C99742054A53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.FrondEnd.BussinesObjects", "src\BlazingPizza.FrondEnd.BussinesObjects\BlazingPizza.FrondEnd.BussinesObjects.csproj", "{DA75033B-4DB8-45AC-B436-5FE425BCE040}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -139,12 +145,20 @@ Global
 		{4C90EB13-5AE4-4BDC-B066-58186441EB9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C90EB13-5AE4-4BDC-B066-58186441EB9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C90EB13-5AE4-4BDC-B066-58186441EB9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABFDF4C3-087F-4004-9FBA-C99742054A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABFDF4C3-087F-4004-9FBA-C99742054A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABFDF4C3-087F-4004-9FBA-C99742054A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABFDF4C3-087F-4004-9FBA-C99742054A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA75033B-4DB8-45AC-B436-5FE425BCE040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA75033B-4DB8-45AC-B436-5FE425BCE040}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA75033B-4DB8-45AC-B436-5FE425BCE040}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA75033B-4DB8-45AC-B436-5FE425BCE040}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{611773F2-8A6C-4321-A640-61DA7199F164} = {33F23C37-CFAE-4DA4-870A-4447D894A803}
+		{611773F2-8A6C-4321-A640-61DA7199F164} = {72BE5F60-92BE-4032-89FF-BFC90D9EC56B}
 		{43ECB410-5747-41E5-9F67-CD6859BBD297} = {E64A4656-E2C5-4914-B079-246C6FA07CB2}
 		{BC664135-7025-4D9C-9F87-B4438BBFD05A} = {43ECB410-5747-41E5-9F67-CD6859BBD297}
 		{73F1FA9B-0CDA-4666-9C00-74D241D7AE7D} = {E64A4656-E2C5-4914-B079-246C6FA07CB2}
@@ -170,6 +184,9 @@ Global
 		{95645F00-849A-4896-9173-C0E393E49662} = {73C1D108-6F59-4E6B-8345-96AED80725CA}
 		{D2248800-1E24-4C12-A586-FBBB59FCE82C} = {95645F00-849A-4896-9173-C0E393E49662}
 		{4C90EB13-5AE4-4BDC-B066-58186441EB9F} = {49846A86-FFDD-44E7-AA35-76CB8E8E0062}
+		{72BE5F60-92BE-4032-89FF-BFC90D9EC56B} = {33F23C37-CFAE-4DA4-870A-4447D894A803}
+		{ABFDF4C3-087F-4004-9FBA-C99742054A53} = {72BE5F60-92BE-4032-89FF-BFC90D9EC56B}
+		{DA75033B-4DB8-45AC-B436-5FE425BCE040} = {72BE5F60-92BE-4032-89FF-BFC90D9EC56B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19CECF98-13B4-4B95-8AE5-2BDBD4E8BE49}

@@ -11,14 +11,14 @@ internal class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
     public async Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync()
     {
         return (await Context.Orders
-            .Include(o => o.Pizzas).ThenInclude(p => p.PizzaSpecial)       
-            .Include(o => o.Pizzas).ThenInclude(p=> p.Toppings).ThenInclude(t=> t.Topping)
+            .Include(o => o.Pizzas).ThenInclude(p => p.PizzaSpecial)
+            .Include(o => o.Pizzas).ThenInclude(p => p.Toppings).ThenInclude(t => t.Topping)
             .OrderByDescending(o => o.CreatedTime)
             .ToListAsync())
             .Select(o => GetOrdersDtoFake(o.ToOrder())).ToList();
     }
 
-    private void GetStatus(BussinesObjects.Agregates.Order order, out OrderStatus status, out bool isDelivered)
+    private void GetStatus(Shared.BussinesObjects.Agregates.Order order, out OrderStatus status, out bool isDelivered)
     {
         TimeSpan PreparationDurationTime = TimeSpan.FromSeconds(10);
         TimeSpan DeliveryDurationTime = TimeSpan.FromSeconds(10);
@@ -32,7 +32,7 @@ internal class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
         isDelivered = status == OrderStatus.Delivered;
     }
 
-    private GetOrdersDto GetOrdersDtoFake(BussinesObjects.Agregates.Order order)
+    private GetOrdersDto GetOrdersDtoFake(Shared.BussinesObjects.Agregates.Order order)
     {
         OrderStatus status;
         bool isDelivered;
@@ -40,29 +40,29 @@ internal class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
         return new GetOrdersDto(order.Id, order.CreatedTime, order.UserId, order.Pizzas.Count, order.GetTotalPrice(), status, isDelivered);
     }
 
-    public async Task<IReadOnlyCollection<BussinesObjects.Entities.PizzaSpecial>> GetSpecialsAsync()
+    public async Task<IReadOnlyCollection<Shared.BussinesObjects.Entities.PizzaSpecial>> GetSpecialsAsync()
     {
         return await Context.Specials.Select(s => s.ToPizzaSpecial())
                                      .ToListAsync();
     }
 
-    public async Task<IReadOnlyCollection<BussinesObjects.Entities.Topping>> GetToppingsAsync()
+    public async Task<IReadOnlyCollection<Shared.BussinesObjects.Entities.Topping>> GetToppingsAsync()
     {
         return await Context.Toppings.Select(t => t.ToTopping())
                                      .ToListAsync();
     }
 
-    public async Task<GetOrderDto> GetOrderAsync(int id) 
+    public async Task<GetOrderDto> GetOrderAsync(int id)
     {
         Order order = await Context.Orders
             .Where(o => o.Id == id)
             .Include(o => o.Pizzas).ThenInclude(p => p.PizzaSpecial)
-            .Include(o => o.Pizzas).ThenInclude(p=> p.Toppings).ThenInclude(t=> t.Topping)
+            .Include(o => o.Pizzas).ThenInclude(p => p.Toppings).ThenInclude(t => t.Topping)
             .FirstOrDefaultAsync();
         return order == null ? new GetOrderDto() : GetOrderDtoFake(order.ToOrder());
     }
-    
-    private GetOrderDto GetOrderDtoFake(BussinesObjects.Agregates.Order order)
+
+    private GetOrderDto GetOrderDtoFake(Shared.BussinesObjects.Agregates.Order order)
     {
         OrderStatus status;
         bool isDelivered;
@@ -72,9 +72,9 @@ internal class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
             Id = order.Id,
             CreatedTime = order.CreatedTime,
             UserId = order.UserId,
-            Pizzas = order.Pizzas.Select(p=> (PizzaDto)p).ToList(),
+            Pizzas = order.Pizzas.Select(p => (PizzaDto)p).ToList(),
             Status = status,
-            IdDelivered= isDelivered
+            IdDelivered = isDelivered
         };
     }
 }

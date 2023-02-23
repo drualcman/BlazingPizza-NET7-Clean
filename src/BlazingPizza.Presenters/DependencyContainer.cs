@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.Presenters;
+﻿using BlazingPizza.Backend.BussinesObjects.Interfaces.GetSpecials;
+
+namespace BlazingPizza.Presenters;
 
 public static class DependencyContainer
 {

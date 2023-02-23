@@ -1,3 +1,5 @@
+using BlazingPizza.FrondEnd.BussinesObjects.ValueObjects.Options;
+
 namespace BlazingPizza.WinFormsClient;
 
 public partial class Form1 : Form
@@ -21,11 +23,7 @@ public partial class Form1 : Form
 
         //Options Pathern
         EndpointsOptions endpoints = configuration.GetSection(EndpointsOptions.SectionKey).Get<EndpointsOptions>();
-        services.Configure<EndpointsOptions>(options => options = endpoints);            
-        SpecialsOptions specials = configuration.GetSection(SpecialsOptions.SectionKey).Get<SpecialsOptions>();
-        services.Configure<SpecialsOptions>(options => options = specials);
-
-        services.AddBlazingPizzaBackendServices(configuration.GetConnectionString("BlazingPizzaDb"));
+        services.Configure<EndpointsOptions>(options => options = endpoints);  
         services.AddBlazingPizzaFrontendServices(Options.Create(endpoints));
         blazorWebView1.HostPage = "wwwroot\\index.html";
         blazorWebView1.RootComponents.Add<App>("#app");

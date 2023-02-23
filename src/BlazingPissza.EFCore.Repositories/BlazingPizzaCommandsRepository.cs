@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.EFCore.Repositories;
+﻿using BlazingPizza.Backend.BussinesObjects.Interfaces.Common;
+
+namespace BlazingPizza.EFCore.Repositories;
 internal class BlazingPizzaCommandsRepository : IBlazingPizzaCommandsRepository
 {
     readonly IBlazingPizzaComandsContext Context;

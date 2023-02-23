@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazingPizza.BussinesObjects\BlazingPizza.BussinesObjects.csproj" />
+    <ProjectReference Include="..\BlazingPizza.FrondEnd.BussinesObjects\BlazingPizza.FrondEnd.BussinesObjects.csproj" />
   </ItemGroup>
 
 </Project>

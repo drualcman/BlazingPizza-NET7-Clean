@@ -1,11 +1,12 @@
-﻿using BlazingPizza.BussinesObjects.ValueObjects.Options;
+﻿using BlazingPizza.FrondEnd.BussinesObjects.Interfaces.Common;
+using BlazingPizza.FrondEnd.BussinesObjects.ValueObjects.Options;
 
 namespace BlazingPizza.Gateways;
 
 public static class DependencyContainer
 {
     public static IServiceCollection AddBlazingPizzaWebApiGateways
-        (this IServiceCollection services, 
+        (this IServiceCollection services,
          IOptions<EndpointsOptions> endpointsOptions,
          Action<IHttpClientBuilder> httpClientConfiguration = null)
     {
@@ -16,5 +17,5 @@ public static class DependencyContainer
         });
         httpClientConfiguration?.Invoke(httpClientBuilder);
         return services;
-    } 
+    }
 }

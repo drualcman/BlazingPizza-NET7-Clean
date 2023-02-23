@@ -11,7 +11,7 @@ internal static class OrderMapper
             Pizzas = order.Pizzas.Select(p=> p.ToEFPizza()).ToList()
         };
 
-    internal static BussinesObjects.Agregates.Order ToOrder(this Order order) => 
-        BussinesObjects.Agregates.Order.Create(order.Id, order.CreatedTime, order.UserId)
+    internal static Shared.BussinesObjects.Agregates.Order ToOrder(this Order order) => 
+        Shared.BussinesObjects.Agregates.Order.Create(order.Id, order.CreatedTime, order.UserId)
             .AddPizzas(order.Pizzas?.Select(p => p.ToPizza()));
 }

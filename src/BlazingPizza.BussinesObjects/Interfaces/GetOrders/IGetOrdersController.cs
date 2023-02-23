@@ -1,4 +1,4 @@
-﻿namespace BlazingPizza.BussinesObjects.Interfaces.GetOrders;
+﻿namespace BlazingPizza.Backend.BussinesObjects.Interfaces.GetOrders;
 public interface IGetOrdersController
 {
     Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync();

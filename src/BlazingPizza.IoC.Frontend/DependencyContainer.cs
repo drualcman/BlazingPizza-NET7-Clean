@@ -11,10 +11,10 @@ public static class DependencyContainer
         return services;
     }
 
-    public static IServiceCollection AddBlazingPizzaDesktopServices(this IServiceCollection services)
-    {
-        services.AddDesktopModelsServices();
-        services.AddViewModelsServices();
-        return services;
-    }
+    //public static IServiceCollection AddBlazingPizzaDesktopServices(this IServiceCollection services)
+    //{
+    //    services.AddDesktopModelsServices();
+    //    services.AddViewModelsServices();
+    //    return services;
+    //}
 }

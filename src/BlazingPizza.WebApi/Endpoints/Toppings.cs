@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.WebApi.Endpoints;
+﻿using BlazingPizza.Backend.BussinesObjects.Interfaces.GetToppings;
+
+namespace BlazingPizza.WebApi.Endpoints;
 
 public static class Toppings
 {

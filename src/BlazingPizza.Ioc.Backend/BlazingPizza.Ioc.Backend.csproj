@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazingPissza.EFCore.Repositories\BlazingPizza.EFCore.Repositories.csproj" />
+    <ProjectReference Include="..\BlazingPizza.BussinesObjects\BlazingPizza.Backend.BussinesObjects.csproj" />
     <ProjectReference Include="..\BlazingPizza.Controllers\BlazingPizza.Controllers.csproj" />
     <ProjectReference Include="..\BlazingPizza.Presenters\BlazingPizza.Presenters.csproj" />
     <ProjectReference Include="..\BlazingPizza.UseCases\BlazingPizza.UseCases.csproj" />
