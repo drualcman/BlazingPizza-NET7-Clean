@@ -3,8 +3,10 @@ internal class BlazingPizzaContextFactory : IDesignTimeDbContextFactory<BlazingP
 {
     public BlazingPizzaContext CreateDbContext(string[] args) 
     {
-        DbContextOptionsBuilder options = new DbContextOptionsBuilder<BlazingPizzaContext>();
-        options.UseSqlServer("Server=(localdb)\\mssqllocaldb;database=BlazingPizzaDBCA");
-        return new BlazingPizzaContext(options.Options);
+        ConnectionStringOptions connectionOptions = new ConnectionStringOptions
+        {
+            BlazingPizzaDb = "Server=(localdb)\\mssqllocaldb;database=BlazingPizzaDBCA"
+        };
+        return new BlazingPizzaContext(Options.Create(connectionOptions));
     }
 }

@@ -8,3 +8,4 @@ global using BlazingPizza.BussinesObjects.Interfaces.PlaceOrder;
 global using BlazingPizza.Ioc.Backend;
 global using BlazingPizza.WebApi.Endpoints;
 global using Microsoft.Extensions.DependencyInjection;
+global using BlazingPizza.BussinesObjects.ValueObjects.Options;
