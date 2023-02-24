@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.Models;
-public class ConfigurePizzaDialogModel : IConfigurePizzaDialogModel
+internal sealed  class ConfigurePizzaDialogModel : IConfigurePizzaDialogModel
 {
     readonly IBlazingPizzaWebApiGateway Gateway;
 

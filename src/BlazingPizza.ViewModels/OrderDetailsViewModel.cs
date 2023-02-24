@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.ViewModels;
-public class OrderDetailsViewModel : IOrderDetailsViewModel
+internal sealed  class OrderDetailsViewModel : IOrderDetailsViewModel
 {
     readonly IOrderDetailsModel Model;
 

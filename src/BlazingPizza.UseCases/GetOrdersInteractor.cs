@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.UseCases;
-internal class GetOrdersInteractor : IGetOrdersInputPort
+internal sealed class GetOrdersInteractor : IGetOrdersInputPort
 {
     readonly IBlazingPizzaQueriesRepository Repository;
     public GetOrdersInteractor(IBlazingPizzaQueriesRepository repository) => Repository = repository;

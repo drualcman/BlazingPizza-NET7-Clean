@@ -1,9 +1,7 @@
-﻿using BlazingPizza.Backend.BussinesObjects.ValueObjects.Options;
-
-namespace BlazingPizza.EFCore.Repositories.DataContext;
+﻿namespace BlazingPizza.EFCore.Repositories.DataContext;
 internal class BlazingPizzaContextFactory : IDesignTimeDbContextFactory<BlazingPizzaContext>
 {
-    public BlazingPizzaContext CreateDbContext(string[] args) 
+    public BlazingPizzaContext CreateDbContext(string[] args)
     {
         ConnectionStringOptions connectionOptions = new ConnectionStringOptions
         {

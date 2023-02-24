@@ -1,7 +1,5 @@
-﻿using BlazingPizza.Backend.BussinesObjects.ValueObjects.Options;
-
-namespace BlazingPizza.EFCore.Repositories.DataContext;
-internal class BlazingPizzaCommandsContext : BlazingPizzaContext, IBlazingPizzaComandsContext
+﻿namespace BlazingPizza.EFCore.Repositories.DataContext;
+internal sealed class BlazingPizzaCommandsContext : BlazingPizzaContext, IBlazingPizzaComandsContext
 {
     public BlazingPizzaCommandsContext(IOptions<ConnectionStringOptions> options) : base(options)
     {

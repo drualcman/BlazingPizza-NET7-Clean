@@ -1,15 +1,15 @@
 ﻿namespace BlazingPizza.EFCore.Repositories.Mappers;
 internal static class LatLongMapper
 {
-    internal static LatLong ToEFLatLong(this Shared.BussinesObjects.ValueObjects.LatLong address) =>
+    internal static LatLong ToEFLatLong(this SharedValueObjects.LatLong address) =>
         new LatLong
         {
             Latitude= address.Latitude,
             Longitude= address.Longitude
         };
 
-     internal static Shared.BussinesObjects.ValueObjects.LatLong ToLatLong(this LatLong address) =>
-        new Shared.BussinesObjects.ValueObjects.LatLong
+     internal static SharedValueObjects.LatLong ToLatLong(this LatLong address) =>
+        new SharedValueObjects.LatLong
         {
             Latitude= address.Latitude,
             Longitude= address.Longitude

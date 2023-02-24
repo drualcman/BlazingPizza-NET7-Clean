@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.Controllers;
-public class GetOrdersController : IGetOrdersController
+internal sealed class GetOrdersController : IGetOrdersController
 {
     readonly IGetOrdersInputPort InputPort;
 

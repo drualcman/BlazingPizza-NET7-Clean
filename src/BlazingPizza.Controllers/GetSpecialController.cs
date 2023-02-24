@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.Controllers;
-internal class GetSpecialController : IGetSpecialsController
+internal sealed class GetSpecialController : IGetSpecialsController
 {
     readonly IGetSpecialsInputPort InputPort;
     readonly IGetSpecialsPresenter Presenter;

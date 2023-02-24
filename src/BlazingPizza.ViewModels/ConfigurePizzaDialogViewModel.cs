@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.ViewModels;
-internal class ConfigurePizzaDialogViewModel : IConfigurePizzaDialogViewModel
+internal sealed  class ConfigurePizzaDialogViewModel : IConfigurePizzaDialogViewModel
 {
     readonly IConfigurePizzaDialogModel Model;
 

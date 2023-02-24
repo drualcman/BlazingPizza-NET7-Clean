@@ -1,7 +1,4 @@
-﻿using BlazingPizza.FrondEnd.BussinesObjects.Interfaces.Common;
-using BlazingPizza.FrondEnd.BussinesObjects.ValueObjects.Options;
-
-namespace BlazingPizza.Gateways;
+﻿namespace BlazingPizza.Gateways;
 
 public static class DependencyContainer
 {

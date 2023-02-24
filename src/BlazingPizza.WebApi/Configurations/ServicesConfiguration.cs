@@ -1,8 +1,6 @@
-﻿using BlazingPizza.Backend.BussinesObjects.ValueObjects.Options;
+﻿namespace BlazingPizza.WebApi.Configurations;
 
-namespace BlazingPizza.WebApi.Configurations;
-
-public static class ServicesConfiguration
+internal static class ServicesConfiguration
 {
     public static WebApplication ConfigureWebApiServices(this WebApplicationBuilder builder)
     {
@@ -13,7 +11,7 @@ public static class ServicesConfiguration
         builder.Services.Configure<ConnectionStringOptions>(builder.Configuration.GetSection(ConnectionStringOptions.SectionKey));
 
         builder.Services.AddBlazingPizzaBackendServices();
-        builder.Services.AddCors(options => 
+        builder.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(policy =>
             {

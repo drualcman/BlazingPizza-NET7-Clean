@@ -1,7 +1,7 @@
 ﻿namespace BlazingPizza.EFCore.Repositories.Configurations;
-internal class OrderConfiguration : IEntityTypeConfiguration<EFEntities.Order>
+internal sealed class OrderConfiguration : IEntityTypeConfiguration<Order>
 {
-    public void Configure(EntityTypeBuilder<EFEntities.Order> builder) 
+    public void Configure(EntityTypeBuilder<Order> builder) 
     {
         builder.OwnsOne(o => o.DeliveryLocation);
     }

@@ -1,6 +1,6 @@
 ﻿namespace BlazingPizza.Models;
 
-public class SpecialsModel : ISpecialsModel
+internal sealed class SpecialsModel : ISpecialsModel
 {
     readonly IBlazingPizzaWebApiGateway Gateway;
 

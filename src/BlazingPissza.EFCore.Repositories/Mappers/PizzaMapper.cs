@@ -13,9 +13,9 @@ internal static class PizzaMapper
                         }).ToList()
         };
 
-    internal static Shared.BussinesObjects.Agregates.Pizza ToPizza(this Pizza pizza)
+    internal static SharedAgreeates.Pizza ToPizza(this Pizza pizza)
     {
-        Shared.BussinesObjects.Agregates.Pizza pizzaAgregate = new Shared.BussinesObjects.Agregates.Pizza(pizza.PizzaSpecial.ToPizzaSpecial());
+        SharedAgreeates.Pizza pizzaAgregate = new SharedAgreeates.Pizza(pizza.PizzaSpecial.ToPizzaSpecial());
         pizzaAgregate.SetSize(pizza.Size);
         pizza.Toppings?.ForEach(t => pizzaAgregate.AddTopping(t.Topping.ToTopping()));
         return pizzaAgregate;

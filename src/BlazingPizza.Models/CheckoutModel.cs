@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.Models;
-public class CheckoutModel : ICheckoutModel
+internal sealed  class CheckoutModel : ICheckoutModel
 {
     readonly IBlazingPizzaWebApiGateway Gateway;
 

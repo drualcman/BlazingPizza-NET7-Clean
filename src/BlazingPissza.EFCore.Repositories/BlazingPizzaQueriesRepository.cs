@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.EFCore.Repositories;
-internal class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
+internal sealed class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
 {
     readonly IBlazingPizzaQueriesContext Context;
 
@@ -18,7 +18,7 @@ internal class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
             .Select(o => GetOrdersDtoFake(o.ToOrder())).ToList();
     }
 
-    private void GetStatus(Shared.BussinesObjects.Agregates.Order order, out OrderStatus status, out bool isDelivered)
+    private void GetStatus(SharedAgreeates.Order order, out OrderStatus status, out bool isDelivered)
     {
         TimeSpan PreparationDurationTime = TimeSpan.FromSeconds(10);
         TimeSpan DeliveryDurationTime = TimeSpan.FromSeconds(10);
@@ -32,7 +32,7 @@ internal class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
         isDelivered = status == OrderStatus.Delivered;
     }
 
-    private GetOrdersDto GetOrdersDtoFake(Shared.BussinesObjects.Agregates.Order order)
+    private GetOrdersDto GetOrdersDtoFake(SharedAgreeates.Order order)
     {
         OrderStatus status;
         bool isDelivered;
@@ -40,13 +40,13 @@ internal class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
         return new GetOrdersDto(order.Id, order.CreatedTime, order.UserId, order.Pizzas.Count, order.GetTotalPrice(), status, isDelivered);
     }
 
-    public async Task<IReadOnlyCollection<Shared.BussinesObjects.Entities.PizzaSpecial>> GetSpecialsAsync()
+    public async Task<IReadOnlyCollection<SharedEntities.PizzaSpecial>> GetSpecialsAsync()
     {
         return await Context.Specials.Select(s => s.ToPizzaSpecial())
                                      .ToListAsync();
     }
 
-    public async Task<IReadOnlyCollection<Shared.BussinesObjects.Entities.Topping>> GetToppingsAsync()
+    public async Task<IReadOnlyCollection<SharedEntities.Topping>> GetToppingsAsync()
     {
         return await Context.Toppings.Select(t => t.ToTopping())
                                      .ToListAsync();
@@ -62,7 +62,7 @@ internal class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesRepository
         return order == null ? new GetOrderDto() : GetOrderDtoFake(order.ToOrder());
     }
 
-    private GetOrderDto GetOrderDtoFake(Shared.BussinesObjects.Agregates.Order order)
+    private GetOrderDto GetOrderDtoFake(SharedAgreeates.Order order)
     {
         OrderStatus status;
         bool isDelivered;

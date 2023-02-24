@@ -1,6 +1,6 @@
 ﻿namespace BlazingPizza.WebApi.Configurations;
 
-public static class MiddlewaresConfiguration
+internal static class MiddlewaresConfiguration
 {
     public static WebApplication ConfigureWebApiMiddlewares(this WebApplication app)
     {

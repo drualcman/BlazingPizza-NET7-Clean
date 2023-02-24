@@ -1,8 +1,6 @@
-﻿using BlazingPizza.Backend.BussinesObjects.Interfaces.GetSpecials;
+﻿namespace BlazingPizza.WebApi.Endpoints;
 
-namespace BlazingPizza.WebApi.Endpoints;
-
-public static class Specials
+internal  static class Specials
 {
     public static WebApplication UseSpecialsEndpoints(this WebApplication app)
     {

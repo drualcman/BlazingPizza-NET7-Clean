@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.Presenters.GetSpecials;
-internal class GetSpecialsPresenter : IGetSpecialsPresenter
+internal sealed  class GetSpecialsPresenter : IGetSpecialsPresenter
 {
     readonly string ImagesBaseUrl;
 

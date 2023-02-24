@@ -5,7 +5,7 @@
 namespace BlazingPizza.EFCore.Repositories.Migrations
 {
     /// <inheritdoc />
-    public partial class renamepropertyname : Migration
+    public partial class Renamepropertyname : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

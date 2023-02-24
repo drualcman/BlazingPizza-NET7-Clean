@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.ViewModels;
-public class IndexViewModel : IIndexViewModel
+internal sealed  class IndexViewModel : IIndexViewModel
 {
     readonly IOrderStateService OrderService;
 

@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.Models;
-public class OrdersModel : IOrdersModel
+internal sealed class OrdersModel : IOrdersModel
 {
     readonly IBlazingPizzaWebApiGateway GateWay;
 

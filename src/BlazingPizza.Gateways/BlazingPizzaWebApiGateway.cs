@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.Gateways;
-public class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
+internal sealed class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
 {
     readonly HttpClient Client;
     readonly EndpointsOptions EndpointsOptions;

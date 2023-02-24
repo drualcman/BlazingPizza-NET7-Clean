@@ -13,7 +13,7 @@ namespace BlazingPizza.EFCore.Repositories.Migrations
 {
     [DbContext(typeof(BlazingPizzaContext))]
     [Migration("20230214021706_rename property name")]
-    partial class renamepropertyname
+    partial class Renamepropertyname
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

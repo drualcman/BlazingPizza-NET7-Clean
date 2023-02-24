@@ -1,10 +1,6 @@
-﻿using BlazingPizza.Backend.BussinesObjects.Interfaces.GetOrder;
-using BlazingPizza.Backend.BussinesObjects.Interfaces.GetOrders;
-using BlazingPizza.Backend.BussinesObjects.Interfaces.PlaceOrder;
+﻿namespace BlazingPizza.WebApi.Endpoints;
 
-namespace BlazingPizza.WebApi.Endpoints;
-
-public static class Orders
+internal static class Orders
 {
     public static WebApplication UseOrdersEndpoints(this WebApplication app)
     {

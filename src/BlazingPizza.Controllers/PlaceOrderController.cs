@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.Controllers;
-public class PlaceOrderController : IPlaceOrderController
+internal sealed class PlaceOrderController : IPlaceOrderController
 {
     readonly IPlaceOrderInputPort InputPort;
 

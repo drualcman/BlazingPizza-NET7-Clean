@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.ViewModels;
-public class CheckoutViewModel : ICheckoutViewModel
+internal sealed  class CheckoutViewModel : ICheckoutViewModel
 {
     readonly ICheckoutModel Model;
     readonly IOrderStateService OrderStateService;
