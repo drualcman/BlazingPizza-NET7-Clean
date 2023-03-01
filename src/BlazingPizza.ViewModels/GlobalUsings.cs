@@ -9,3 +9,4 @@ global using BlazingPizza.FrondEnd.BussinesObjects.Interfaces.ConfigurePizzaDial
 global using BlazingPizza.Shared.BussinesObjects.Entities;
 global using BlazingPizza.FrondEnd.BussinesObjects.Interfaces.Index;
 global using BlazingPizza.FrondEnd.BussinesObjects.Interfaces.Specials;
+global using BlazingPizza.Shared.BussinesObjects.ValueObjects;

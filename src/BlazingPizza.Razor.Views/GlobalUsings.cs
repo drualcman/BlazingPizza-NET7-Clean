@@ -8,3 +8,4 @@ global using BlazingPizza.FrondEnd.BussinesObjects.Interfaces.Common;
 global using BlazingPizza.FrondEnd.BussinesObjects.Interfaces.Specials;
 global using BlazingPizza.Shared.BussinesObjects.Entities;
 global using BlazingPizza.FrondEnd.BussinesObjects.Interfaces.Checkout;
+global using BlazingPizza.Shared.BussinesObjects.ValueObjects;

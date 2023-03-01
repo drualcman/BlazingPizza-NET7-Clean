@@ -65,9 +65,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDemo", "BlazorDemo\Bl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BussinesObjects", "BussinesObjects", "{72BE5F60-92BE-4032-89FF-BFC90D9EC56B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.Shared.BussinesObjects", "src\BlazingPizza.Shared.BussinesObjects\BlazingPizza.Shared.BussinesObjects.csproj", "{ABFDF4C3-087F-4004-9FBA-C99742054A53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Shared.BussinesObjects", "src\BlazingPizza.Shared.BussinesObjects\BlazingPizza.Shared.BussinesObjects.csproj", "{ABFDF4C3-087F-4004-9FBA-C99742054A53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.FrondEnd.BussinesObjects", "src\BlazingPizza.FrondEnd.BussinesObjects\BlazingPizza.FrondEnd.BussinesObjects.csproj", "{DA75033B-4DB8-45AC-B436-5FE425BCE040}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.FrondEnd.BussinesObjects", "src\BlazingPizza.FrondEnd.BussinesObjects\BlazingPizza.FrondEnd.BussinesObjects.csproj", "{DA75033B-4DB8-45AC-B436-5FE425BCE040}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

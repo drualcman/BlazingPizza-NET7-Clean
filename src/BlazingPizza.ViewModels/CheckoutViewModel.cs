@@ -1,5 +1,5 @@
 ﻿namespace BlazingPizza.ViewModels;
-internal sealed  class CheckoutViewModel : ICheckoutViewModel
+internal sealed class CheckoutViewModel : ICheckoutViewModel
 {
     readonly ICheckoutModel Model;
     readonly IOrderStateService OrderStateService;
@@ -14,9 +14,12 @@ internal sealed  class CheckoutViewModel : ICheckoutViewModel
 
     public Order Order => OrderStateService.Order;
 
+    public Address Address { get; private set; } = new();
+
     public async Task<int> PalceOrderAsync() 
     {
         IsSubmitting= true;
+        Order.SetDeliveryAddress(Address);
         int orderId = await Model.PlaceOrderAsync(Order);
         OrderStateService.ResetOrder();
         IsSubmitting= false;

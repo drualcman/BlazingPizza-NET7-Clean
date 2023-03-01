@@ -29,8 +29,8 @@ public class Order : BaseOrder
 
     public bool HasPizzas => PizzasField.Any();
 
-    public Address DeliveryAddress { get; private set; } = new Address("", "", "", "", "", "");
-    public LatLong DeliveryLocation { get; private set; } = new LatLong();
+    public Address DeliveryAddress { get; private set; } = new();
+    public LatLong DeliveryLocation { get; private set; } = new();
     public IReadOnlyCollection<Pizza> Pizzas => PizzasField;
 
     public Order AddPizza(Pizza pizza)
