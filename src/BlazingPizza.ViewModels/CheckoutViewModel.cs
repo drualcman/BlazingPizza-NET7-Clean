@@ -10,19 +10,30 @@ internal sealed class CheckoutViewModel : ICheckoutViewModel
         OrderStateService = orderStateService;
     }
 
-    public bool IsSubmitting {get; private set;}
+    public bool IsSubmitting { get; private set; }
 
     public Order Order => OrderStateService.Order;
 
     public Address Address { get; private set; } = new();
 
-    public async Task<int> PalceOrderAsync() 
+    public async Task<int> PalceOrderAsync()
     {
-        IsSubmitting= true;
-        Order.SetDeliveryAddress(Address);
-        int orderId = await Model.PlaceOrderAsync(Order);
-        OrderStateService.ResetOrder();
-        IsSubmitting= false;
+        int orderId = 0;
+        if(IsValidAddress)
+        {
+            IsSubmitting = true;
+            Order.SetDeliveryAddress(Address);
+            orderId = await Model.PlaceOrderAsync(Order);
+            OrderStateService.ResetOrder();
+            Address = new();
+            IsSubmitting = false;
+        }
         return orderId;
     }
+
+    public bool IsValidAddress =>
+            !string.IsNullOrWhiteSpace(Address.Name) &&
+            !string.IsNullOrWhiteSpace(Address.AddressLine1) &&
+            !string.IsNullOrWhiteSpace(Address.Postalcode);
+
 }

@@ -7,6 +7,7 @@ public partial class Checkout
     async Task PlaceOrder()
     {
         int orderId = await ViewModel.PalceOrderAsync();
-        NavigationManager.NavigateTo($"order/{orderId}");
+        if (ViewModel.IsValidAddress) 
+            NavigationManager.NavigateTo($"order/{orderId}");
     }
 }

@@ -1,14 +1,16 @@
+using Microsoft.AspNetCore.Components.Forms;
+
 namespace BlazingPizza.Razor.Views.Components;
 
 public partial class AddressEditor
 {
     [Parameter] public Address Address { get; set; }
 
-    ElementReference NameField;
+    InputText NameField;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (firstRender)
-            await NameField.FocusAsync();
+        if(firstRender)
+            await NameField.Element.Value.FocusAsync();
     }
 }

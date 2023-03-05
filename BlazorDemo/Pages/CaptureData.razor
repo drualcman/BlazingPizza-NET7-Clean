@@ -1,0 +1,38 @@
+﻿@page "/capturedata"
+@using BlazorDemo.Models;
+
+
+<h3>CaptureData</h3>
+
+
+<EditForm Model=data
+    OnSubmit=VaidateData
+    >
+    <InputText @bind-Value=data.Key />
+</EditForm>
+
+
+@code {
+    KeyTransfromation data = new KeyTransfromation();
+
+    void ValidateData(EditContext context)
+    {
+        if(context.Model is KeyTransfromation Data)
+        {
+            if (Data.Key == "")
+            {
+                Console.WriteLine("OK");
+            }
+            else
+            {
+                Console.WriteLine("NO OK");
+            }
+        }
+
+    }
+
+    async Task ChangeData(ChangeEventArgs e)
+    {
+        await Task.Delay(1);
+    }
+}
