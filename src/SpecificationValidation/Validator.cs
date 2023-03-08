@@ -5,7 +5,7 @@ public abstract class Validator<T> : IValidator<T>
 
     protected Validator(IEnumerable<ISpecification<T>> specifications) => Specifications = specifications;
 
-    ValidationResult Validate(T entity, string? propernyName = null)
+    ValidationResult ValidateHelper(T entity, string propernyName = null)
     {
         ValidationResult validationResult = new();
         foreach (ISpecification<T> specification in Specifications)
@@ -19,6 +19,6 @@ public abstract class Validator<T> : IValidator<T>
         return validationResult;
     }
 
-    public ValidationResult Validate(T entity) => Validate(entity);
-    public ValidationResult ValidateProperty(T entity, string propertyName) => Validate(entity, propertyName);
+    public ValidationResult Validate(T entity) => ValidateHelper(entity);
+    public ValidationResult ValidateProperty(T entity, string propertyName) => ValidateHelper(entity, propertyName);
 }

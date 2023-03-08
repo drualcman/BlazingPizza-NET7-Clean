@@ -77,11 +77,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Tests", "0. Tests", "{B5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BussinesObjects.Test", "test\BussinesObjects.Test\BussinesObjects.Test.csproj", "{6C2C738D-7209-41BC-BA25-F2444204367C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationValidation", "src\SpecificationValidation\SpecificationValidation.csproj", "{A596305B-451F-46CE-88EC-AE2384B8ADF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation", "src\SpecificationValidation\SpecificationValidation.csproj", "{A596305B-451F-46CE-88EC-AE2384B8ADF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationValidation.Test", "test\SpecificationValidation.Test\SpecificationValidation.Test.csproj", "{9CC3F8D9-0F4C-4AD6-A0A4-C708B3EE76D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Test", "test\SpecificationValidation.Test\SpecificationValidation.Test.csproj", "{9CC3F8D9-0F4C-4AD6-A0A4-C708B3EE76D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationValidation.Blazor.Test", "test\SpecificationValidation.Blazor.Test\SpecificationValidation.Blazor.Test.csproj", "{59DE4BE4-E711-469A-A7C2-E2BD764E8E8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Blazor.Test", "test\SpecificationValidation.Blazor.Test\SpecificationValidation.Blazor.Test.csproj", "{59DE4BE4-E711-469A-A7C2-E2BD764E8E8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

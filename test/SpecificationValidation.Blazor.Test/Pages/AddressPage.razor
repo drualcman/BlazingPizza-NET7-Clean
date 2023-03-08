@@ -1,0 +1,13 @@
+﻿@page "/addresspage"
+
+<EditForm Model="Address" OnSubmit="Validate">
+    <AddressEditor Address=Address />
+    <button class="btn btn-primary" type="submit">Enviar</button>
+</EditForm>
+
+@if(StatusMessage.Value is not null)
+{
+    <div class="alert alert-danger">@StatusMessage</div>
+}
+
+

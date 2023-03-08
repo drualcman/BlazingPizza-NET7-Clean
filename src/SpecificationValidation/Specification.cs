@@ -9,6 +9,13 @@ public abstract class Specification<T> : ISpecification<T>
         return propertyRule;
     }
 
+    protected PropertyRule<T> Property(Expression<Func<T, object>> property) 
+    {                                               
+        PropertyRule<T> propertyRule = new PropertyRule<T>(ExpressionHelper.GetPropertyName(property));
+        PropertyRules.Add(propertyRule);
+        return propertyRule;           
+    }
+
     readonly List<ValidationError> ErrorsFields = new();
     readonly List<PropertyRule<T>> PropertyRules = new();
 
