@@ -1,6 +1,7 @@
 ﻿@page "/addresspage"
 
-<EditForm Model="Address" OnSubmit="Validate">
+<EditForm Model="Address" OnValidSubmit="Validate" OnInvalidSubmit=Validate>
+    <SpecificationValidator Validator=Validator  />
     <AddressEditor Address=Address />
     <button class="btn btn-primary" type="submit">Enviar</button>
 </EditForm>

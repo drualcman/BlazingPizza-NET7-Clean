@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\SpecificationValidation.Blazor\SpecificationValidation.Blazor.csproj" />
     <ProjectReference Include="..\SpecificationValidation.Test\SpecificationValidation.Test.csproj" />
   </ItemGroup>
 

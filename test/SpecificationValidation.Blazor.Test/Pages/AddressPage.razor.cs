@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace SpecificationValidation.Blazor.Test.Pages;
 
 public partial class AddressPage
@@ -9,15 +11,27 @@ public partial class AddressPage
 
     void Validate()
     {
+        StringBuilder stringBuilder = new StringBuilder();
         ValidationResult result = Validator.Validate(Address);
         if(result.IsValid)
         {
-            StatusMessage = new MarkupString("Datos validos!!!");
+            stringBuilder.Append("Datos validos!!!");
         }
         else
         {
-            StatusMessage = new MarkupString(result.ToString());
+            stringBuilder.Append(result.ToString());
         }
+        stringBuilder.Append("<br/>");
+        result = Validator.ValidateProperty(Address, nameof(Address.Postalcode));
+        if(result.IsValid)
+        {
+            stringBuilder.Append("Codigo postal OK!!!");
+        }
+        else
+        { 
+            stringBuilder.Append(result.ToString());
+        }
+        StatusMessage = new MarkupString(stringBuilder.ToString());
     }
 
 }

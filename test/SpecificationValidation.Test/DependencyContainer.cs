@@ -6,6 +6,7 @@ public static class DependencyContainer
     {
         services.AddScoped<ISpecification<Address>, NameSpecification>();
         services.AddScoped<ISpecification<Address>, AddressSpecification>();
+        services.AddScoped<ISpecification<Address>, RegionSpecification>();
         services.AddScoped<IValidator<Address>, AddressValidator>();
         return services;
     }
