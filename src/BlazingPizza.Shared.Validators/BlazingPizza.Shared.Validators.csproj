@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlazingPizza.Shared.BussinesObjects\BlazingPizza.Shared.BussinesObjects.csproj" />
+    <ProjectReference Include="..\SpecificationValidation\SpecificationValidation.csproj" />
+  </ItemGroup>
+
 </Project>
