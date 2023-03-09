@@ -83,7 +83,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Blazor.Test", "test\SpecificationValidation.Blazor.Test\SpecificationValidation.Blazor.Test.csproj", "{59DE4BE4-E711-469A-A7C2-E2BD764E8E8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationValidation.Blazor", "src\SpecificationValidation.Blazor\SpecificationValidation.Blazor.csproj", "{C9BE0FCA-ACA1-42B8-90F7-F04E03D58FF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Blazor", "src\SpecificationValidation.Blazor\SpecificationValidation.Blazor.csproj", "{C9BE0FCA-ACA1-42B8-90F7-F04E03D58FF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -233,7 +233,7 @@ Global
 		{A596305B-451F-46CE-88EC-AE2384B8ADF6} = {39996919-EEB0-40B7-95EB-550C81F5036E}
 		{9CC3F8D9-0F4C-4AD6-A0A4-C708B3EE76D3} = {B510F7FB-B824-48ED-9E1F-B665FFDB1711}
 		{59DE4BE4-E711-469A-A7C2-E2BD764E8E8B} = {B510F7FB-B824-48ED-9E1F-B665FFDB1711}
-		{C9BE0FCA-ACA1-42B8-90F7-F04E03D58FF3} = {39996919-EEB0-40B7-95EB-550C81F5036E}
+		{C9BE0FCA-ACA1-42B8-90F7-F04E03D58FF3} = {49846A86-FFDD-44E7-AA35-76CB8E8E0062}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19CECF98-13B4-4B95-8AE5-2BDBD4E8BE49}
