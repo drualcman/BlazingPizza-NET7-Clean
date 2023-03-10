@@ -85,7 +85,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Bla
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Blazor", "src\SpecificationValidation.Blazor\SpecificationValidation.Blazor.csproj", "{C9BE0FCA-ACA1-42B8-90F7-F04E03D58FF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizza.Shared.Validators", "src\BlazingPizza.Shared.Validators\BlazingPizza.Shared.Validators.csproj", "{405CDB33-859C-4ED0-B55D-DB67A43A7545}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Shared.Validators", "src\BlazingPizza.Shared.Validators\BlazingPizza.Shared.Validators.csproj", "{405CDB33-859C-4ED0-B55D-DB67A43A7545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationValidation.Entities", "src\SpecificationValidation.Entities\SpecificationValidation.Entities.csproj", "{B0BC48CC-0CEF-41FB-9953-DF1FD1712C54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationValidation.Abstractions", "SpecificationValidation.Abstractions\SpecificationValidation.Abstractions.csproj", "{98824414-8439-4A57-BCB8-9B7872C1DE2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -199,6 +203,14 @@ Global
 		{405CDB33-859C-4ED0-B55D-DB67A43A7545}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{405CDB33-859C-4ED0-B55D-DB67A43A7545}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{405CDB33-859C-4ED0-B55D-DB67A43A7545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0BC48CC-0CEF-41FB-9953-DF1FD1712C54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0BC48CC-0CEF-41FB-9953-DF1FD1712C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0BC48CC-0CEF-41FB-9953-DF1FD1712C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0BC48CC-0CEF-41FB-9953-DF1FD1712C54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98824414-8439-4A57-BCB8-9B7872C1DE2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98824414-8439-4A57-BCB8-9B7872C1DE2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98824414-8439-4A57-BCB8-9B7872C1DE2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98824414-8439-4A57-BCB8-9B7872C1DE2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -241,6 +253,8 @@ Global
 		{59DE4BE4-E711-469A-A7C2-E2BD764E8E8B} = {B510F7FB-B824-48ED-9E1F-B665FFDB1711}
 		{C9BE0FCA-ACA1-42B8-90F7-F04E03D58FF3} = {49846A86-FFDD-44E7-AA35-76CB8E8E0062}
 		{405CDB33-859C-4ED0-B55D-DB67A43A7545} = {72BE5F60-92BE-4032-89FF-BFC90D9EC56B}
+		{B0BC48CC-0CEF-41FB-9953-DF1FD1712C54} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
+		{98824414-8439-4A57-BCB8-9B7872C1DE2A} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19CECF98-13B4-4B95-8AE5-2BDBD4E8BE49}

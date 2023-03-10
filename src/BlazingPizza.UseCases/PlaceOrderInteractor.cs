@@ -2,8 +2,21 @@
 internal sealed class PlaceOrderInteractor : IPlaceOrderInputPort
 {
     readonly IBlazingPizzaCommandsRepository Repository;
+    readonly IValidator<Address> AddressValidator;
 
-    public PlaceOrderInteractor(IBlazingPizzaCommandsRepository repository) => Repository = repository;
+    public PlaceOrderInteractor(IBlazingPizzaCommandsRepository repository, IValidator<Address> addressValidator)
+    {
+        Repository = repository;
+        AddressValidator = addressValidator;
+    }
 
-    public Task<int> PlaceOrderAsync(PlaceOrderOrderDto order) => Repository.PlaceOrderAsync(order);
+    public async Task<int> PlaceOrderAsync(PlaceOrderOrderDto order)
+    {
+        IValidationResult result = AddressValidator.Validate(order.DeliveryAddress);
+        if (!result.IsValid)
+        {
+            throw new Exception(result.ToString());
+        }
+        return await Repository.PlaceOrderAsync(order);
+    }
 }

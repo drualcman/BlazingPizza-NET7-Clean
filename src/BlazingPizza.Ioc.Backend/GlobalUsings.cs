@@ -5,3 +5,4 @@ global using Microsoft.Extensions.DependencyInjection;
 global using BlazingPizza.Presenters;
 global using BlazingPizza.Backend.BussinesObjects.ValueObjects.Options;
 global using Microsoft.Extensions.Options;
+global using BlazingPizza.Shared.Validators;

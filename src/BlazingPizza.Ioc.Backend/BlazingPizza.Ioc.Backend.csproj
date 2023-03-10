@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -11,6 +11,7 @@
     <ProjectReference Include="..\BlazingPizza.BussinesObjects\BlazingPizza.Backend.BussinesObjects.csproj" />
     <ProjectReference Include="..\BlazingPizza.Controllers\BlazingPizza.Controllers.csproj" />
     <ProjectReference Include="..\BlazingPizza.Presenters\BlazingPizza.Presenters.csproj" />
+    <ProjectReference Include="..\BlazingPizza.Shared.Validators\BlazingPizza.Shared.Validators.csproj" />
     <ProjectReference Include="..\BlazingPizza.UseCases\BlazingPizza.UseCases.csproj" />
   </ItemGroup>
 
