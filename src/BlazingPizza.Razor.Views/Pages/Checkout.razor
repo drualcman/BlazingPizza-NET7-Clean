@@ -1,7 +1,9 @@
 ﻿@page "/checkout"
 
+
 <div class="main">
-    <EditForm Model=ViewModel.Address>
+    <EditForm Model=ViewModel.Address OnValidSubmit="PlaceOrder">
+        <SpecificationValidator Validator=AddressValidator />
         <div class="checkout-cols">
             <div>
                 <h4 class="subtitle">Revisar la orden</h4>
@@ -9,16 +11,10 @@
             </div>
             <div>
                 <h4 class="subtitle">Enviar a:</h4>
-                @if(!ViewModel.IsValidAddress)
-                {
-                    <div class="">
-                        Por favor proporcione nombre, direccion y C.P.
-                    </div>
-                }
                 <AddressEditor Address=ViewModel.Address />
             </div>
         </div>
+        <button class="checkout-button button is-warning" type="submit" disabled="@ViewModel.IsSubmitting">Realizar pedido</button>
     </EditForm>
 
-    <button class="checkout-button button is-warning" @onclick=PlaceOrder disabled="@ViewModel.IsSubmitting">Realizar pedido</button>
 </div>
