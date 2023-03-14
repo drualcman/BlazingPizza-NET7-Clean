@@ -6,9 +6,9 @@ internal class AddressSpecification : Specification<BussinesObjects.ValueObjects
         Property(a => a.Name)
             .AddRule(a => !string.IsNullOrWhiteSpace(a.Name), "Debe especificar el nombre");
         Property(a => a.AddressLine1)
-            .AddRule(a => !string.IsNullOrWhiteSpace(a.Name), "Debe especificar la direccion");
+            .AddRule(a => !string.IsNullOrWhiteSpace(a.AddressLine1), "Debe especificar la direccion");
         Property(a => a.Postalcode)
-            .AddRule(a => !string.IsNullOrWhiteSpace(a.Name), "Debe especificar el codigo postal")
+            .AddRule(a => !string.IsNullOrWhiteSpace(a.Postalcode), "Debe especificar el codigo postal")
             .AddRule(a => a.Postalcode.Length == 5, "El codigo postal debe ser de 5 caracteres");
     }
 }
