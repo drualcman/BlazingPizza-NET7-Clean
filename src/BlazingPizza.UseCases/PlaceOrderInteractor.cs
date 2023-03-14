@@ -12,11 +12,7 @@ internal sealed class PlaceOrderInteractor : IPlaceOrderInputPort
 
     public async Task<int> PlaceOrderAsync(PlaceOrderOrderDto order)
     {
-        IValidationResult result = AddressValidator.Validate(order.DeliveryAddress);
-        if (!result.IsValid)
-        {
-            throw new Exception(result.ToString());
-        }
+        AddressValidator.Guard(order.DeliveryAddress);
         return await Repository.PlaceOrderAsync(order);
     }
 }

@@ -4,3 +4,4 @@ global using BlazingPizza.ViewModels;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Options;
 global using BlazingPizza.FrondEnd.BussinesObjects.ValueObjects.Options;
+global using BlazingPizza.Shared.Validators;

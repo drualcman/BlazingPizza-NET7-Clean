@@ -87,9 +87,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Bla
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Shared.Validators", "src\BlazingPizza.Shared.Validators\BlazingPizza.Shared.Validators.csproj", "{405CDB33-859C-4ED0-B55D-DB67A43A7545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationValidation.Entities", "src\SpecificationValidation.Entities\SpecificationValidation.Entities.csproj", "{B0BC48CC-0CEF-41FB-9953-DF1FD1712C54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Entities", "src\SpecificationValidation.Entities\SpecificationValidation.Entities.csproj", "{B0BC48CC-0CEF-41FB-9953-DF1FD1712C54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationValidation.Abstractions", "src\SpecificationValidation.Abstractions\SpecificationValidation.Abstractions.csproj", "{98824414-8439-4A57-BCB8-9B7872C1DE2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Abstractions", "src\SpecificationValidation.Abstractions\SpecificationValidation.Abstractions.csproj", "{98824414-8439-4A57-BCB8-9B7872C1DE2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -251,7 +251,7 @@ Global
 		{A596305B-451F-46CE-88EC-AE2384B8ADF6} = {39996919-EEB0-40B7-95EB-550C81F5036E}
 		{9CC3F8D9-0F4C-4AD6-A0A4-C708B3EE76D3} = {B510F7FB-B824-48ED-9E1F-B665FFDB1711}
 		{59DE4BE4-E711-469A-A7C2-E2BD764E8E8B} = {B510F7FB-B824-48ED-9E1F-B665FFDB1711}
-		{C9BE0FCA-ACA1-42B8-90F7-F04E03D58FF3} = {49846A86-FFDD-44E7-AA35-76CB8E8E0062}
+		{C9BE0FCA-ACA1-42B8-90F7-F04E03D58FF3} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 		{405CDB33-859C-4ED0-B55D-DB67A43A7545} = {72BE5F60-92BE-4032-89FF-BFC90D9EC56B}
 		{B0BC48CC-0CEF-41FB-9953-DF1FD1712C54} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 		{98824414-8439-4A57-BCB8-9B7872C1DE2A} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}

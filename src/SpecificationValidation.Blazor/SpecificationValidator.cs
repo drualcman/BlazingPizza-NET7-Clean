@@ -20,7 +20,7 @@ public class SpecificationValidator<T> : ComponentBase
     private void ValidationRequested(object sender, ValidationRequestedEventArgs e)
     {
         ValidationMessageStore.Clear();
-        ValidationResult result = Validator.Validate((T)Context.Model);
+        IValidationResult result = Validator.Validate((T)Context.Model);
         HandleErrors(Context.Model, result);
     }
 
@@ -28,15 +28,15 @@ public class SpecificationValidator<T> : ComponentBase
     {
         FieldIdentifier fieldIdentifier = e.FieldIdentifier;
         ValidationMessageStore.Clear(fieldIdentifier);  
-        ValidationResult result = Validator.ValidateProperty((T)fieldIdentifier.Model, fieldIdentifier.FieldName);
+        IValidationResult result = Validator.ValidateProperty((T)fieldIdentifier.Model, fieldIdentifier.FieldName);
         HandleErrors(Context.Model, result);
     }
 
-    private void HandleErrors(object model, ValidationResult result)
+    private void HandleErrors(object model, IValidationResult result)
     {
         if(!result.IsValid)
         {
-            foreach(ValidationError error in result.Errors)
+            foreach(IValidationError error in result.Errors)
             {
                 ValidationMessageStore.Add(new FieldIdentifier(model, error.PropertyName), error.Message);
             }

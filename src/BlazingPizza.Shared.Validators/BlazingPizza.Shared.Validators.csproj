@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SpecificationValidation.Abstractions" Version="1.1.0" />
+    <PackageReference Include="SpecificationValidation.Abstractions" Version="1.1.1" />
   </ItemGroup>
 
   <ItemGroup>
