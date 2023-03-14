@@ -19,4 +19,11 @@ public abstract class Validator<T> : IValidator<T>
 
     public IValidationResult Validate(T entity) => ValidateEntityOrProperty(entity);
     public IValidationResult ValidateProperty(T entity, string propertyName) => ValidateEntityOrProperty(entity, propertyName);
+
+    public void Guard(T entity)
+    {
+        IValidationResult result = Validate(entity);
+        if(!result.IsValid)
+            throw new ValidationException(result);
+    }
 }
