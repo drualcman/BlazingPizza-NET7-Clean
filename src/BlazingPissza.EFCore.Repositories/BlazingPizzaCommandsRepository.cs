@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.EFCore.Repositories;
+﻿using CustomExceptions;
+
+namespace BlazingPizza.EFCore.Repositories;
 internal sealed class BlazingPizzaCommandsRepository : IBlazingPizzaCommandsRepository
 {
     readonly IBlazingPizzaComandsContext Context;
@@ -11,8 +13,16 @@ internal sealed class BlazingPizzaCommandsRepository : IBlazingPizzaCommandsRepo
     public async Task<int> PlaceOrderAsync(PlaceOrderOrderDto order)
     {
         Order Order = order.ToEFOrder();
+        Order.Id = 1;
         Context.Orders.Add(Order);
-        await Context.SaveChangesAsync();
+        try
+        {
+            await Context.SaveChangesAsync();
+        }
+        catch(Exception ex)
+        {
+            throw new PersistenceException(ex.Message, ex.InnerException ?? ex);
+        }
         return Order.Id;
     }
 }

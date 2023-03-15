@@ -1,4 +1,4 @@
-﻿namespace SpecificationValidation.Abstractions;
+﻿namespace SpecificationValidation.Entities;
 public class ValidationException : Exception
 {
 

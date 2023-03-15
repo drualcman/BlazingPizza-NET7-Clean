@@ -10,4 +10,8 @@
     <PackageReference Include="SpecificationValidation.Entities" Version="1.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CustomExceptions\CustomExceptions.csproj" />
+  </ItemGroup>
+
 </Project>
