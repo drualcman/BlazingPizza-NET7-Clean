@@ -4,17 +4,20 @@ internal static class MiddlewaresConfiguration
 {
     public static WebApplication ConfigureWebApiMiddlewares(this WebApplication app)
     {
+        app.UseExceptionHandler(builder =>
+            builder.UseHttpExceptionMiddlerware(app.Environment, app.Services.GetService<IHttpExceptionHandlerHub>()));
+
         if(app.Environment.IsDevelopment())
         {
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
         app.UseHttpsRedirection();
         app.UseSpecialsEndpoints();
         app.UseToppingsEndpoints();
         app.UseOrdersEndpoints();
         app.UseCors();
+
         return app;
     }
 }

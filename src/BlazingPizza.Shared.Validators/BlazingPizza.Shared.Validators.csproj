@@ -7,11 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SpecificationValidation.Abstractions" Version="1.1.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BlazingPizza.Shared.BussinesObjects\BlazingPizza.Shared.BussinesObjects.csproj" />
+    <ProjectReference Include="..\SpecificationValidation.Abstractions\SpecificationValidation.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

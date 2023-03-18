@@ -9,6 +9,7 @@ public static class DependencyContainer
         services.AddUseCasesServices();
         services.AddControllersServices();
         services.AddPresenterServices();
+        services.AddExceptionHandlers();
         return services;
     }
 }

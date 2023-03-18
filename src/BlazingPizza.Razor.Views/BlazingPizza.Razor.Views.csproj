@@ -15,11 +15,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.3" />
-		<PackageReference Include="SpecificationValidation.Blazor" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\BlazingPizza.FrondEnd.BussinesObjects\BlazingPizza.FrondEnd.BussinesObjects.csproj" />
+		<ProjectReference Include="..\SpecificationValidation.Blazor\SpecificationValidation.Blazor.csproj" />
 	</ItemGroup>
 
   <ItemGroup>

@@ -9,3 +9,5 @@ global using BlazingPizza.Ioc.Backend;
 global using BlazingPizza.WebApi.Endpoints;
 global using Microsoft.Extensions.DependencyInjection;
 global using BlazingPizza.Backend.BussinesObjects.ValueObjects.Options;
+global using CustomExceptions;
+global using CustomExceptions.HttpHandlers;

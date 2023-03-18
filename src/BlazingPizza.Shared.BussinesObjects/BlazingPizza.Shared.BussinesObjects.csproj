@@ -7,11 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SpecificationValidation.Entities" Version="1.1.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CustomExceptions\CustomExceptions.csproj" />
+    <ProjectReference Include="..\SpecificationValidation.Entities\SpecificationValidation.Entities.csproj" />
   </ItemGroup>
 
 </Project>
