@@ -4,8 +4,7 @@ internal static class MiddlewaresConfiguration
 {
     public static WebApplication ConfigureWebApiMiddlewares(this WebApplication app)
     {
-        app.UseExceptionHandler(builder =>
-            builder.UseHttpExceptionMiddlerware(app.Environment, app.Services.GetService<IHttpExceptionHandlerHub>()));
+        app.UseHttpExceptionHandler();
 
         if(app.Environment.IsDevelopment())
         {

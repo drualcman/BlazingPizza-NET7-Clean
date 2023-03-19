@@ -4,13 +4,13 @@ internal sealed class ValidationExceptionHandler : IHttpExceptionHandler<Validat
     public ProblemDetails Handle(ValidationException exception) 
     {
         var errors = exception.Errors.GroupBy(e => e.PropertyName);
-        Dictionary<string, List<string>> errorlist = new Dictionary<string, List<string>>();
+        Dictionary<string, List<string>> errorlist = new();
         foreach (var error in errors)
         {
             errorlist.Add(error.Key, error.Select(e => e.Message).ToList());
         }
 
-        ProblemDetails problemDetails = new ProblemDetails
+        ProblemDetails problemDetails = new()
         {
             Status = StatusCodes.Status400BadRequest,
             Type = StatusCodes.Status400BadRequestType,

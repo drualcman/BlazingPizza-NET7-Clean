@@ -4,7 +4,7 @@ internal sealed class PersistenceExceptionHandler : IHttpExceptionHandler<Persis
     public ProblemDetails Handle(PersistenceException exception) 
     {
 
-        ProblemDetails problemDetails = new ProblemDetails
+        ProblemDetails problemDetails = new()
         {
             Status = StatusCodes.Status400BadRequest,
             Type = StatusCodes.Status400BadRequestType,

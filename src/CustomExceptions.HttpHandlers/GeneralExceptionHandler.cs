@@ -3,7 +3,7 @@ internal sealed class GeneralExceptionHandler : IHttpExceptionHandler<GeneralExc
 {
     public ProblemDetails Handle(GeneralException exception)
     {
-        ProblemDetails problemDetails = new ProblemDetails
+        ProblemDetails problemDetails = new()
         {
             Status = StatusCodes.Status500InternalServerError,
             Type = StatusCodes.Status500InternalServerErrorType,
