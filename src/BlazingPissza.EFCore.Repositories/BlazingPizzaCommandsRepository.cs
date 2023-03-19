@@ -1,6 +1,4 @@
-﻿using CustomExceptions;
-
-namespace BlazingPizza.EFCore.Repositories;
+﻿namespace BlazingPizza.EFCore.Repositories;
 internal sealed class BlazingPizzaCommandsRepository : IBlazingPizzaCommandsRepository
 {
     readonly IBlazingPizzaComandsContext Context;

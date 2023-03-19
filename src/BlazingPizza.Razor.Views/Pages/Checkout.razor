@@ -1,6 +1,5 @@
 ﻿@page "/checkout"
 
-
 <div class="main">
     <EditForm Model=ViewModel.Address OnValidSubmit="PlaceOrder">
         <SpecificationValidator Validator=AddressValidator />
@@ -16,5 +15,4 @@
         </div>
         <button class="checkout-button button is-warning" type="submit" disabled="@ViewModel.IsSubmitting">Realizar pedido</button>
     </EditForm>
-
 </div>

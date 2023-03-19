@@ -12,7 +12,7 @@ global using Microsoft.Extensions.Options;
 global using BlazingPizza.EFCore.Repositories.Interfaces;
 global using BlazingPizza.Shared.BussinesObjects.Dtos;
 global using BlazingPizza.Shared.BussinesObjects.Enums;
-//global using EFEntities = BlazingPizza.EFCore.Repositories.Entities;
 global using SharedEntities = BlazingPizza.Shared.BussinesObjects.Entities;
 global using SharedValueObjects = BlazingPizza.Shared.BussinesObjects.ValueObjects;
 global using SharedAgreeates = BlazingPizza.Shared.BussinesObjects.Agregates;
+global using CustomExceptions;

@@ -1,9 +1,7 @@
-﻿global using BlazingPizza.EFCore.Repositories;
-global using BlazingPizza.UseCases;
-global using BlazingPizza.Controllers;
-global using Microsoft.Extensions.DependencyInjection;
+﻿global using BlazingPizza.Controllers;
+global using BlazingPizza.EFCore.Repositories;
 global using BlazingPizza.Presenters;
-global using BlazingPizza.Backend.BussinesObjects.ValueObjects.Options;
-global using Microsoft.Extensions.Options;
 global using BlazingPizza.Shared.Validators;
+global using BlazingPizza.UseCases;
 global using CustomExceptions.HttpHandlers;
+global using Microsoft.Extensions.DependencyInjection;

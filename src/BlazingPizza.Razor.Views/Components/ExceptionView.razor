@@ -1,0 +1,28 @@
+﻿<div class="label is-danger">
+    <div>@Exception.Message</div>
+    @if(Exception is ProblemDetailsException ex)
+    {
+        <div>
+            @ex.ProblemDetails.Detail
+        </div>
+        if(ex.ProblemDetails.InvalidParams is not null)
+        {
+            foreach(var error in ex.ProblemDetails.InvalidParams)
+            {
+                <div>@error.Key</div>
+                <div>
+                    <ul>
+                        @foreach(var message in error.Value)
+                        {
+                            <li>@message</li>
+                        }
+                    </ul>
+                </div>
+            }
+        }
+    }
+</div>
+
+@code {
+    [Parameter] public Exception Exception { get; set; }
+}

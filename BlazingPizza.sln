@@ -83,9 +83,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Ent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecificationValidation.Abstractions", "src\SpecificationValidation.Abstractions\SpecificationValidation.Abstractions.csproj", "{98824414-8439-4A57-BCB8-9B7872C1DE2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomExceptions", "src\CustomExceptions\CustomExceptions.csproj", "{D5AF3127-F1AC-4FED-BE55-225050BB132C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomExceptions", "src\CustomExceptions\CustomExceptions.csproj", "{D5AF3127-F1AC-4FED-BE55-225050BB132C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomExceptions.HttpHandlers", "src\CustomExceptions.HttpHandlers\CustomExceptions.HttpHandlers.csproj", "{315FD9B2-9984-41DF-97A6-B1F4F7657A64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomExceptions.HttpHandlers", "src\CustomExceptions.HttpHandlers\CustomExceptions.HttpHandlers.csproj", "{315FD9B2-9984-41DF-97A6-B1F4F7657A64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

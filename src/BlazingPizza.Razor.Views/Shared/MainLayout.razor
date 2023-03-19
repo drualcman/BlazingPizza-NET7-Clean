@@ -2,8 +2,24 @@
 
 <TopBar />
 <main>
-    @Body
+    <ErrorBoundary @ref=ErrorBoundaryRef>
+        <ErrorContent>
+            <ExceptionView Exception=context />
+            <button @onclick=Recover class="button is-danger">OK</button>
+        </ErrorContent>
+        <ChildContent>
+            @Body
+        </ChildContent>
+    </ErrorBoundary>
 </main>
 <footer>
     &copy; Blazing Pizza @DateTime.UtcNow.Year
 </footer>
+
+@code{
+    ErrorBoundary ErrorBoundaryRef;
+    void Recover()
+    {
+        ErrorBoundaryRef.Recover();
+    }
+}

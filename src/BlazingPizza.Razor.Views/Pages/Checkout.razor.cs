@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.Razor.Views.Pages;
+﻿using Microsoft.AspNetCore.Components.Web;
+
+namespace BlazingPizza.Razor.Views.Pages;
 public partial class Checkout
 {
     [Inject] public ICheckoutViewModel ViewModel { get; set; }

@@ -1,4 +1,7 @@
-﻿namespace BlazingPizza.Gateways;
+﻿using CustomExceptions;
+using System.Text.Json;
+
+namespace BlazingPizza.Gateways;
 internal sealed class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
 {
     readonly HttpClient Client;
@@ -23,6 +26,10 @@ internal sealed class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
         if(response.IsSuccessStatusCode)
         {
             orderId = await response.Content.ReadFromJsonAsync<int>();
+        }
+        else
+        {
+            throw new ProblemDetailsException(await response.Content.ReadFromJsonAsync<JsonElement>());
         }
         return orderId;
     }
