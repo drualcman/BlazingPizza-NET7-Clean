@@ -87,6 +87,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomExceptions", "src\Cus
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomExceptions.HttpHandlers", "src\CustomExceptions.HttpHandlers\CustomExceptions.HttpHandlers.csproj", "{315FD9B2-9984-41DF-97A6-B1F4F7657A64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandler.Razor", "src\ExceptionHandler.Razor\ExceptionHandler.Razor.csproj", "{E699A7B8-818E-49AB-AD09-5AFD9A1E0470}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -203,6 +205,10 @@ Global
 		{315FD9B2-9984-41DF-97A6-B1F4F7657A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{315FD9B2-9984-41DF-97A6-B1F4F7657A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{315FD9B2-9984-41DF-97A6-B1F4F7657A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E699A7B8-818E-49AB-AD09-5AFD9A1E0470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E699A7B8-818E-49AB-AD09-5AFD9A1E0470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E699A7B8-818E-49AB-AD09-5AFD9A1E0470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E699A7B8-818E-49AB-AD09-5AFD9A1E0470}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -246,6 +252,7 @@ Global
 		{98824414-8439-4A57-BCB8-9B7872C1DE2A} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 		{D5AF3127-F1AC-4FED-BE55-225050BB132C} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 		{315FD9B2-9984-41DF-97A6-B1F4F7657A64} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
+		{E699A7B8-818E-49AB-AD09-5AFD9A1E0470} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19CECF98-13B4-4B95-8AE5-2BDBD4E8BE49}

@@ -14,11 +14,12 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.4" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\BlazingPizza.FrondEnd.BussinesObjects\BlazingPizza.FrondEnd.BussinesObjects.csproj" />
+		<ProjectReference Include="..\ExceptionHandler.Razor\ExceptionHandler.Razor.csproj" />
 		<ProjectReference Include="..\SpecificationValidation.Blazor\SpecificationValidation.Blazor.csproj" />
 	</ItemGroup>
 

@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Components.Web;
-
-namespace BlazingPizza.Razor.Views.Pages;
+﻿namespace BlazingPizza.Razor.Views.Pages;
 public partial class Checkout
 {
     [Inject] public ICheckoutViewModel ViewModel { get; set; }
@@ -10,7 +8,7 @@ public partial class Checkout
     async Task PlaceOrder()
     {
         int orderId = await ViewModel.PalceOrderAsync();
-        if (orderId > 0) 
+        if(orderId > 0)
             NavigationManager.NavigateTo($"order/{orderId}");
     }
 }

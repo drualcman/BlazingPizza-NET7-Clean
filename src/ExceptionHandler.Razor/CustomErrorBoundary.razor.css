@@ -1,0 +1,27 @@
+﻿.errorBoundaryContainer {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    background: #e50c0c;
+    color: whitesmoke;
+    border-radius: 0.3rem;
+    box-shadow: 4px 5px 15px 0px rgba(0,0,0,0.5);
+    padding: 1rem;
+    margin: 5rem;
+}
+    .errorBoundaryContainer .messages {
+        flex: 1;
+    }
+    .errorBoundaryContainer .closeIcon {
+        opacity: .6;
+        color: black;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 3px;
+        background-color: lightgrey;
+    }
+    .errorBoundaryContainer .closeIcon:hover{
+        opacity: .9;
+        cursor: pointer;
+        color: yellow;
+    }
