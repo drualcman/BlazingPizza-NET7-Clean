@@ -1,0 +1,21 @@
+<div class="toastContainer @(IsVisible ? "toastContaner-visible":null) @ColorsCssClass">
+    <div class="toastHeader @(IsCloseIconVisible ? "headerBorder" : null)">
+        <div>@(new MarkupString(Heading))</div>
+        @if(IsCloseIconVisible)
+        {
+            <div class="closeIcon" @onclick=HideToast>
+                X
+            </div>
+        }
+    </div>
+    <div class="toastBody">
+        <div class="toastIcon">
+            <span class="icon">
+                <i class="@IconCssClass"></i>
+            </span>
+        </div>
+        <div class="toastMessage">
+            @(new MarkupString(Heading))
+        </div>
+    </div>
+</div>
