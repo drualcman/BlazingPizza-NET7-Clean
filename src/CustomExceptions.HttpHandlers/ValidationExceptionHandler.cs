@@ -14,8 +14,8 @@ internal sealed class ValidationExceptionHandler : IHttpExceptionHandler<Validat
         {
             Status = StatusCodes.Status400BadRequest,
             Type = StatusCodes.Status400BadRequestType,
-            Title = "Data validation error", 
-            Detail = exception.Message,
+            Title = "Error de validacion", 
+            Detail = "Corrige los siguiente problemas:",
             InvalidParams = errorlist,
         };
         return problemDetails;

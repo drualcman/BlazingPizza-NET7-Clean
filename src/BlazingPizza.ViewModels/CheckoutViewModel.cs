@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.ViewModels;
+﻿using CustomExceptions;
+
+namespace BlazingPizza.ViewModels;
 internal sealed class CheckoutViewModel : ICheckoutViewModel
 {
     readonly ICheckoutModel Model;
@@ -10,6 +12,9 @@ internal sealed class CheckoutViewModel : ICheckoutViewModel
         OrderStateService = orderStateService;
     }
 
+    public bool PlaceOrderSuccess => PlaceOrderException == null;
+    public Exception PlaceOrderException { get; private set; } 
+
     public bool IsSubmitting { get; private set; }
 
     public Order Order => OrderStateService.Order;
@@ -18,7 +23,7 @@ internal sealed class CheckoutViewModel : ICheckoutViewModel
 
     public async Task<int> PalceOrderAsync()
     {
-        int orderId;
+        int orderId = 0;
         IsSubmitting = true;
         Order.SetDeliveryAddress(Address);
         try
@@ -26,6 +31,10 @@ internal sealed class CheckoutViewModel : ICheckoutViewModel
             orderId = await Model.PlaceOrderAsync(Order);
             OrderStateService.ResetOrder();
             Address = new();
+        }
+        catch (Exception ex)
+        {
+            PlaceOrderException = ex;
         }
         finally
         {

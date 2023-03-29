@@ -18,7 +18,7 @@ public sealed partial class Toast : ComponentBase, IDisposable
 
     void ShowToast(object sender, ShowToastEventArgs e)
     {
-        BuildToastSettings(e.Message, e.Message, e.Level);
+        BuildToastSettings(e.Heading, e.Message, e.Level);
         IsVisible = true;
         IsCloseIconVisible = e.ShowCloseIcon;
         InvokeAsync(StateHasChanged);
@@ -31,19 +31,19 @@ public sealed partial class Toast : ComponentBase, IDisposable
         switch(level)
         {
             case ToastLevel.Info:
-                ColorsCssClass = "is-info";
+                ColorsCssClass = "has-background-info";
                 IconCssClass = "fas fa-info-circle";
                 break;
             case ToastLevel.Success:
-                ColorsCssClass = "is-success";
+                ColorsCssClass = "has-background-success";
                 IconCssClass = "fas fa-check-circle";
                 break;
             case ToastLevel.Warning:
-                ColorsCssClass = "is-warning";
+                ColorsCssClass = "has-background-warning";
                 IconCssClass = "fas fa-exclamation-triangle";
                 break;
             case ToastLevel.Error:
-                ColorsCssClass = "is-error";
+                ColorsCssClass = "has-background-danger";
                 IconCssClass = "fas fa-times";
                 break;
         }
