@@ -12,5 +12,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\BlazingPizza.FrondEnd.BussinesObjects\BlazingPizza.FrondEnd.BussinesObjects.csproj" />
+		<ProjectReference Include="..\HttpMessageHandlers\HttpMessageHandlers.csproj" />
 	</ItemGroup>
 </Project>

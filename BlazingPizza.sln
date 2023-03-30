@@ -89,7 +89,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomExceptions.HttpHandle
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionHandler.Razor", "src\ExceptionHandler.Razor\ExceptionHandler.Razor.csproj", "{E699A7B8-818E-49AB-AD09-5AFD9A1E0470}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toast.Blazor", "src\Toast.Blazor\Toast.Blazor.csproj", "{B9A7F17B-6725-4E0C-BDC0-B15A6FA8E317}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toast.Blazor", "src\Toast.Blazor\Toast.Blazor.csproj", "{B9A7F17B-6725-4E0C-BDC0-B15A6FA8E317}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpMessageHandlers", "src\HttpMessageHandlers\HttpMessageHandlers.csproj", "{D79747A6-584A-4454-B961-EDF317E5E6E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -215,6 +217,10 @@ Global
 		{B9A7F17B-6725-4E0C-BDC0-B15A6FA8E317}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9A7F17B-6725-4E0C-BDC0-B15A6FA8E317}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9A7F17B-6725-4E0C-BDC0-B15A6FA8E317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D79747A6-584A-4454-B961-EDF317E5E6E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D79747A6-584A-4454-B961-EDF317E5E6E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D79747A6-584A-4454-B961-EDF317E5E6E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D79747A6-584A-4454-B961-EDF317E5E6E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -260,6 +266,7 @@ Global
 		{315FD9B2-9984-41DF-97A6-B1F4F7657A64} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 		{E699A7B8-818E-49AB-AD09-5AFD9A1E0470} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 		{B9A7F17B-6725-4E0C-BDC0-B15A6FA8E317} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
+		{D79747A6-584A-4454-B961-EDF317E5E6E4} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19CECF98-13B4-4B95-8AE5-2BDBD4E8BE49}

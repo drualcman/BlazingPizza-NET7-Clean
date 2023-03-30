@@ -21,17 +21,8 @@ internal sealed class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
 
     public async Task<int> PlaceOrderAsync(Order order) 
     {
-        int orderId;
         HttpResponseMessage response = await Client.PostAsJsonAsync(EndpointsOptions.PlaceOrder, (PlaceOrderOrderDto)order);
-        if(response.IsSuccessStatusCode)
-        {
-            orderId = await response.Content.ReadFromJsonAsync<int>();
-        }
-        else
-        {
-            throw new ProblemDetailsException(await response.Content.ReadFromJsonAsync<JsonElement>());
-        }
-        return orderId;
+        return await response.Content.ReadFromJsonAsync<int>();
     }
 
     public async Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync() =>
