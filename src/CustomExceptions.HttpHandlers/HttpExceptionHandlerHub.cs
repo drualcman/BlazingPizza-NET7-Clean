@@ -31,16 +31,14 @@ internal class HttpExceptionHandlerHub : IHttpExceptionHandlerHub
         }
         else
         {
-            string title;
+            string title = "Ha ocurrido un error al procesar la respuesta.";
             string detail;
             if (includeDetails)
             {
-                title = exception.Message;
-                detail = exception.ToString();
+                detail = exception.Message + " " + exception.ToString();
             }
             else
             {
-                title= "Ha ocurrido un error al procesar la respuesta.";
                 detail = "Consulta al administrador.";
             }
             details = new ProblemDetails
