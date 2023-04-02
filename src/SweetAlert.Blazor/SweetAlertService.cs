@@ -12,7 +12,7 @@ public class SweetAlertService
     }
 
     public async Task<bool> PopUpconfirm(string title, string message, string confim, string abort, string icon)
-    {     
+    {
         IJSObjectReference module = await JSObjectReference.Value;
         var MessageParameters = new
         {
@@ -34,12 +34,12 @@ public class SweetAlertService
             },
             dangerMode = true
         };
-        bool remove = false;
+        bool result = false;
         try
         {
-            remove = await module.InvokeAsync<bool>("swalpop", MessageParameters);
+            result = await module.InvokeAsync<bool>("sweetalert.show", MessageParameters);
         }
         catch { }
-        return remove;
+        return result;
     }
 }
