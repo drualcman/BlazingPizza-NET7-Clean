@@ -9,7 +9,9 @@ public partial class ConfigurePizzaItem
 
     async Task RemovePizaConfirmation()
     {
-        if(await SweetAlert.PopUpconfirm("Eliminar la pizza", $"{Pizza.Special.Name} de la order?", "Si, eliminar la pizza", "No, quiero dejarla en mi orden", "warning"))
+        if(await SweetAlert.ConfirmAsync(new ConfirmArgs("Eliminar la pizza",
+            $"{Pizza.Special.Name} de la order?", Icon.Warning, 
+            "Si, eliminar la pizza", "No, quiero dejarla en mi orden")))
             await OnRemoved.InvokeAsync();
     }
 }

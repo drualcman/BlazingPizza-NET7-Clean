@@ -1,45 +1,57 @@
 ﻿using Microsoft.JSInterop;
 
 namespace SweetAlert.Blazor;
-public class SweetAlertService
+public sealed class SweetAlertService : IAsyncDisposable
 {
     readonly Lazy<Task<IJSObjectReference>> JSObjectReference;
 
     public SweetAlertService(IJSRuntime jsRuntime)
     {
-        JSObjectReference = new(() => jsRuntime.InvokeAsync<IJSObjectReference>(
-            "import", "./_content/SweetAlert.Blazor/sweetalert.min.js").AsTask());
+        JSObjectReference = new(() => GetJSObjectReference(jsRuntime));
     }
 
-    public async Task<bool> PopUpconfirm(string title, string message, string confim, string abort, string icon)
+    private Task<IJSObjectReference> GetJSObjectReference(IJSRuntime jsRuntime) =>
+        jsRuntime.InvokeAsync<IJSObjectReference>(
+            "import", "./_content/SweetAlert.Blazor/sweetalert.min.js").AsTask();
+
+    public async ValueTask DisposeAsync()
     {
-        IJSObjectReference module = await JSObjectReference.Value;
-        var MessageParameters = new
+        if(JSObjectReference.IsValueCreated)
         {
-            title = title,
-            text = message,
-            icon = icon,
-            buttons = new 
-            {
-                abort = new
-                {
-                    text = abort,
-                    value = false
-                },
-                confirm = new
-                {
-                    text = confim,
-                    value = true
-                }
-            },
-            dangerMode = true
-        };
-        bool result = false;
+            IJSObjectReference module = await JSObjectReference.Value;
+            await module.DisposeAsync();
+        }
+    }
+
+    async ValueTask<T> InvokeAsync<T>(object args)
+    {
+        T result = default;
         try
         {
-            result = await module.InvokeAsync<bool>("sweetalert.show", MessageParameters);
+            IJSObjectReference module = await JSObjectReference.Value;
+            result = await module.InvokeAsync<T>("sweetalert", args);
         }
-        catch { }
+        catch(Exception ex)
+        {   
+            await Console.Out.WriteLineAsync($"SweetAlertService: {ex.Message}");
+        }
         return result;
+    } 
+    async ValueTask InvokeVoidAsync(object args)
+    {
+        try
+        {
+            IJSObjectReference module = await JSObjectReference.Value;
+            await module.InvokeVoidAsync("sweetalert", args);
+        }
+        catch(Exception ex)
+        {   
+            await Console.Out.WriteLineAsync($"SweetAlertService: {ex.Message}");
+        }
     }
+
+    public ValueTask<T> FireAsync<T>(object args) => InvokeAsync<T>(args);
+    public ValueTask FireVoidAsync(object args) => InvokeVoidAsync(args);
+    public async Task<bool> ConfirmAsync(ConfirmArgs args) =>
+        await InvokeAsync<bool>(args);
 }
