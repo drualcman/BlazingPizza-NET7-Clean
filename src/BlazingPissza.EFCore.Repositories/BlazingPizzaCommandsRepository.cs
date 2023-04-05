@@ -11,7 +11,6 @@ internal sealed class BlazingPizzaCommandsRepository : IBlazingPizzaCommandsRepo
     public async Task<int> PlaceOrderAsync(PlaceOrderOrderDto order)
     {
         Order Order = order.ToEFOrder();
-        Order.Id = 1;
         Context.Orders.Add(Order);
         try
         {
