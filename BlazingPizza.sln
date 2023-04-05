@@ -93,7 +93,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toast.Blazor", "src\Toast.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpMessageHandlers", "src\HttpMessageHandlers\HttpMessageHandlers.csproj", "{D79747A6-584A-4454-B961-EDF317E5E6E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetAlert.Blazor", "src\SweetAlert.Blazor\SweetAlert.Blazor.csproj", "{A984038E-93F8-4840-ADC7-22687A979753}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SweetAlert.Blazor", "src\SweetAlert.Blazor\SweetAlert.Blazor.csproj", "{A984038E-93F8-4840-ADC7-22687A979753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaflet.Blazor", "src\Leafflet.Blazor\Leaflet.Blazor.csproj", "{C55F8FD1-F54B-4431-BD3C-1463DE5588EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -227,6 +229,10 @@ Global
 		{A984038E-93F8-4840-ADC7-22687A979753}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A984038E-93F8-4840-ADC7-22687A979753}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A984038E-93F8-4840-ADC7-22687A979753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C55F8FD1-F54B-4431-BD3C-1463DE5588EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C55F8FD1-F54B-4431-BD3C-1463DE5588EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C55F8FD1-F54B-4431-BD3C-1463DE5588EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C55F8FD1-F54B-4431-BD3C-1463DE5588EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -274,6 +280,7 @@ Global
 		{B9A7F17B-6725-4E0C-BDC0-B15A6FA8E317} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 		{D79747A6-584A-4454-B961-EDF317E5E6E4} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 		{A984038E-93F8-4840-ADC7-22687A979753} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
+		{C55F8FD1-F54B-4431-BD3C-1463DE5588EB} = {ACD138AA-D8FC-4D58-83D6-4A1AD509090B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19CECF98-13B4-4B95-8AE5-2BDBD4E8BE49}

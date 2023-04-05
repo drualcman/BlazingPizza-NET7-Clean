@@ -3,11 +3,11 @@
 namespace SweetAlert.Blazor;
 public sealed class SweetAlertService : IAsyncDisposable
 {
-    readonly Lazy<Task<IJSObjectReference>> JSObjectReference;
+    readonly Lazy<Task<IJSObjectReference>> ModuleTask;
 
     public SweetAlertService(IJSRuntime jsRuntime)
     {
-        JSObjectReference = new(() => GetJSObjectReference(jsRuntime));
+        ModuleTask = new(() => GetJSObjectReference(jsRuntime));
     }
 
     private Task<IJSObjectReference> GetJSObjectReference(IJSRuntime jsRuntime) =>
@@ -16,9 +16,9 @@ public sealed class SweetAlertService : IAsyncDisposable
 
     public async ValueTask DisposeAsync()
     {
-        if(JSObjectReference.IsValueCreated)
+        if(ModuleTask.IsValueCreated)
         {
-            IJSObjectReference module = await JSObjectReference.Value;
+            IJSObjectReference module = await ModuleTask.Value;
             await module.DisposeAsync();
         }
     }
@@ -28,7 +28,7 @@ public sealed class SweetAlertService : IAsyncDisposable
         T result = default;
         try
         {
-            IJSObjectReference module = await JSObjectReference.Value;
+            IJSObjectReference module = await ModuleTask.Value;
             result = await module.InvokeAsync<T>("sweetalert", args);
         }
         catch(Exception ex)
@@ -41,7 +41,7 @@ public sealed class SweetAlertService : IAsyncDisposable
     {
         try
         {
-            IJSObjectReference module = await JSObjectReference.Value;
+            IJSObjectReference module = await ModuleTask.Value;
             await module.InvokeVoidAsync("sweetalert", args);
         }
         catch(Exception ex)
