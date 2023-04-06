@@ -12,7 +12,7 @@ public sealed class LeafletService : IAsyncDisposable
 
     private Task<IJSObjectReference> GetJSObjectReference(IJSRuntime jsRuntime) =>
         jsRuntime.InvokeAsync<IJSObjectReference>(
-            "import", $"./{ContentHelper.ContentPath}/js/leaflet.esm.js").AsTask();
+            "import", $"./{ContentHelper.ContentPath}/js/leafletService.js").AsTask();
 
     public async ValueTask DisposeAsync()
     {
@@ -23,7 +23,7 @@ public sealed class LeafletService : IAsyncDisposable
         }
     }
 
-    internal async Task<T> InvoiceAsync<T>(string methodName, params object[] parameters)
+    internal async Task<T> InvokeAsyc<T>(string methodName, params object[] parameters)
     {
         IJSObjectReference module = await ModuleTask.Value;
         T result = default;
@@ -44,7 +44,7 @@ public sealed class LeafletService : IAsyncDisposable
         }
         return result;
     }
-    internal async Task InvoiceAsync(string methodName, params object[] parameters)
+    internal async Task InvokeVoidAsync(string methodName, params object[] parameters)
     {
         IJSObjectReference module = await ModuleTask.Value;
         try

@@ -1,13 +1,15 @@
 ﻿@page "/"
 <PageTitle>Blazing Pizza</PageTitle>
 
-<Specials OnClickSpecial=ViewModel.ShowConfigurePizzaDialog />
+@*<Specials OnClickSpecial=ViewModel.ShowConfigurePizzaDialog />*@
 
-@if(ViewModel.ShowingConfigureDialog)
+<Leaflet.Blazor.Map />
+
+@*@if(ViewModel.ShowingConfigureDialog)
 {
     <ConfigurePizzaDialog Pizza=ViewModel.ConfiguringPizza 
         OnCancel=ViewModel.CancelConfigurePizzaDialog 
         OnConfirm=ViewModel.ConfirmConfigurePizzaDialog />
 }
 
-<ConfiguredPizzas Order=OrderStateService.Order />
+<ConfiguredPizzas Order=OrderStateService.Order />*@
