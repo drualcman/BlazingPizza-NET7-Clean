@@ -9,7 +9,7 @@ public partial class Index
 
     DrMaps.Blazor.ValueObjects.LatLong OriginalPoint;
     Map MyMap;
-    List<AddressGeocoding> Locations;
+    List<PlaceGeocoding> Locations;
     Address LookupAddress = new();
     double Latitude = 15.192939;
     double Longitude = 120.586715;
