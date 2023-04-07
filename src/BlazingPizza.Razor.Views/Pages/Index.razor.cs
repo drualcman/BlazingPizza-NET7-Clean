@@ -7,34 +7,53 @@ public partial class Index
     [Inject] IIndexViewModel ViewModel { get; set; }
     [Inject] IOrderStateService OrderStateService { get; set; }
 
-    DrMaps.Blazor.ValueObjects.LatLong OriginalPoint { get; set; } = new DrMaps.Blazor.ValueObjects.LatLong(15.192939, 120.586715);
+    DrMaps.Blazor.ValueObjects.LatLong OriginalPoint;
     Map MyMap;
     List<AddressGeocoding> Locations;
     Address LookupAddress = new();
+    double Latitude = 15.192939;
+    double Longitude = 120.586715;
+    string Title = "";
+    string Description = "";
+    string Message;
+
+    protected override void OnInitialized()
+    {
+        OriginalPoint = new DrMaps.Blazor.ValueObjects.LatLong(Latitude, Longitude );
+    }
+
+    async Task OnMapCreated(Map map)
+    {
+        MyMap = map;
+        await MyMap.AddMarkerAsync(OriginalPoint, "Origen", "Blazing Pizza store");
+    }
+
+    async Task AddMarker()
+    {
+        int index = await MyMap.AddMarkerAsync(new DrMaps.Blazor.ValueObjects.LatLong(Latitude, Longitude), Title, Description);
+        Message = $"Market {index} added.";
+        await InvokeAsync(StateHasChanged);
+    }
 
     async Task GetLocations()
     {
-        DrMaps.Blazor.ValueObjects.Address geocoding = 
+        DrMaps.Blazor.ValueObjects.Address geocoding =
             new DrMaps.Blazor.ValueObjects.Address($"{LookupAddress.AddressLine1} {LookupAddress.AddressLine2}",
                                        LookupAddress.City, LookupAddress.Region, LookupAddress.Postalcode, "");
-        await MyMap.DeleteMap();
+        
         Locations = new(await MyMap.GetAddress(geocoding));
         if(Locations is not null && Locations.Any())
         {
             int total = Locations.Count;
-            if (total > 0)
+            if(total > 0)
             {
                 for(int i = 0; i < total; i++)
                 {
-                    if(i==0) await MyMap.CreateMap(Locations[0].Point);
-                    await MyMap.ShowPoint(Locations[i].Point, LookupAddress.Name, Locations[i].DisplayName);
+                    if(i == 0) await MyMap.SetViewAsync(Locations[0].Point);
+                    await MyMap.AddMarkerAsync(Locations[i].Point, LookupAddress.Name, Locations[i].DisplayName);
                 }
             }
-            else
-                await MyMap.CreateMap(OriginalPoint);
         }
-        else
-            await MyMap.CreateMap(OriginalPoint);
 
     }
 

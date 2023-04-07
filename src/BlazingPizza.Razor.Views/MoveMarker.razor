@@ -1,0 +1,39 @@
+<div class="containerHeader">
+    <div>
+        <div class="field">
+            <div>Origen</div>
+            <div class="control">
+                <label class="form-label">Latitud</label>
+                <input @bind=Latitude class="input" />
+            </div>
+            <div class="control">
+                <label class="form-label">Longitud</label>
+                <input @bind=Longitude class="input" />
+            </div>
+        </div>
+        <div class="field">
+            <div>Datos</div>
+            <div class="control">
+                <label class="form-label">Velocidad (Km/hr)</label>
+                <input @bind=Speed class="input" />
+            </div>
+            <div class="control">
+                <label class="form-label">Tiempo (minutos)</label>
+                <input @bind=TimeInMinutes class="input" />
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <label class="form-label">Distancia en metros</label>
+                <input @bind=Distance readonly class="input" />
+            </div>
+            <div class="control">
+                <button class="button is-link" @onclick=ComputeDistance>Calcular Distancia</button>
+            </div>
+        </div>
+    </div>
+    <div style="height:500px; width: 100%">
+        <DrMaps.Blazor.Map OnMapCreatedAsync=OnCreateMapAsync ZoomLevel="12" />
+    </div>
+</div>
+

@@ -2,15 +2,54 @@
 <PageTitle>Blazing Pizza</PageTitle>
 
 @*<Specials OnClickSpecial=ViewModel.ShowConfigurePizzaDialog />*@
+            
+<MoveMarker />
 
-<DrMaps.Blazor.Map @ref=MyMap OriginalPoint=OriginalPoint />
-<EditForm Model=LookupAddress OnValidSubmit="GetLocations">
-    <div>
-        <h4 class="subtitle">Buscar:</h4>
-        <AddressEditor Address=LookupAddress />
+@*<div class="columns">
+    <div class="column">
+        <div class="columns">
+            <div class="column">
+                <label class="info">Titulo tooltip:</label>
+                <input @bind=Title />
+            </div>
+            <div class="column">
+                <label class="info">Description tooltip:</label>
+                <input @bind=Description />
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <label class="info">Latitude:</label>
+                <input @bind=Latitude />
+            </div>
+            <div class="column">
+                <label class="info">Longitude:</label>
+                <input @bind=Longitude />
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <button class="button is-primary" @onclick=AddMarker>Add Marker</button>
+                <button class="button is-danger" @onclick="async ()=> await MyMap.RemoveMarkersAsync()">Remove Markers</button>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                @Message
+            </div>
+        </div>
     </div>
-    <button class="checkout-button button is-warning" type="submit">Mostrar Puntos</button>
-</EditForm>
+</div>
+
+        <DrMaps.Blazor.Map OriginalPoint=OriginalPoint OnMapCreatedAsync=OnMapCreated />
+        <EditForm Model=LookupAddress OnValidSubmit="GetLocations">
+            <div>
+                <h4 class="subtitle">Buscar:</h4>
+                <AddressEditor Address=LookupAddress />
+            </div>
+            <button class="checkout-button button is-warning" type="submit">Mostrar Puntos</button>
+        </EditForm>*@
+
 
 @*@if(ViewModel.ShowingConfigureDialog)
 {
