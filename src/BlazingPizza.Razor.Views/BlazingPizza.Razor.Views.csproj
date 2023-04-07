@@ -18,9 +18,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="c:\drualcman\DrMaps.Blazor\DrMaps.Blazor\DrMaps.Blazor.csproj" />
 		<ProjectReference Include="..\BlazingPizza.FrondEnd.BussinesObjects\BlazingPizza.FrondEnd.BussinesObjects.csproj" />
 		<ProjectReference Include="..\ExceptionHandler.Razor\ExceptionHandler.Razor.csproj" />
-		<ProjectReference Include="..\Leafflet.Blazor\Leaflet.Blazor.csproj" />
 		<ProjectReference Include="..\SpecificationValidation.Blazor\SpecificationValidation.Blazor.csproj" />
 		<ProjectReference Include="..\SweetAlert.Blazor\SweetAlert.Blazor.csproj" />
 		<ProjectReference Include="..\Toast.Blazor\Toast.Blazor.csproj" />

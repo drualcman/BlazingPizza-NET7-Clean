@@ -1,4 +1,4 @@
-using Leaflet.Blazor;
+using DrMaps.Blazor;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -10,6 +10,6 @@ builder.Services.Configure<EndpointsOptions>(options => options = endpoints);
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddBlazingPizzaFrontendServices(Options.Create(endpoints));
-builder.Services.AddLeafletService();
+builder.Services.AddMapsService();
 
 await builder.Build().RunAsync();

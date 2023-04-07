@@ -3,12 +3,19 @@
 
 @*<Specials OnClickSpecial=ViewModel.ShowConfigurePizzaDialog />*@
 
-<Leaflet.Blazor.Map />
+<DrMaps.Blazor.Map @ref=MyMap OriginalPoint=OriginalPoint />
+<EditForm Model=LookupAddress OnValidSubmit="GetLocations">
+    <div>
+        <h4 class="subtitle">Buscar:</h4>
+        <AddressEditor Address=LookupAddress />
+    </div>
+    <button class="checkout-button button is-warning" type="submit">Mostrar Puntos</button>
+</EditForm>
 
 @*@if(ViewModel.ShowingConfigureDialog)
 {
-    <ConfigurePizzaDialog Pizza=ViewModel.ConfiguringPizza 
-        OnCancel=ViewModel.CancelConfigurePizzaDialog 
+    <ConfigurePizzaDialog Pizza=ViewModel.ConfiguringPizza
+        OnCancel=ViewModel.CancelConfigurePizzaDialog
         OnConfirm=ViewModel.ConfirmConfigurePizzaDialog />
 }
 
