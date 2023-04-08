@@ -25,6 +25,7 @@ public partial class Index
     async Task OnMapCreated(Map map)
     {
         MyMap = map;
+        await MyMap.SetViewAsync(OriginalPoint, 16);
         await MyMap.AddMarkerAsync(OriginalPoint, "Origen", "Blazing Pizza store");
     }
 

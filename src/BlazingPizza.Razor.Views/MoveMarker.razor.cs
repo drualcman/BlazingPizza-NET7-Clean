@@ -11,6 +11,7 @@ public partial class MoveMarker
     double Distance;
     Map Map;  
     DrMaps.Blazor.ValueObjects.LatLong Origin;
+    string Message;
     #endregion
 
     #region overrides
@@ -27,5 +28,14 @@ public partial class MoveMarker
     {
         Distance = Speed * TimeInMinutes / 60 * 1000;  
         await Map.DrawCircleAsync(Origin, "red", "#f03", 0.5, Distance);
+    } 
+
+    async Task GetNewPoint()
+    { 
+        DrMaps.Blazor.ValueObjects.LatLong newPoint =  Map.CalculateRandomPointNear(Origin, Distance / 1000); 
+        await Map.AddMarkerAsync(newPoint, "Customer", "Near to the store");
+        double distance = Map.GetDistanceBetween(Origin, newPoint);
+        Message = $"Distancia al destino {distance.ToString("0.00")} Km";
+
     }
 }
