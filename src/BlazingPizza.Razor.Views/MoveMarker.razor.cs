@@ -6,12 +6,13 @@ public partial class MoveMarker
     #region Variables
     double Latitude = 15.192939;
     double Longitude = 120.586715;
-    int Speed = 30;
-    double TimeInMinutes = 10;
+    int Speed = 100;
+    double TimeInMinutes = 1.5;
     double Distance;
     Map Map;  
     DrMaps.Blazor.ValueObjects.LatLong Origin;
     string Message;
+    int Degree;
     #endregion
 
     #region overrides
@@ -30,12 +31,27 @@ public partial class MoveMarker
         await Map.DrawCircleAsync(Origin, "red", "#f03", 0.5, Distance);
     } 
 
-    async Task GetNewPoint()
-    { 
-        DrMaps.Blazor.ValueObjects.LatLong newPoint =  Map.CalculateRandomPointNear(Origin, Distance / 1000); 
-        await Map.AddMarkerAsync(newPoint, "Customer", "Near to the store");
-        double distance = Map.GetDistanceBetween(Origin, newPoint);
-        Message = $"Distancia al destino {distance.ToString("0.00")} Km";
+    async Task GetDestination()
+    {
+        Degree = new Random().Next(0, 360);
+        DrMaps.Blazor.ValueObjects.LatLong destination = new DrMaps.Blazor.ValueObjects.LatLong(Latitude, Longitude)
+            .AddMetters(Degree, Distance);
+        await Map.AddMarkerAsync(destination, "Customer", "Near to the store");
+        double distance = Map.GetDistanceInMettersBetween(Origin, destination);
+        Message = $"Distancia al destino {(distance / 1000).ToString("0.00")} Km";
+
+    }
+
+    async Task MoveDestinationMarker()
+    {
+        DrMaps.Blazor.ValueObjects.LatLong origin = new DrMaps.Blazor.ValueObjects.LatLong(Latitude, Longitude);
+        int dronID =  await Map.AddMarkerAsync(origin, "Dron", "Dron repartidor", DrMaps.Blazor.ValueObjects.Icon.DRON);
+        for(int i = 0; i < Distance; i+=(int)Distance/10)
+        {
+            await Task.Delay(2000);
+            DrMaps.Blazor.ValueObjects.LatLong destination = origin.AddMetters(Degree, i);
+            await Map.MoveMarketAsync(dronID, destination);
+        }
 
     }
 }
