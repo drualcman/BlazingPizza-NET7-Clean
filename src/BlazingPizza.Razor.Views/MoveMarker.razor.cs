@@ -36,7 +36,7 @@ public partial class MoveMarker
         Degree = new Random().Next(0, 360);
         DrMaps.Blazor.ValueObjects.LatLong destination = new DrMaps.Blazor.ValueObjects.LatLong(Latitude, Longitude)
             .AddMetters(Degree, Distance);
-        await Map.AddMarkerAsync(destination, "Customer", "Near to the store");
+        await Map.AddMarkerAsync(destination, "Customer", "Near to the store", DrMaps.Blazor.ValueObjects.Icon.DESTINATION);
         double distance = Map.GetDistanceInMettersBetween(Origin, destination);
         Message = $"Distancia al destino {(distance / 1000).ToString("0.00")} Km";
 
