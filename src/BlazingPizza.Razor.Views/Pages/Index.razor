@@ -2,8 +2,22 @@
 <PageTitle>Blazing Pizza</PageTitle>
 
 @*<Specials OnClickSpecial=ViewModel.ShowConfigurePizzaDialog />*@
-            
-<MoveMarker />
+
+<input type="number" @bind=OrderId />
+<button @onclick=Mostrar >Muestra</button>
+
+@if(MyOrder != null && Notification != null)
+{
+     <p>Orden: @MyOrder.Id</p>
+     <p>Fecha de creacion: @MyOrder.CreatedTime</p>
+     <p>Estado: @Notification.Status.GetText()</p>
+     <p>Metros recorridos: @Notification.CurrentDistance</p>
+     <p>Posicion actual: @Notification.CurrentPosition.Latitude, @Notification.CurrentPosition.Longitude</p>
+     <p>Destino: @MyOrder.DeliveryLocation.Latitude, @MyOrder.DeliveryLocation.Longitude</p>
+}
+<div style="height:500px;width:100%">
+    <OrderTrackerMap ZoomLevel="13" Order=MyOrder OnNotification=HandleNotification />
+</div>
 
 @*<div class="columns">
     <div class="column">

@@ -10,3 +10,4 @@ global using Microsoft.AspNetCore.Components.Web;
 global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Options;
+global using BlazingPizza.Shared.BussinesObjects.Enums;

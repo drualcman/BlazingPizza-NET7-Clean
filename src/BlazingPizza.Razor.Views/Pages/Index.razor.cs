@@ -1,4 +1,4 @@
-﻿using DrMaps.Blazor;
+﻿using BlazingPizza.Shared.BussinesObjects.Agregates;
 using DrMaps.Blazor.Entities;
 
 namespace BlazingPizza.Razor.Views.Pages;
@@ -11,15 +11,72 @@ public partial class Index
     Map MyMap;
     List<PlaceGeocoding> Locations;
     Address LookupAddress = new();
-    double Latitude = 15.192939;
-    double Longitude = 120.586715;
+    double Latitude = 15.17304;
+    double Longitude = 120.595088;
     string Title = "";
     string Description = "";
     string Message;
+    GetOrderDto MyOrder;
+    public int OrderId;
+    OrderStatusNotification Notification;
+
+    void HandleNotification(OrderStatusNotification notification)
+    {
+        Notification = notification;
+        InvokeAsync(StateHasChanged);
+    }
+
+    GetOrderDto GetOrderFake(int id)
+    {
+        GetOrderDto order = null;
+        switch(id)
+        {
+            case 1:     //nueva orden
+                order = new()
+                {
+                    Id = id,
+                    CreatedTime = DateTime.Now,
+                    DeliveryLocation = new LatLong() { Latitude =  15.17304, Longitude = 120.585088 }
+                }; 
+                break;  
+            case 2:   //preparacion
+                order = new()
+                {
+                    Id = id,
+                    CreatedTime = DateTime.Now.AddSeconds(-5),                    
+                    DeliveryLocation = new LatLong() { Latitude =  15.15304, Longitude = 120.597088 }
+                }; 
+                break;  
+            case 3:   //de camino
+                order = new()
+                {
+                    Id = id,
+                    CreatedTime = DateTime.Now.AddSeconds(-25),                    
+                    DeliveryLocation = new LatLong() { Latitude =  15.14304, Longitude = 120.595088 }
+                }; 
+                break;  
+            case 4:   //de camino
+                order = new()
+                {
+                    Id = id,
+                    CreatedTime = DateTime.Now.AddMinutes(-10),
+                    DeliveryLocation = new LatLong() { Latitude =  15.16304, Longitude = 120.589088 }
+                }; 
+                break;
+        }
+        return order;
+    }
 
     protected override void OnInitialized()
     {
-        OriginalPoint = new DrMaps.Blazor.ValueObjects.LatLong(Latitude, Longitude );
+        OriginalPoint = new DrMaps.Blazor.ValueObjects.LatLong(Latitude, Longitude);        
+    }
+
+    Task Mostrar() 
+    {
+        Notification = null;
+        MyOrder = GetOrderFake(OrderId);
+        return Task.CompletedTask;
     }
 
     async Task OnMapCreated(Map map)
@@ -41,7 +98,7 @@ public partial class Index
         DrMaps.Blazor.ValueObjects.Address geocoding =
             new DrMaps.Blazor.ValueObjects.Address($"{LookupAddress.AddressLine1} {LookupAddress.AddressLine2}",
                                        LookupAddress.City, LookupAddress.Region, LookupAddress.Postalcode, "");
-        
+
         Locations = new(await MyMap.GetAddress(geocoding));
         if(Locations is not null && Locations.Any())
         {
