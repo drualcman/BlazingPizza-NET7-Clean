@@ -7,3 +7,5 @@ global using BlazingPizza.FrondEnd.BussinesObjects.ValueObjects.Options;
 global using BlazingPizza.Shared.Validators;
 global using Toast.Blazor;
 global using SweetAlert.Blazor;
+global using Geolocation.Blazor;
+global using DrMaps.Blazor;

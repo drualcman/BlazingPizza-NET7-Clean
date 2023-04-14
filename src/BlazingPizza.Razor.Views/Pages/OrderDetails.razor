@@ -21,6 +21,9 @@
                 <div class="track-order-details">
                     <OrderReview Order="ViewModel.Order" />
                 </div>
+                <div style="height:500px;width:100%">
+                    <OrderTrackerMap ZoomLevel="13" Order=ViewModel.Order OnNotification=Notification />
+                </div>
             </div>
         </div>
     }

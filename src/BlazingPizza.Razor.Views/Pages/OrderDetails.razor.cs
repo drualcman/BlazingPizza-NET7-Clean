@@ -9,4 +9,9 @@ public partial class OrderDetails
     {
         await ViewModel.GetOrderDetailsAsync(OrderId);
     }
+
+    void Notification(OrderStatusNotification notification)
+    {
+
+    }
 }

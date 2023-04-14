@@ -13,6 +13,10 @@
                 <AddressEditor Address=ViewModel.Address />
             </div>
         </div>
+        <button type="button" @onclick=ShowLocation class="button">Show Location</button>
         <button class="checkout-button button is-warning" type="submit" disabled="@ViewModel.IsSubmitting">Realizar pedido</button>
     </EditForm>
+    <div style="height:500px;width:100%">
+        <Map OnMapCreatedAsync=OnCreateMapAsync ZoomLevel="19"/>
+    </div>
 </div>

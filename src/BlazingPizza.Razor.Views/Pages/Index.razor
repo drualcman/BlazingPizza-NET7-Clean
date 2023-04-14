@@ -1,91 +1,14 @@
 ﻿@page "/"
 <PageTitle>Blazing Pizza</PageTitle>
 
-@*<Specials OnClickSpecial=ViewModel.ShowConfigurePizzaDialog />*@
-
-<div class="columns" style="margin-top: 1rem; width: 100%; padding: 2rem">
-    <div class="column">
-        <div class="columns">
-            <div class="Column">
-                <input type="number" @bind=OrderId />
-                <button @onclick=Mostrar>Muestra</button>
-            </div>
-            <div class="column">
-                @if(MyOrder != null && Notification != null)
-                {
-                    <p>Orden: @MyOrder.Id</p>
-                    <p>Fecha de creacion: @MyOrder.CreatedTime</p>
-                    <p>Estado: @Notification.Status.GetText()</p>
-                    <p>Metros recorridos: @Notification.CurrentDistance</p>
-                    <p>Posicion actual: @Notification.CurrentPosition.Latitude, @Notification.CurrentPosition.Longitude</p>
-                    <p>Destino: @MyOrder.DeliveryLocation.Latitude, @MyOrder.DeliveryLocation.Longitude</p>
-                }
-            </div>
-        </div>
-
-        <div class="columns">
-            <div class="column">
-                <div style="height:500px;width:100%">
-                    <OrderTrackerMap ZoomLevel="13" Order=MyOrder OnNotification=HandleNotification />
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
+<Specials OnClickSpecial=ViewModel.ShowConfigurePizzaDialog />
 
 
-@*<div class="columns">
-    <div class="column">
-        <div class="columns">
-            <div class="column">
-                <label class="info">Titulo tooltip:</label>
-                <input @bind=Title />
-            </div>
-            <div class="column">
-                <label class="info">Description tooltip:</label>
-                <input @bind=Description />
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column">
-                <label class="info">Latitude:</label>
-                <input @bind=Latitude />
-            </div>
-            <div class="column">
-                <label class="info">Longitude:</label>
-                <input @bind=Longitude />
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column">
-                <button class="button is-primary" @onclick=AddMarker>Add Marker</button>
-                <button class="button is-danger" @onclick="async ()=> await MyMap.RemoveMarkersAsync()">Remove Markers</button>
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column">
-                @Message
-            </div>
-        </div>
-    </div>
-</div>
-
-        <DrMaps.Blazor.Map OriginalPoint=OriginalPoint OnMapCreatedAsync=OnMapCreated />
-        <EditForm Model=LookupAddress OnValidSubmit="GetLocations">
-            <div>
-                <h4 class="subtitle">Buscar:</h4>
-                <AddressEditor Address=LookupAddress />
-            </div>
-            <button class="checkout-button button is-warning" type="submit">Mostrar Puntos</button>
-        </EditForm>*@
-
-
-@*@if(ViewModel.ShowingConfigureDialog)
+@if(ViewModel.ShowingConfigureDialog)
 {
     <ConfigurePizzaDialog Pizza=ViewModel.ConfiguringPizza
         OnCancel=ViewModel.CancelConfigurePizzaDialog
         OnConfirm=ViewModel.ConfirmConfigurePizzaDialog />
 }
 
-<ConfiguredPizzas Order=OrderStateService.Order />*@
+<ConfiguredPizzas Order=OrderStateService.Order />

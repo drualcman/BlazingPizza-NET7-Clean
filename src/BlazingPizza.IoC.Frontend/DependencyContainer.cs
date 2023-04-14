@@ -10,7 +10,9 @@ public static class DependencyContainer
         services.AddViewModelsServices();
         services.AddBlazingPizzaWebApiGateways(endpointsOptions, httpClientConfigurator);
         services.AddToastService();
-        services.AddSweetAlertService();
+        services.AddSweetAlertService();  
+        services.AddMapsService();
+        services.AddGeolocationService();
         return services;
     }
 }

@@ -8,6 +8,7 @@ public class OrderStatusNotificatorSimulator : IOrderStatusNotificator, IDisposa
     {
         TrackedOrder trackedOrder = GetOrderDataFake(order, callBack);
         TrackedOrders.TryAdd(order.Id, trackedOrder);
+        ComputePosition(order.Id);
         return Task.FromResult(trackedOrder.Origin);
     }
 
@@ -20,7 +21,7 @@ public class OrderStatusNotificatorSimulator : IOrderStatusNotificator, IDisposa
         DrMaps.Blazor.ValueObjects.LatLong mapOrigin = new DrMaps.Blazor.ValueObjects.LatLong(order.DeliveryLocation.Latitude, order.DeliveryLocation.Longitude);
         mapOrigin = mapOrigin.AddKm(degree, -2.5);
         LatLong origin = new LatLong() { Latitude = mapOrigin.Latitude, Longitude = mapOrigin.Longitude };
-        System.Timers.Timer timer = new System.Timers.Timer(2500);
+        System.Timers.Timer timer = new System.Timers.Timer(250);
         timer.Elapsed += (sender, e) => ComputePosition(order.Id);
         timer.Start();
         return new TrackedOrder(origin, order.DeliveryLocation, order.CreatedTime, callBack,
@@ -42,24 +43,21 @@ public class OrderStatusNotificatorSimulator : IOrderStatusNotificator, IDisposa
         else if(DateTime.Now < dispathTime + DeliveryDurationTime)
         {
             status = OrderStatus.OutForDelivery;
-            if(trackedOrder.StartForDelivery != default)
-            {
-                double elapsetTimeHours = (DateTime.Now - trackedOrder.StartForDelivery).TotalSeconds / 3600;
-                distance = (trackedOrder.Speed * elapsetTimeHours) * 1000.0;
-                if(distance >= trackedOrder.TotalDistance)
-                {
-                    distance = trackedOrder.TotalDistance;
-                    status = OrderStatus.Delivered;
-                }
-                DrMaps.Blazor.ValueObjects.LatLong mapOrigin = new DrMaps.Blazor.ValueObjects.LatLong(currentPosition.Latitude, currentPosition.Longitude);
-                mapOrigin = mapOrigin.AddMetters(trackedOrder.Degree, distance);
-                currentPosition = new LatLong() { Latitude = mapOrigin.Latitude, Longitude = mapOrigin.Longitude };
-            }
-            else
-            {
+            if(trackedOrder.StartForDelivery == default)
+            {    
                 double elapsetSecondsFromDispatchTime = DateTime.Now.Subtract(dispathTime).TotalSeconds;
                 trackedOrder.StartForDelivery = DateTime.Now.AddSeconds(-elapsetSecondsFromDispatchTime);
             }
+            double elapsetTimeHours = (DateTime.Now - trackedOrder.StartForDelivery).TotalSeconds / 3600;
+            distance = (trackedOrder.Speed * elapsetTimeHours) * 1000.0;
+            if(distance >= trackedOrder.TotalDistance)
+            {
+                distance = trackedOrder.TotalDistance;
+                status = OrderStatus.Delivered;
+            }
+            DrMaps.Blazor.ValueObjects.LatLong mapOrigin = new DrMaps.Blazor.ValueObjects.LatLong(trackedOrder.Destination.Latitude, trackedOrder.Destination.Longitude);
+            mapOrigin = mapOrigin.AddMetters(trackedOrder.Degree, distance);
+            currentPosition = new LatLong() { Latitude = mapOrigin.Latitude, Longitude = mapOrigin.Longitude };         
         }
         else
         {
