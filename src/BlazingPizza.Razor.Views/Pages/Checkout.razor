@@ -17,6 +17,6 @@
         <button class="checkout-button button is-warning" type="submit" disabled="@ViewModel.IsSubmitting">Realizar pedido</button>
     </EditForm>
     <div style="height:500px;width:100%">
-        <Map OnMapCreatedAsync=OnCreateMapAsync ZoomLevel="19"/>
+        <Map OnMapCreatedAsync=OnCreateMapAsync ZoomLevel="19" OnDragAsync=OnDragend />
     </div>
 </div>

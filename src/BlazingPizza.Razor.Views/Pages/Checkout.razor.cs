@@ -24,10 +24,13 @@ public partial class Checkout
         {
             var mapPosition = new DrMaps.Blazor.ValueObjects.LatLong(position.Latitude, position.Longitude);
             await Map.SetViewAsync(mapPosition, 19);
-            await Map.AddMarkerAsync(mapPosition, "Mi casa", $"{position.Latitude}, {position.Longitude}", DrMaps.Blazor.ValueObjects.Icon.DESTINATION);
+            await Map.AddMarkerAsync(mapPosition, "Mi casa", $"{position.Latitude}, {position.Longitude}", DrMaps.Blazor.ValueObjects.Icon.DESTINATION, true);
         }
     }
-
+    void OnDragend(DrMaps.Blazor.ValueObjects.LatLong point)
+    {
+        Console.WriteLine(point);
+    }
 
     async Task PlaceOrder()
     {
