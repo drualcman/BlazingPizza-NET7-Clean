@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.Razor.Views.Components;
+﻿using BlazingPizza.Shared.BussinesObjects.Agregates;
+
+namespace BlazingPizza.Razor.Views.Components;
 public partial class OrderTrackerMap : IDisposable
 {
     #region Servicios
@@ -14,6 +16,7 @@ public partial class OrderTrackerMap : IDisposable
     #region variables
     bool IsTracking;
     int DroneId;
+    int TrackingOrderId;
     #endregion
 
     #region map
@@ -21,40 +24,51 @@ public partial class OrderTrackerMap : IDisposable
     async Task OnCreateMapAsync(Map map)
     {
         Map = map;
-        if(Order != null && !IsTracking)
-        {
-            await StartTracking(Order);
-        }
+        await TryStartTracking(Order);
     }
     #endregion
 
     #region overrides
     protected override async Task OnParametersSetAsync()
     {
-        if(Map != null && !IsTracking)
-        {
-            await StartTracking(Order);
-        }
+        await TryStartTracking(Order);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if(firstRender)
         {
-            if(Map != null && !IsTracking)
-            {
-                await StartTracking(Order);
-            }
+            await TryStartTracking(Order);
         }
     }
     #endregion
 
     #region metodos
+    async Task TryStartTracking(GetOrderDto order)
+    {
+        if(Map != null && order != null)
+        {
+            if(!IsTracking)
+            {
+                await StartTracking(order);
+            }
+            else
+            {
+                if(order.Id != TrackingOrderId)
+                {
+                    Notificator.UnSubscripe(TrackingOrderId);
+                    await StartTracking(order);
+                }
+            }
+        }
+    }
+
     async Task StartTracking(GetOrderDto order)
     {
         if(order != null)
         {
             IsTracking = true;
+            TrackingOrderId = order.Id;
             DrMaps.Blazor.ValueObjects.LatLong destination = new DrMaps.Blazor.ValueObjects.LatLong(order.DeliveryLocation.Latitude, order.DeliveryLocation.Longitude);
             await Map.RemoveMarkersAsync();
             await Map.SetViewAsync(destination, ZoomLevel);
@@ -68,9 +82,9 @@ public partial class OrderTrackerMap : IDisposable
 
     async void OnMove(OrderStatusNotification notification)
     {
-        DrMaps.Blazor.ValueObjects.LatLong point = new 
-            DrMaps.Blazor.ValueObjects.LatLong(notification.CurrentPosition.Latitude, 
-                                               notification.CurrentPosition.Longitude);   
+        DrMaps.Blazor.ValueObjects.LatLong point = new
+            DrMaps.Blazor.ValueObjects.LatLong(notification.CurrentPosition.Latitude,
+                                               notification.CurrentPosition.Longitude);
         await Map.MoveMarketAsync(DroneId, point);
         await OnNotification.InvokeAsync(notification);
         if(notification.Status == BlazingPizza.Shared.BussinesObjects.Enums.OrderStatus.Delivered)

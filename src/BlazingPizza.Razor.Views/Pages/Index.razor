@@ -3,21 +3,37 @@
 
 @*<Specials OnClickSpecial=ViewModel.ShowConfigurePizzaDialog />*@
 
-<input type="number" @bind=OrderId />
-<button @onclick=Mostrar >Muestra</button>
+<div class="columns" style="margin-top: 1rem; width: 100%; padding: 2rem">
+    <div class="column">
+        <div class="columns">
+            <div class="Column">
+                <input type="number" @bind=OrderId />
+                <button @onclick=Mostrar>Muestra</button>
+            </div>
+            <div class="column">
+                @if(MyOrder != null && Notification != null)
+                {
+                    <p>Orden: @MyOrder.Id</p>
+                    <p>Fecha de creacion: @MyOrder.CreatedTime</p>
+                    <p>Estado: @Notification.Status.GetText()</p>
+                    <p>Metros recorridos: @Notification.CurrentDistance</p>
+                    <p>Posicion actual: @Notification.CurrentPosition.Latitude, @Notification.CurrentPosition.Longitude</p>
+                    <p>Destino: @MyOrder.DeliveryLocation.Latitude, @MyOrder.DeliveryLocation.Longitude</p>
+                }
+            </div>
+        </div>
 
-@if(MyOrder != null && Notification != null)
-{
-     <p>Orden: @MyOrder.Id</p>
-     <p>Fecha de creacion: @MyOrder.CreatedTime</p>
-     <p>Estado: @Notification.Status.GetText()</p>
-     <p>Metros recorridos: @Notification.CurrentDistance</p>
-     <p>Posicion actual: @Notification.CurrentPosition.Latitude, @Notification.CurrentPosition.Longitude</p>
-     <p>Destino: @MyOrder.DeliveryLocation.Latitude, @MyOrder.DeliveryLocation.Longitude</p>
-}
-<div style="height:500px;width:100%">
-    <OrderTrackerMap ZoomLevel="13" Order=MyOrder OnNotification=HandleNotification />
+        <div class="columns">
+            <div class="column">
+                <div style="height:500px;width:100%">
+                    <OrderTrackerMap ZoomLevel="13" Order=MyOrder OnNotification=HandleNotification />
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
+
 
 @*<div class="columns">
     <div class="column">

@@ -18,13 +18,13 @@ public class OrderStatusNotificatorSimulator : IOrderStatusNotificator, IDisposa
         double distanceInMetter = (speedKmXHr * (deliveryTimeInMinutes) / 60) * 1000.0;
         double degree = new Random().Next(0, 360);
         DrMaps.Blazor.ValueObjects.LatLong mapOrigin = new DrMaps.Blazor.ValueObjects.LatLong(order.DeliveryLocation.Latitude, order.DeliveryLocation.Longitude);
-        mapOrigin = mapOrigin.AddKm(degree, 2.5);
+        mapOrigin = mapOrigin.AddKm(degree, -2.5);
         LatLong origin = new LatLong() { Latitude = mapOrigin.Latitude, Longitude = mapOrigin.Longitude };
         System.Timers.Timer timer = new System.Timers.Timer(2500);
         timer.Elapsed += (sender, e) => ComputePosition(order.Id);
         timer.Start();
         return new TrackedOrder(origin, order.DeliveryLocation, order.CreatedTime, callBack,
-            speedKmXHr, distanceInMetter, 360 - degree, timer);
+            speedKmXHr, distanceInMetter, degree, timer);
     }
 
     private void ComputePosition(int orderId)
