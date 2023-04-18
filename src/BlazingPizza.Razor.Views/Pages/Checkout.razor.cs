@@ -1,4 +1,5 @@
-﻿using ExceptionHandler.Razor;
+﻿using DrMaps.Blazor.Entities;
+using ExceptionHandler.Razor;
 using Geolocation.Blazor;
 using Toast.Blazor;
 
@@ -24,12 +25,13 @@ public partial class Checkout
         {
             var mapPosition = new DrMaps.Blazor.ValueObjects.LatLong(position.Latitude, position.Longitude);
             await Map.SetViewAsync(mapPosition, 19);
-            await Map.AddMarkerAsync(mapPosition, "Mi casa", $"{position.Latitude}, {position.Longitude}", DrMaps.Blazor.ValueObjects.Icon.DESTINATION, true);
+            await Map.AddDraggableMarkerAsync(mapPosition, "Mi casa", $"{position.Latitude}, {position.Longitude}", DrMaps.Blazor.ValueObjects.Icon.DESTINATION);
         }
     }
-    void OnDragend(DrMaps.Blazor.ValueObjects.LatLong point)
+    void OnDragend(DraggedEventArgs point)
     {
-        Console.WriteLine(point);
+        Console.WriteLine(point.MarkerId);
+        Console.WriteLine(point.Point);
     }
 
     async Task PlaceOrder()
