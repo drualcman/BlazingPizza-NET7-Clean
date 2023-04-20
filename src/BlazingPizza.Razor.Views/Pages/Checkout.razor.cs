@@ -1,37 +1,19 @@
-﻿using DrMaps.Blazor.Entities;
-using ExceptionHandler.Razor;
-using Geolocation.Blazor;
-using Toast.Blazor;
-
-namespace BlazingPizza.Razor.Views.Pages;
+﻿namespace BlazingPizza.Razor.Views.Pages;
 public partial class Checkout
 {
     [Inject] public ICheckoutViewModel ViewModel { get; set; }
     [Inject] public NavigationManager NavigationManager { get; set; }
-    [Inject] public IValidator<Address> AddressValidator { get; set; }     
+    [Inject] public IValidator<Address> AddressValidator { get; set; }
     [Inject] public IToastService ToastService { get; set; }
-    [Inject] public GeolocationService GeolocationService { get; set; }
 
-    Map Map;
-    void OnCreateMapAsync(Map map)
+    void SetAddress(GeolocationAddress address)
     {
-        Map = map;
-    }
-
-    async Task ShowLocation()
-    {
-        var position = await GeolocationService.GetPositionAsync();
-        if(!position.Equals(default(LatLongPosition)))
-        {
-            var mapPosition = new DrMaps.Blazor.ValueObjects.LatLong(position.Latitude, position.Longitude);
-            await Map.SetViewAsync(mapPosition, 19);
-            await Map.AddDraggableMarkerAsync(mapPosition, "Mi casa", $"{position.Latitude}, {position.Longitude}", DrMaps.Blazor.ValueObjects.Icon.DESTINATION);
-        }
-    }
-    void OnDragend(DraggedEventArgs point)
-    {
-        Console.WriteLine(point.MarkerId);
-        Console.WriteLine(point.Point);
+        ViewModel.Address.AddressLine1 = address.AddressLine1;
+        ViewModel.Address.AddressLine2 = address.AddressLine2;
+        ViewModel.Address.City = address.City;
+        ViewModel.Address.Region = address.Region;
+        ViewModel.Address.Postalcode = address.PostalCode;
+        ViewModel.Order.SetDeliveryLocation(new LatLong { Latitude = address.Latitude, Longitude = address.Longitude });
     }
 
     async Task PlaceOrder()
@@ -40,7 +22,7 @@ public partial class Checkout
         if(ViewModel.PlaceOrderSuccess)
         {
             ToastService.ShowSuccess("Gracias!", "Tu pedido ha sido registrado.");
-            NavigationManager.NavigateTo($"order/{orderId}"); 
+            NavigationManager.NavigateTo($"order/{orderId}");
         }
         else
             ToastService.ShowError(ViewModel.PlaceOrderException.Message, ExceptionMarkupBuilder.Build(ViewModel.PlaceOrderException), 0);

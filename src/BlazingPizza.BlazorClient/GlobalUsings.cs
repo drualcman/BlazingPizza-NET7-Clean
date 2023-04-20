@@ -1,11 +1,6 @@
-﻿global using BlazingPizza.BlazorClient.Services;
-global using BlazingPizza.FrondEnd.BussinesObjects.ValueObjects.Options;
+﻿global using BlazingPizza.FrondEnd.BussinesObjects.ValueObjects.Options;
 global using BlazingPizza.IoC.Frontend;
 global using BlazingPizza.Razor.Views.Shared;
-global using BlazingPizza.Shared.BussinesObjects.Dtos;
-global using BlazingPizza.Shared.BussinesObjects.Enums;
-global using BlazingPizza.Shared.BussinesObjects.Interfaces;
-global using BlazingPizza.Shared.BussinesObjects.ValueObjects;
 global using Microsoft.AspNetCore.Components.Web;
 global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 global using Microsoft.Extensions.DependencyInjection;

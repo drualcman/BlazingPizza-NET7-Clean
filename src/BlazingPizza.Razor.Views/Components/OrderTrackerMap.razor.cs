@@ -1,6 +1,4 @@
-﻿using BlazingPizza.Shared.BussinesObjects.Agregates;
-
-namespace BlazingPizza.Razor.Views.Components;
+﻿namespace BlazingPizza.Razor.Views.Components;
 public partial class OrderTrackerMap : IDisposable
 {
     #region Servicios
@@ -85,8 +83,8 @@ public partial class OrderTrackerMap : IDisposable
         DrMaps.Blazor.ValueObjects.LatLong point = new
             DrMaps.Blazor.ValueObjects.LatLong(notification.CurrentPosition.Latitude,
                                                notification.CurrentPosition.Longitude);
-        if (DroneId < 0)
-        {                                                         
+        if(DroneId < 0)
+        {
             DroneId = await Map.AddMarkerAsync(point, "Dron", "Repartidor", DrMaps.Blazor.ValueObjects.Icon.DRON);
         }
         else

@@ -9,3 +9,4 @@ global using Toast.Blazor;
 global using SweetAlert.Blazor;
 global using Geolocation.Blazor;
 global using DrMaps.Blazor;
+global using OrderStatusNotificator.Simulator;

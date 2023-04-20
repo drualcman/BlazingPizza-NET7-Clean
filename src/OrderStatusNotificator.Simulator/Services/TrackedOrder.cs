@@ -1,4 +1,4 @@
-﻿namespace BlazingPizza.BlazorClient.Services;
+﻿namespace OrderStatusNotificator.Simulator.Services;
 
 internal class TrackedOrder
 {
@@ -13,8 +13,8 @@ internal class TrackedOrder
 
     public System.Timers.Timer Timer { get; }
 
-    public TrackedOrder(LatLong origing,LatLong destination, DateTime createdTime,   
-        Action<OrderStatusNotification> callback, 
+    public TrackedOrder(LatLong origing, LatLong destination, DateTime createdTime,
+        Action<OrderStatusNotification> callback,
         double speed, double totalDistance, double degree, System.Timers.Timer timer)
     {
         CreatedTime = createdTime;

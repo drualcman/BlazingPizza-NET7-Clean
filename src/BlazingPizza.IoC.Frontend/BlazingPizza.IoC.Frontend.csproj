@@ -11,6 +11,7 @@
     <ProjectReference Include="..\BlazingPizza.Razor.Views\BlazingPizza.Razor.Views.csproj" />
     <ProjectReference Include="..\BlazingPizza.Shared.Validators\BlazingPizza.Shared.Validators.csproj" />
     <ProjectReference Include="..\BlazingPizza.ViewModels\BlazingPizza.ViewModels.csproj" />
+    <ProjectReference Include="..\OrderStatusNotificator.Simulator\OrderStatusNotificator.Simulator.csproj" />
   </ItemGroup>
 
 </Project>

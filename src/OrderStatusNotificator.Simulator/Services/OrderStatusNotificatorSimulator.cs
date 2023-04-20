@@ -1,4 +1,4 @@
-﻿namespace BlazingPizza.BlazorClient.Services;
+﻿namespace OrderStatusNotificator.Simulator.Services;
 
 public class OrderStatusNotificatorSimulator : IOrderStatusNotificator, IDisposable
 {
@@ -16,7 +16,7 @@ public class OrderStatusNotificatorSimulator : IOrderStatusNotificator, IDisposa
     {
         double speedKmXHr = 100;
         double deliveryTimeInMinutes = 1.5;
-        double distanceInMetter = (speedKmXHr * (deliveryTimeInMinutes) / 60) * 1000.0;
+        double distanceInMetter = speedKmXHr * deliveryTimeInMinutes / 60 * 1000.0;
         double degree = new Random().Next(0, 360);
         DrMaps.Blazor.ValueObjects.LatLong mapOrigin = new DrMaps.Blazor.ValueObjects.LatLong(order.DeliveryLocation.Latitude, order.DeliveryLocation.Longitude);
         mapOrigin = mapOrigin.AddKm(degree, -2.5);
@@ -44,12 +44,12 @@ public class OrderStatusNotificatorSimulator : IOrderStatusNotificator, IDisposa
         {
             status = OrderStatus.OutForDelivery;
             if(trackedOrder.StartForDelivery == default)
-            {    
+            {
                 double elapsetSecondsFromDispatchTime = DateTime.Now.Subtract(dispathTime).TotalSeconds;
                 trackedOrder.StartForDelivery = DateTime.Now.AddSeconds(-elapsetSecondsFromDispatchTime);
             }
             double elapsetTimeHours = (DateTime.Now - trackedOrder.StartForDelivery).TotalSeconds / 3600;
-            distance = (trackedOrder.Speed * elapsetTimeHours) * 1000.0;
+            distance = trackedOrder.Speed * elapsetTimeHours * 1000.0;
             if(distance >= trackedOrder.TotalDistance)
             {
                 distance = trackedOrder.TotalDistance;
@@ -57,7 +57,7 @@ public class OrderStatusNotificatorSimulator : IOrderStatusNotificator, IDisposa
             }
             DrMaps.Blazor.ValueObjects.LatLong mapOrigin = new DrMaps.Blazor.ValueObjects.LatLong(trackedOrder.Destination.Latitude, trackedOrder.Destination.Longitude);
             mapOrigin = mapOrigin.AddMetters(trackedOrder.Degree, distance);
-            currentPosition = new LatLong() { Latitude = mapOrigin.Latitude, Longitude = mapOrigin.Longitude };         
+            currentPosition = new LatLong() { Latitude = mapOrigin.Latitude, Longitude = mapOrigin.Longitude };
         }
         else
         {
@@ -69,9 +69,7 @@ public class OrderStatusNotificatorSimulator : IOrderStatusNotificator, IDisposa
         OrderStatusNotification notification = new OrderStatusNotification(currentPosition, distance, status);
         trackedOrder.Callback(notification);
         if(status == OrderStatus.Delivered)
-        {
             UnSubscripe(orderId);
-        }
     }
 
     public void UnSubscripe(int orderId)

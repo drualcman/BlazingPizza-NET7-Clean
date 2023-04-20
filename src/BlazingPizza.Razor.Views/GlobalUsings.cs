@@ -13,3 +13,8 @@ global using DrMaps.Blazor;
 global using Microsoft.AspNetCore.Components;
 global using SpecificationValidation.Entities;
 global using BlazingPizza.Shared.BussinesObjects.Interfaces;
+global using DrMaps.Blazor.Entities;
+global using Geolocation.Blazor;
+global using Geolocation.Blazor.Geocoding;
+global using ExceptionHandler.Razor;
+global using Toast.Blazor;
