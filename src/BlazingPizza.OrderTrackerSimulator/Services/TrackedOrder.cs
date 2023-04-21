@@ -1,4 +1,4 @@
-﻿namespace OrderStatusNotificator.Simulator.Services;
+﻿namespace BlazingPizza.OrderTrackerSimulator.Services;
 
 internal class TrackedOrder
 {

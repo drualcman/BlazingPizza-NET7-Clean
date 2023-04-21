@@ -5,7 +5,7 @@ internal class GeocodeAddress
     public string licence { get; set; }
     public string powered_by { get; set; }
     public string osm_type { get; set; }
-    public int osm_id { get; set; }
+    public long osm_id { get; set; }
     public double lat { get; set; }
     public double lon { get; set; }
     public string display_name { get; set; }
@@ -13,6 +13,7 @@ internal class GeocodeAddress
 
     internal class Address
     {
+        public string shop { get; set; }
         public string amenity { get; set; }
         public string road { get; set; }
         public string neighbourhood { get; set; }

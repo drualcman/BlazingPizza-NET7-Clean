@@ -8,17 +8,17 @@ public static class DependencyContainer
 {
     public static IServiceCollection AddGeolocationService(this IServiceCollection services)
     {
-        services.AddSingleton<GeolocationService>(); 
-        //services.AddHttpClient<IGeocoder, GeocodeGeocoder>(httpClient => 
-        //{
-        //    return new GeocodeGeocoder(httpClient);
-        //});
+        services.AddSingleton<GeolocationService>();
+        services.AddHttpClient<IGeocoder, GeocodeGeocoder>(httpClient =>
+        {
+            return new GeocodeGeocoder(httpClient);
+        });
         return services;
     } 
 
     public static IServiceCollection AddDefaultGeocoderService(this IServiceCollection services, string geoCoderApiKey)
-    {
-        services.AddGeolocationService();
+    {                                     
+        services.AddSingleton<GeolocationService>();
         services.AddHttpClient<IGeocoder, GeoapifyGeocoder>(httpClient => 
         {
             return new GeoapifyGeocoder(httpClient, geoCoderApiKey);

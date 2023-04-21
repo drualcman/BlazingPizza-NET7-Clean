@@ -9,9 +9,5 @@ internal static class LatLongMapper
         };
 
      internal static SharedValueObjects.LatLong ToLatLong(this LatLong address) =>
-        new SharedValueObjects.LatLong
-        {
-            Latitude= address.Latitude,
-            Longitude= address.Longitude
-        };
+        new SharedValueObjects.LatLong(address.Latitude,address.Longitude);
 }

@@ -13,7 +13,7 @@ public partial class Checkout
         ViewModel.Address.City = address.City;
         ViewModel.Address.Region = address.Region;
         ViewModel.Address.Postalcode = address.PostalCode;
-        ViewModel.Order.SetDeliveryLocation(new LatLong { Latitude = address.Latitude, Longitude = address.Longitude });
+        ViewModel.Order.SetDeliveryLocation(new LatLong(address.Latitude, address.Longitude));
     }
 
     async Task PlaceOrder()

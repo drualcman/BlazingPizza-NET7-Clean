@@ -16,7 +16,21 @@ internal class GeocodeGeocoder : IGeocoder
         string url = $"https://geocode.maps.co/reverse?{BuildParameters(latitude, longitude)}";
         HttpResponseMessage response = await Client.GetAsync(url);
         response.EnsureSuccessStatusCode();
-        GeocodeAddress address = await response.Content.ReadFromJsonAsync<GeocodeAddress>();
+        string content = await response.Content.ReadAsStringAsync();
+        GeocodeAddress address;
+        try
+        {
+            address = await response.Content.ReadFromJsonAsync<GeocodeAddress>();
+
+        }
+        catch(Exception ex)
+        {
+            address = new GeocodeAddress();
+            address.address = new();
+            address.address.amenity = ex.Message;
+            address.address.state = ex.StackTrace;
+            
+        }
         GeolocationAddress result = new GeolocationAddress
         {
             Latitude = address.lat,
@@ -28,7 +42,7 @@ internal class GeocodeGeocoder : IGeocoder
             Region = address.address.region,
             City = address.address.city,
             PostalCode = address.address.postcode,
-            HouseNumber = address.address.village,
+            HouseNumber = $"{address.address.shop} {address.address.village}".Trim(),
             Street = address.address.road,
             AddressLine1 = address.address.amenity,
             AddressLine2 = address.address.neighbourhood,

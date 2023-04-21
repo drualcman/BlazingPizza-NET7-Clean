@@ -12,8 +12,9 @@ public static class DependencyContainer
         services.AddToastService();
         services.AddSweetAlertService();  
         services.AddMapsService();
-        services.AddDefaultGeocoderService("1b48259b810e48ddb151889f9ea58db0");
-        services.AddOrderStatusNotificator();
+        services.AddGeolocationService();
+        //services.AddDefaultGeocoderService("1b48259b810e48ddb151889f9ea58db0");
+        services.AddOrderStatusNotificatorService();
         return services;
     }
 }
