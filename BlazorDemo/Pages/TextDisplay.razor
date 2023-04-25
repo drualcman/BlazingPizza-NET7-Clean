@@ -1,5 +1,33 @@
-﻿<p>Enter Text:</p>
+﻿@page "/capturedata"
+@*<p>Enter Text:</p>
 
-<input @onkeypress=HandleKeyPress value="@Data" @onkeypress:preventDefault />
+<input @onkeypress=HandleKeyPress value="@Data" @onkeypress:preventDefault />*@
 
+<ol>
+    <li>
+        <NavLink href="capturedata/#move1">Move 1</NavLink>
+    </li> 
+    <li>
+        <NavLink href="capturedata/#move2">Move 2</NavLink>
+    </li> 
+    <li>
+        <NavLink href="capturedata/#move3">Move 3</NavLink>
+    </li> 
+    <li>
+        <NavLink href="capturedata/#move4">Move 4</NavLink>
+    </li>
+</ol>
+
+<div id="move1">
+    <h1>Move 1</h1>
+</div>
+<div id="move2">
+    <h1>Move 2</h1>
+</div>
+<div id="move3">
+    <h1>Move 3</h1>
+</div>
+<div id="move4">
+    <h1>Move 4</h1>
+</div>
 

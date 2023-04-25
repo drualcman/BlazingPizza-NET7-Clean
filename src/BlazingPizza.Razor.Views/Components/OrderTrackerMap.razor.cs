@@ -71,7 +71,7 @@ public partial class OrderTrackerMap : IDisposable
             await Map.RemoveMarkersAsync();
             await Map.SetViewAsync(FromLatLong(order.DeliveryLocation), ZoomLevel);
             LatLong origin = await Notificator.SubscribeAcync(Order, OnMove);
-            await Map.AddMarkerAsync(FromLatLong(origin), "Origin", "Blazing Pizza Store");
+            await Map.AddMarkerAsync(FromLatLong(origin), "El restaurante", "Blazing Pizza Restaurant");
             await Map.AddMarkerAsync(FromLatLong(order.DeliveryLocation), "Usted", "Lugar de entrega", DrMaps.Blazor.ValueObjects.Icon.DESTINATION);
         }
     }
@@ -81,19 +81,16 @@ public partial class OrderTrackerMap : IDisposable
 
     async void OnMove(OrderStatusNotification notification)
     {
-        DrMaps.Blazor.ValueObjects.LatLong point = new
-            DrMaps.Blazor.ValueObjects.LatLong(notification.CurrentPosition.Latitude,
-                                               notification.CurrentPosition.Longitude);
         if(DroneId < 0)
         {
-            DroneId = await Map.AddMarkerAsync(point, "Dron", "Repartidor", DrMaps.Blazor.ValueObjects.Icon.DRON);
+            DroneId = await Map.AddMarkerAsync(FromLatLong(notification.CurrentPosition), "Dron", "Repartidor", DrMaps.Blazor.ValueObjects.Icon.DRON);
         }
         else
         {
-            await Map.MoveMarketAsync(DroneId, point);
+            await Map.MoveMarketAsync(DroneId, FromLatLong(notification.CurrentPosition));
         }
         await OnNotification.InvokeAsync(notification);
-        if(notification.Status == BlazingPizza.Shared.BussinesObjects.Enums.OrderStatus.Delivered)
+        if(notification.OrderStatus == BlazingPizza.Shared.BussinesObjects.Enums.OrderStatus.Delivered)
         {
             IsTracking = false;
         }

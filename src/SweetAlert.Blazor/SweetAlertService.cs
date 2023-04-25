@@ -25,7 +25,7 @@ public sealed class SweetAlertService : IAsyncDisposable
 
     async ValueTask<T> InvokeAsync<T>(object args)
     {
-        T result = default;
+        T result = default!;
         try
         {
             IJSObjectReference module = await ModuleTask.Value;

@@ -15,13 +15,13 @@
         <div class="track-order">
             <div class="track-order-title">
                 <h2>Pedido realizado @ViewModel.Order.CreatedTime.ToLongDateString()</h2>
-                <p>Estado: <strong>@ViewModel.Order.Status.GetText()</strong></p>
+                <p>Estado: <strong>@OrderStatus.GetText()</strong></p>
             </div>
             <div class="track-order-body">
                 <div class="track-order-details">
                     <OrderReview Order="ViewModel.Order" />
                 </div>
-                <div style="height:500px;width:100%">
+                <div class="track-order-map">
                     <OrderTrackerMap ZoomLevel="13" Order=ViewModel.Order OnNotification=Notification />
                 </div>
             </div>

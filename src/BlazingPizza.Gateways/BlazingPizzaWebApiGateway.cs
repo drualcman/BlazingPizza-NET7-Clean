@@ -1,7 +1,4 @@
-﻿using CustomExceptions;
-using System.Text.Json;
-
-namespace BlazingPizza.Gateways;
+﻿namespace BlazingPizza.Gateways;
 internal sealed class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
 {
     readonly HttpClient Client;
@@ -13,13 +10,13 @@ internal sealed class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
         EndpointsOptions = endpointsOptions.Value;
     }
 
-    public async Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync() => 
+    public async Task<IReadOnlyCollection<PizzaSpecial>> GetSpecialsAsync() =>
         await Client.GetFromJsonAsync<IReadOnlyCollection<PizzaSpecial>>(EndpointsOptions.Specials);
 
-    public async Task<IReadOnlyCollection<Topping>> GetToppingsAsync() => 
+    public async Task<IReadOnlyCollection<Topping>> GetToppingsAsync() =>
         await Client.GetFromJsonAsync<IReadOnlyCollection<Topping>>(EndpointsOptions.Toppings);
 
-    public async Task<int> PlaceOrderAsync(Order order) 
+    public async Task<int> PlaceOrderAsync(Order order)
     {
         HttpResponseMessage response = await Client.PostAsJsonAsync(EndpointsOptions.PlaceOrder, (PlaceOrderOrderDto)order);
         return await response.Content.ReadFromJsonAsync<int>();

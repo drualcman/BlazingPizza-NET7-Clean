@@ -25,6 +25,7 @@
 		<ProjectReference Include="..\SpecificationValidation.Blazor\SpecificationValidation.Blazor.csproj" />
 		<ProjectReference Include="..\SweetAlert.Blazor\SweetAlert.Blazor.csproj" />
 		<ProjectReference Include="..\Toast.Blazor\Toast.Blazor.csproj" />
+		<ProjectReference Include="..\BlazingPizza.OrderTrackerSimulator\BlazingPizza.OrderTrackerSimulator.csproj" />
 	</ItemGroup>
 
   <ItemGroup>

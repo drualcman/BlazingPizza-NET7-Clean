@@ -21,7 +21,7 @@ internal sealed class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesReposi
     private void GetStatus(SharedAgreeates.Order order, out OrderStatus status, out bool isDelivered)
     {
         TimeSpan PreparationDurationTime = TimeSpan.FromSeconds(10);
-        TimeSpan DeliveryDurationTime = TimeSpan.FromSeconds(10);
+        TimeSpan DeliveryDurationTime = TimeSpan.FromMinutes(1.5);
 
         DateTime dispathTime = order.CreatedTime.Add(PreparationDurationTime);
 
@@ -36,7 +36,7 @@ internal sealed class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesReposi
     {
         OrderStatus status;
         bool isDelivered;
-        GetStatus(order, out status, out isDelivered);
+        GetStatus(order, out status, out isDelivered); 
         return new GetOrdersDto(order.Id, order.CreatedTime, order.UserId, order.Pizzas.Count, order.GetTotalPrice(), status, isDelivered);
     }
 
@@ -74,7 +74,8 @@ internal sealed class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesReposi
             UserId = order.UserId,
             Pizzas = order.Pizzas.Select(p => (PizzaDto)p).ToList(),
             Status = status,
-            IdDelivered = isDelivered
+            IdDelivered = isDelivered,
+            DeliveryLocation = order.DeliveryLocation
         };
     }
 }

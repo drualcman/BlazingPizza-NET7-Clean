@@ -11,7 +11,11 @@ internal static class OrderMapper
             Pizzas = order.Pizzas.Select(p=> p.ToEFPizza()).ToList()
         };
 
-    internal static SharedAgreeates.Order ToOrder(this Order order) => 
-        SharedAgreeates.Order.Create(order.Id, order.CreatedTime, order.UserId)
+    internal static SharedAgreeates.Order ToOrder(this Order order)
+    {
+        SharedAgreeates.Order result = SharedAgreeates.Order.Create(order.Id, order.CreatedTime, order.UserId)
             .AddPizzas(order.Pizzas?.Select(p => p.ToPizza()));
+        result.SetDeliveryLocation(new BlazingPizza.Shared.BussinesObjects.ValueObjects.LatLong(order.DeliveryLocation.Latitude,order.DeliveryLocation.Longitude));
+        return result;
+    }
 }

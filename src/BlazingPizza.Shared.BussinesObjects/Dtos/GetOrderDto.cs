@@ -3,7 +3,7 @@ public class GetOrderDto
 {
     public int Id { get; init; }
     public DateTime CreatedTime { get; init; }
-    public LatLong DeliveryLocation { get; set; }
+    public LatLong DeliveryLocation { get; init; }
     public string UserId { get; init; }
     public OrderStatus Status { get; init; }
     public bool IdDelivered { get; init; }

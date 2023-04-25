@@ -95,6 +95,7 @@ public class Order : BaseOrder
     public static implicit operator Order(GetOrderDto order)
     {
         Order newOrder = Create(order.Id, order.CreatedTime, order.UserId);
+        newOrder.DeliveryLocation = order.DeliveryLocation;
         newOrder.AddPizzas(order.Pizzas.Select(p => (Pizza)p));
         return newOrder;
     }

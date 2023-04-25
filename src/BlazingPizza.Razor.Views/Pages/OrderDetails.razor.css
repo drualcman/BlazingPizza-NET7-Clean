@@ -46,5 +46,9 @@
 .track-order-details {
     overflow-y: auto;
     padding: 1.5rem 3rem;
-    flex-grow: 1;
+}
+
+.track-order-map {
+    height: 100%;
+    width: 100%;
 }

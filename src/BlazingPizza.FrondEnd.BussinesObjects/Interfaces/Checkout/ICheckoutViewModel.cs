@@ -1,6 +1,4 @@
-﻿using CustomExceptions;
-
-namespace BlazingPizza.FrondEnd.BussinesObjects.Interfaces.Checkout;
+﻿namespace BlazingPizza.FrondEnd.BussinesObjects.Interfaces.Checkout;
 public interface ICheckoutViewModel
 {
     Address Address { get; }
@@ -8,5 +6,5 @@ public interface ICheckoutViewModel
     Order Order { get; }
     Task<int> PalceOrderAsync();
     bool PlaceOrderSuccess { get; }
-    Exception PlaceOrderException { get; }    
+    Exception PlaceOrderException { get; }
 }

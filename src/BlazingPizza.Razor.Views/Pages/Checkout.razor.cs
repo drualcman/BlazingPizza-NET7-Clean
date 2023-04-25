@@ -8,10 +8,10 @@ public partial class Checkout
 
     void SetAddress(GeolocationAddress address)
     {
-        ViewModel.Address.AddressLine1 = address.AddressLine1;
-        ViewModel.Address.AddressLine2 = address.AddressLine2;
+        ViewModel.Address.AddressLine1 = $"{address.AddressLine1} {address.AddressLine2}".Trim();
+        ViewModel.Address.AddressLine2 = address.Street;
         ViewModel.Address.City = address.City;
-        ViewModel.Address.Region = address.Region;
+        ViewModel.Address.Region = address.State;
         ViewModel.Address.Postalcode = address.PostalCode;
         ViewModel.Order.SetDeliveryLocation(new LatLong(address.Latitude, address.Longitude));
     }
