@@ -3,12 +3,10 @@
 
 <Specials OnClickSpecial=ViewModel.ShowConfigurePizzaDialog />
 
-
-@if(ViewModel.ShowingConfigureDialog)
-{
+<DialogModal IsVisible=ViewModel.ShowingConfigureDialog>
     <ConfigurePizzaDialog Pizza=ViewModel.ConfiguringPizza
         OnCancel=ViewModel.CancelConfigurePizzaDialog
         OnConfirm=ViewModel.ConfirmConfigurePizzaDialog />
-}
+</DialogModal>
 
 <ConfiguredPizzas Order=OrderStateService.Order />
