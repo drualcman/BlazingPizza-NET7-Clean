@@ -10,17 +10,19 @@ else if(ErrorContent is not null)
 }
 else
 {
-    <div class="errorBoundaryContainer">
-        <div class="messages">
-            @foreach(Exception exception in ReceivedExceptions)
-            {
-                <ExceptionView Exception=exception />
-            }
-        </div>
-        <div>
-            <span class="closeIcon" @onclick=Recover>X</span>
-        </div>
-    </div>    
+    <DialogModal IsVisible=true>
+        <div class="errorBoundaryContainer">
+            <div class="messages">
+                @foreach(Exception exception in ReceivedExceptions)
+                {
+                    <ExceptionView Exception=exception />
+                }
+            </div>
+            <div>
+                <span class="closeIcon" @onclick=Recover>X</span>
+            </div>
+        </div>    
+    </DialogModal>
 }
 
 

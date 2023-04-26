@@ -20,6 +20,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Dialog.Blazor\Dialog.Blazor.csproj" />
 		<ProjectReference Include="..\Geolocation.Blazor\Geolocation.Blazor.csproj" />
+		<ProjectReference Include="..\TemplatedList.Blazor\TemplatedList.Blazor.csproj" />
 		<ProjectReference Include="c:\drualcman\DrMaps.Blazor\DrMaps.Blazor\DrMaps.Blazor.csproj" />
 		<ProjectReference Include="..\BlazingPizza.FrondEnd.BussinesObjects\BlazingPizza.FrondEnd.BussinesObjects.csproj" />
 		<ProjectReference Include="..\ExceptionHandler.Razor\ExceptionHandler.Razor.csproj" />

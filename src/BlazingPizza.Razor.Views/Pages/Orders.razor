@@ -1,40 +1,34 @@
 ﻿@page "/orders"
 
 <div class="main">
-    @if(ViewModel.Orders is null)
-    {
-        <p>Cargando...</p>
-    }
-    else if(!ViewModel.Orders.Any())
-    {
-        <h2>No se ha realizado alguna orden.</h2>
-        <a class="button is-success" href="">Ordena alguna pizza</a>
-    }
-    else
-    {
-        <div class="list-group orders-list">
-            @foreach(GetOrdersDto item in ViewModel.Orders)
-        {
-              <div class="list-group-item columns">
-                    <div class="column">
-                        <h5>@item.CreatedTime.ToLongDateString()</h5>
-                        Pizzas: <strong>@item.PizzasCount</strong>&nbsp;
-                        Precio total: <strong>@item.GetFormatedTotalPrice()</strong>
+    <Templated Loader="LoadOrders" ListGroupClass="list-group orders-list" Context="item">
+        <Loading>
+            <p>Cargando...</p>
+        </Loading>
+        <Empty>
+            <h2>No se ha realizado alguna orden.</h2>
+            <a class="button is-success" href="">Ordena alguna pizza</a>
+        </Empty>
+        <Item>
+            <div class="list-group-item columns">
+                <div class="column">
+                    <h5>@item.CreatedTime.ToLongDateString()</h5>
+                    Pizzas: <strong>@item.PizzasCount</strong>&nbsp;
+                    Precio total: <strong>@item.GetFormatedTotalPrice()</strong>
+                </div>
+                <div class="column">
+                    Estado:
+                    <strong>@item.Status.GetText()</strong>
+                </div>
+                @if(item.IsDelivered == false)
+                {
+                    <div class="column has-text-right">
+                        <a href="order/@item.Id" class="button is-success">Rastrear &gt;</a>
                     </div>
-                    <div class="column">
-                        Estado:
-                        <strong>@item.Status.GetText()</strong>
-                    </div>
-                    @if (item.IsDelivered == false)
-                    {
-                        <div class="column has-text-right">
-                            <a href="order/@item.Id" class="button is-success">Rastrear &gt;</a>
-                        </div>
-                    }
-              </div>
-        }
-        </div>
-    }
+                }
+            </div>
+        </Item>
+    </Templated>
 </div>
 
 

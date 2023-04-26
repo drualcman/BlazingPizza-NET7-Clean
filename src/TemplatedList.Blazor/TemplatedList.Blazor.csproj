@@ -16,11 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CustomExceptions\CustomExceptions.csproj" />
-    <ProjectReference Include="..\Dialog.Blazor\Dialog.Blazor.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
