@@ -8,9 +8,10 @@ internal sealed class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesReposi
         Context = context;
     }
 
-    public async Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync()
+    public async Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync(string userId)
     {
         return (await Context.Orders
+            .Where(o => o.UserId == userId)
             .Include(o => o.Pizzas).ThenInclude(p => p.PizzaSpecial)
             .Include(o => o.Pizzas).ThenInclude(p => p.Toppings).ThenInclude(t => t.Topping)
             .OrderByDescending(o => o.CreatedTime)
@@ -52,10 +53,11 @@ internal sealed class BlazingPizzaQueriesRepository : IBlazingPizzaQueriesReposi
                                      .ToListAsync();
     }
 
-    public async Task<GetOrderDto> GetOrderAsync(int id)
+    public async Task<GetOrderDto> GetOrderAsync(int id, string userId)
     {
         Order order = await Context.Orders
             .Where(o => o.Id == id)
+            .Where(o => o.UserId == userId)
             .Include(o => o.Pizzas).ThenInclude(p => p.PizzaSpecial)
             .Include(o => o.Pizzas).ThenInclude(p => p.Toppings).ThenInclude(t => t.Topping)
             .FirstOrDefaultAsync();

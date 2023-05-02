@@ -9,3 +9,4 @@ global using BlazingPizza.Backend.BussinesObjects.Interfaces.GetOrder;
 global using BlazingPizza.Shared.BussinesObjects.Dtos;
 global using BlazingPizza.Shared.BussinesObjects.ValueObjects;
 global using SpecificationValidation.Entities;
+global using Membership.Entities;

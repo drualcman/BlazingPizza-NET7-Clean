@@ -2,8 +2,17 @@
 internal sealed class GetOrderInteractor : IGetOrderInputPort
 {
     readonly IBlazingPizzaQueriesRepository Repository;
+    readonly IUserService UserService;
 
-    public GetOrderInteractor(IBlazingPizzaQueriesRepository repository) => Repository = repository;
+    public GetOrderInteractor(IBlazingPizzaQueriesRepository repository, IUserService userService)
+    {
+        Repository = repository;
+        UserService = userService;
+    }
 
-    public Task<GetOrderDto> GetOrderAsync(int id) => Repository.GetOrderAsync(id);
+    public async Task<GetOrderDto> GetOrderAsync(int id)
+    {
+        UserService.CheckIfIsAuthorizedGuard();
+        return await Repository.GetOrderAsync(id, UserService.UserId);
+    }
 }
