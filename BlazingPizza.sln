@@ -95,11 +95,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpMessageHandlers", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SweetAlert.Blazor", "src\SweetAlert.Blazor\SweetAlert.Blazor.csproj", "{A984038E-93F8-4840-ADC7-22687A979753}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrMaps.Blazor", "..\..\..\..\..\..\drualcman\DrMaps.Blazor\DrMaps.Blazor\DrMaps.Blazor.csproj", "{19B8A491-4F8D-4D35-92F3-1C02B49CF8A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrMaps.Blazor", "c:\drualcman\DrMaps.Blazor\DrMaps.Blazor\DrMaps.Blazor.csproj", "{19B8A491-4F8D-4D35-92F3-1C02B49CF8A2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geolocation.Blazor", "src\Geolocation.Blazor\Geolocation.Blazor.csproj", "{AF57A54C-A1BB-4962-BC48-42C17E0B1FF1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PositionTrackerSimulator", "..\..\..\..\..\..\drualcman\PositionTrackerSimulator\PositionTrackerSimulator.csproj", "{5D5C3EE2-E7A1-4AB7-9CC1-2FF2036D905B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PositionTrackerSimulator", "c:\drualcman\PositionTrackerSimulator\PositionTrackerSimulator.csproj", "{5D5C3EE2-E7A1-4AB7-9CC1-2FF2036D905B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.OrderTrackerSimulator", "src\BlazingPizza.OrderTrackerSimulator\BlazingPizza.OrderTrackerSimulator.csproj", "{220CE2DD-46EA-4A4A-94BC-53AF84CE75A7}"
 EndProject

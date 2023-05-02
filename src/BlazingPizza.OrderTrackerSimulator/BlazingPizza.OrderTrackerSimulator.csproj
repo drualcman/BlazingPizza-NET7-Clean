@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\..\drualcman\PositionTrackerSimulator\PositionTrackerSimulator.csproj" />
+    <ProjectReference Include="c:\drualcman\PositionTrackerSimulator\PositionTrackerSimulator.csproj" />
     <ProjectReference Include="..\BlazingPizza.Shared.BussinesObjects\BlazingPizza.Shared.BussinesObjects.csproj" />
   </ItemGroup>
 

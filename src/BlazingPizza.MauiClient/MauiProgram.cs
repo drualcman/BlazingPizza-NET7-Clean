@@ -1,4 +1,4 @@
-﻿using BlazingPizza.BussinesObjects.ValueObjects.Options;
+﻿using BlazingPizza.FrondEnd.BussinesObjects.ValueObjects.Options;
 using Microsoft.Extensions.Configuration;
 
 namespace BlazingPizza.MauiClient;
@@ -37,8 +37,8 @@ public static class MauiProgram
 #endif
         EndpointsOptions endpoints = builder.Configuration.GetSection("BlazzingPizzaEndpoint:others").Get<EndpointsOptions>();
 #if ANDROID
-    endpoints = builder.Configuration.GetSection("BlazzingPizzaEndpoint:android").Get<EndpointsOptions>();
-    
+        endpoints = builder.Configuration.GetSection("BlazzingPizzaEndpoint:android").Get<EndpointsOptions>();
+
 #endif
         builder.Services.AddBlazingPizzaFrontendServices(endpoints, configurator);
 
