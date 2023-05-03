@@ -14,7 +14,7 @@ internal sealed class PlaceOrderInteractor : IPlaceOrderInputPort
 
     public async Task<int> PlaceOrderAsync(PlaceOrderOrderDto order)
     {
-        UserService.CheckIfIsAuthorizedGuard();        
+        UserService.ThrowIfNotAuthenticated();        
         order.UserId = UserService.UserId;
         AddressValidator.Guard(order.DeliveryAddress);
         return await Repository.PlaceOrderAsync(order);

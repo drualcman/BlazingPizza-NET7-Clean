@@ -5,3 +5,4 @@ global using BlazingPizza.Shared.Validators;
 global using BlazingPizza.UseCases;
 global using CustomExceptions.HttpHandlers;
 global using Microsoft.Extensions.DependencyInjection;
+global using Membership.UserService;

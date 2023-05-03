@@ -4,6 +4,7 @@ public static class DependencyContainer
 {
     public static IServiceCollection AddBlazingPizzaBackendServices(this IServiceCollection services)
     {           
+        services.AddUserService();
         services.AddValidators();
         services.AddRepositoryServices();
         services.AddUseCasesServices();

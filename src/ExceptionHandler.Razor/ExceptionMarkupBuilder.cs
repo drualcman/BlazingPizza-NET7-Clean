@@ -12,7 +12,7 @@ public class ExceptionMarkupBuilder
         {
             if(exception is ProblemDetailsException ex)
             {
-                sb.Append("<div style='margin-bottom:1rem'>");
+                sb.Append("<div style='margin-bottom:1rem;word-break:break-all;overflow-y:auto;'>");
                 sb.Append(ex.ProblemDetails.Detail);
                 sb.Append("</div>");
                 if(ex.ProblemDetails.InvalidParams != null)

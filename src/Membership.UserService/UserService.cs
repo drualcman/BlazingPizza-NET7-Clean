@@ -18,10 +18,4 @@ internal class UserService : IUserService
         .Where(c => c.Type == "FullName")
         .Select(c => c.Value)
         .FirstOrDefault();
-
-    public void CheckIfIsAuthorizedGuard() 
-    {                
-        if(!IsAuthenticated)
-            throw new UnauthorizedAccessException("Por favor identificate.");
-    }
 }

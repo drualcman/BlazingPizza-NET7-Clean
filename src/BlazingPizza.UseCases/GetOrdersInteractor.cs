@@ -12,7 +12,7 @@ internal sealed class GetOrdersInteractor : IGetOrdersInputPort
 
     public async Task<IReadOnlyCollection<GetOrdersDto>> GetOrdersAsync()
     {
-        UserService.CheckIfIsAuthorizedGuard();
+        UserService.ThrowIfNotAuthenticated();
         return await Repository.GetOrdersAsync(UserService.UserId);
     }
 }
