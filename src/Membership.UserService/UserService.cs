@@ -1,20 +1,20 @@
 ﻿namespace Membership.UserService;
 internal class UserService : IUserService
 {
-    readonly HttpContext Context;
+    readonly IHttpContextAccessor ContextAccessor;
     public UserService(IHttpContextAccessor httpContextAccesor)
     {
-        Context = httpContextAccesor.HttpContext;   
+        ContextAccessor = httpContextAccesor;   
     }
 
     public bool IsAuthenticated => 
-        Context.User?.Identity?.IsAuthenticated ?? false;
+        ContextAccessor.HttpContext.User?.Identity?.IsAuthenticated ?? false;
 
     public string UserId =>
-        Context.User.Identity?.Name;
+        ContextAccessor.HttpContext.User.Identity?.Name;
 
     public string FullName =>
-        Context.User.Claims
+        ContextAccessor.HttpContext.User.Claims
         .Where(c => c.Type == "FullName")
         .Select(c => c.Value)
         .FirstOrDefault();

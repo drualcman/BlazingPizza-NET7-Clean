@@ -71,7 +71,7 @@ public partial class OrderTrackerMap : IDisposable
             await Map.RemoveMarkersAsync();
             await Map.SetViewAsync(FromLatLong(order.DeliveryLocation), ZoomLevel);
             LatLong origin = await Notificator.SubscribeAcync(Order, OnMove);
-            await Map.AddMarkerAsync(FromLatLong(origin), "El restaurante", "Blazing Pizza Restaurant");
+            await Map.AddMarkerAsync(FromLatLong(origin), "El restaurante", "Blazing Pizza Restaurant", DrMaps.Blazor.ValueObjects.Icon.HOME);
             await Map.AddMarkerAsync(FromLatLong(order.DeliveryLocation), "Usted", "Lugar de entrega", DrMaps.Blazor.ValueObjects.Icon.DESTINATION);
         }
     }

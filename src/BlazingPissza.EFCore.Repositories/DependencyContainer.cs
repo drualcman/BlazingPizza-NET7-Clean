@@ -1,11 +1,9 @@
-﻿using BlazingPizza.Backend.BussinesObjects.Interfaces.Common;
-
-namespace BlazingPizza.EFCore.Repositories;
+﻿namespace BlazingPizza.EFCore.Repositories;
 
 public static class DependencyContainer
 {
     public static IServiceCollection AddRepositoryServices(this IServiceCollection services)
-    {           
+    {
         services.AddDbContext<IBlazingPizzaQueriesContext, BlazingPizzaQueriesContext>();
         services.AddDbContext<IBlazingPizzaComandsContext, BlazingPizzaCommandsContext>();
         services.AddScoped<IBlazingPizzaQueriesRepository, BlazingPizzaQueriesRepository>();
