@@ -1,7 +1,7 @@
 ﻿namespace Membership.UserManager;
 public static class DependencyContainer
 {
-    public static IServiceCollection AddMemberShipCoreServices(this IServiceCollection services)
+    public static IServiceCollection AddUserManagerCoreServices(this IServiceCollection services)
     {
         services.AddScoped<IRegisterInputPort, RegisterInteractor>();
         return services;
