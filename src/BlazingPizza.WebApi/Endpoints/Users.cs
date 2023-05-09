@@ -8,7 +8,10 @@ internal static class OrUsersders
         {
             await controller.RegisterAsync(userData);
             return Results.Ok();
-        });
+        });   
+        app.MapPost("/user/login", async (UserCredentialsDto userCredentialsDto, ILoginController controller) =>
+            Results.Ok(await controller.LoginAsync(userCredentialsDto)));
+
         return app;
     }
 }
