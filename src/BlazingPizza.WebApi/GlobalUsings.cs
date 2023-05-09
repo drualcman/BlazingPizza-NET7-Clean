@@ -12,3 +12,4 @@ global using CustomExceptions.HttpHandlers;
 global using Membership.Entities;
 global using Membership.UserManager.AspNetIdentity;
 global using Microsoft.Extensions.DependencyInjection;
+global using Membership.Presenters;

@@ -5,6 +5,7 @@ public static class DependencyContainer
     {
         services.AddUserManagerCoreServices();
         services.AddMemberShipControlleresServices();
+        services.AddMembershipPresenters();
         services.AddUserService();
         return services;
     }   

@@ -10,6 +10,8 @@ internal static class ServicesConfiguration
         builder.Services.Configure<SpecialsOptions>(builder.Configuration.GetSection(SpecialsOptions.SectionKey));
         builder.Services.Configure<ConnectionStringOptions>(builder.Configuration.GetSection(ConnectionStringOptions.SectionKey));
         builder.Services.Configure<AspNetIdentityOptions>(builder.Configuration.GetSection(AspNetIdentityOptions.SectionKey));
+        IConfiguration jwtConfigurationOptions = builder.Configuration.GetSection(JwtConfigurationOptions.SectionKey);
+        builder.Services.Configure<JwtConfigurationOptions>(jwtConfigurationOptions);
 
         builder.Services.AddBlazingPizzaBackendServices();
         builder.Services.AddCors(options =>
