@@ -8,9 +8,9 @@ internal static class Orders
         {
             int orderId = await controller.PlaceOrderAsync(order);
             return Results.Ok(orderId);
-        });
-        app.MapGet("/getorders", async (IGetOrdersController controller) => Results.Ok(await controller.GetOrdersAsync()));
-        app.MapGet("/getorder/{id}", async (int id, IGetOrderController controller) => Results.Ok(await controller.GetOrderAsync(id)));
+        }).RequireAuthorization();
+        app.MapGet("/getorders", async (IGetOrdersController controller) => Results.Ok(await controller.GetOrdersAsync())).RequireAuthorization();
+        app.MapGet("/getorder/{id}", async (int id, IGetOrderController controller) => Results.Ok(await controller.GetOrderAsync(id))).RequireAuthorization();
         return app;
     }
 }

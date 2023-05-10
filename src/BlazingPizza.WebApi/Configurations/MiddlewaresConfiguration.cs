@@ -17,6 +17,8 @@ internal static class MiddlewaresConfiguration
         app.UseOrdersEndpoints();
         app.UseUsersEndpoints();
         app.UseCors();
+        app.UseAuthentication();
+        app.UseAuthorization();
 
         return app;
     }
