@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Membership.Shared.Entities\Membership.Shared.Entities.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Membership.Entities\Membership.Entities.csproj" />
+  </ItemGroup>
 
 </Project>

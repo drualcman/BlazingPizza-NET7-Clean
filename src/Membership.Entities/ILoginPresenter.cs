@@ -1,6 +1,6 @@
 ﻿namespace Membership.Entities;
 public interface ILoginPresenter
 {
-    string Token { get; }
+    UserTokensDto Token { get; }
     Task HandleUserDataAsync(UserDto userData);
 }

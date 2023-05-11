@@ -1,4 +1,4 @@
-﻿namespace Membership.Presenters;
+﻿namespace Membership.Entities;
 public class JwtConfigurationOptions
 {
     public const string SectionKey = "Jwt";
@@ -6,4 +6,5 @@ public class JwtConfigurationOptions
     public string ValidIssuer { get; set; }
     public string ValidAudience { get; set; }
     public int ExpireInMinutes { get; set; }
+    public int RefreshTokenExpireInMinutes { get; set; }
 }

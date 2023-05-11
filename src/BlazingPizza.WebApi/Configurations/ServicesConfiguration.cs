@@ -53,7 +53,8 @@ internal static class ServicesConfiguration
             .AddJwtBearer(options => 
             {
                 jwtConfigurationOptionsSection.Bind(options.TokenValidationParameters);
-                options.TokenValidationParameters.IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfigurationOptionsSection["SecurityKey"]));
+                options.TokenValidationParameters.IssuerSigningKey =
+                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfigurationOptionsSection["SecurityKey"]));
             });
         builder.Services.AddAuthorization();
 
