@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Membership.Shared.Entities;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -13,15 +14,15 @@ internal class LoginPresenter : ILoginPresenter
         Options = options.Value;
     }
 
-    public string Token { get; private set; }
+    public UserTokensDto Token { get; private set; }
 
     public Task HandleUserDataAsync(UserDto userData) 
     {
         SigningCredentials signingCredentials = GetSigingCredentials();
         List<Claim> claims = GetClaims(userData);
         JwtSecurityToken jwtSecurityToken = GetSecutiryToken(signingCredentials, claims);
-        Token = jwtSecurityToken.ToString();
-        Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+        //Token = jwtSecurityToken.ToString();
+        Token = new UserTokensDto(new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken), "");
         return Task.CompletedTask;
     }
 
