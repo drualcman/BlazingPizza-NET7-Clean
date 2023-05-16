@@ -1,4 +1,10 @@
-global using Membership.Entities;
-global using Microsoft.Extensions.DependencyInjection;
-global using Membership.UserManager.Register;
+global using Membership.Entities.Dtos;
+global using Membership.Entities.Interfaces;
+global using Membership.Entities.Login;
 global using Membership.UserManager.Login;
+global using Membership.UserManager.Register;
+global using Microsoft.Extensions.DependencyInjection;
+global using Membership.Entities.Register;
+global using Membership.Entities.RefreshToken;
+global using Membership.Shared.Entities;
+global using Membership.UserManager.RefreshToken;

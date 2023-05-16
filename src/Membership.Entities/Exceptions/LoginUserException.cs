@@ -1,4 +1,4 @@
-﻿namespace Membership.Entities;
+﻿namespace Membership.Entities.Exceptions;
 public class LoginUserException : Exception
 {
     public LoginUserException() { }

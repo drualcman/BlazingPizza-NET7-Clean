@@ -1,4 +1,4 @@
-﻿namespace Membership.Entities;
+﻿namespace Membership.Entities.Options;
 public class JwtConfigurationOptions
 {
     public const string SectionKey = "Jwt";

@@ -8,11 +8,13 @@ public static class DependencyContainer
         services.AddMembershipPresenters();
         services.AddUserService();
         return services;
-    }   
+    }  
+    
     public static IServiceCollection AddMemberShipServices(this IServiceCollection services)
     {
         services.AddCoreMemberShipCoreServices();
         services.AddAspNetIdentityServices();
+        services.AddRefreshTokenManagerServices();
         return services;
     }
 }

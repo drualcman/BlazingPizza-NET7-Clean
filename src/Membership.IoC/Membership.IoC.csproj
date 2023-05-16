@@ -12,6 +12,7 @@
     <ProjectReference Include="..\Membership.UserManager.AspNetIdentity\Membership.UserManager.AspNetIdentity.csproj" />
     <ProjectReference Include="..\Membership.UserManager\Membership.UserManager.csproj" />
     <ProjectReference Include="..\Membership.UserService\Membership.UserService.csproj" />
+    <ProjectReference Include="..\Memebership.RefreshTokenManager.Memory\Memebership.RefreshTokenManager.Memory.csproj" />
   </ItemGroup>
 
 </Project>

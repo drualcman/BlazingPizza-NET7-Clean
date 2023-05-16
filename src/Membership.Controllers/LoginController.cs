@@ -10,9 +10,9 @@ internal class LoginController : ILoginController
         Presenter = presenter;
     }
 
-    public async Task<string> LoginAsync(UserCredentialsDto userCredentials) 
+    public async Task<UserTokensDto> LoginAsync(UserCredentialsDto userCredentials)
     {
         await InputPort.LoginAsync(userCredentials);
-        return Presenter.Token;
+        return Presenter.UserTokens;
     }
 }

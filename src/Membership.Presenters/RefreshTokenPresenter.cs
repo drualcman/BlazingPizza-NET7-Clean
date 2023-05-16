@@ -1,10 +1,10 @@
 ﻿namespace Membership.Presenters;
-internal class LoginPresenter : ILoginPresenter
+internal class RefreshTokenPresenter : IRefreshTokenPresenter
 {
     readonly JwtConfigurationOptions Options;
     readonly IRefreshTokenManager RefreshTokenManager;
 
-    public LoginPresenter(IOptions<JwtConfigurationOptions> options, IRefreshTokenManager refreshTokenManager)
+    public RefreshTokenPresenter(IOptions<JwtConfigurationOptions> options, IRefreshTokenManager refreshTokenManager)
     {
         Options = options.Value;
         RefreshTokenManager = refreshTokenManager;
@@ -12,9 +12,9 @@ internal class LoginPresenter : ILoginPresenter
 
     public UserTokensDto UserTokens { get; private set; }
 
-    public async Task HandleUserDataAsync(UserDto userData) 
+    public async Task GenerateTokenAsync(string oldAccessToken)
     {
-        List<Claim> claims = JwtHelper.GetClaims(userData);
+        List<Claim> claims = JwtHelper.GetClaimsFromToken(oldAccessToken);
         string accessToken = JwtHelper.GetAccessToken(Options, claims);
         string refreshToken = await RefreshTokenManager.GetNewTokenAsync(accessToken);
         UserTokens = new UserTokensDto(accessToken, refreshToken);

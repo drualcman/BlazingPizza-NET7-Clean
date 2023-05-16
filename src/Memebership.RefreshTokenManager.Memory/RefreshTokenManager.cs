@@ -1,8 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-using System.Collections.Concurrent;
-using System.Security.Cryptography;
-
-namespace Memebership.RefreshTokenManager.Memory;
+﻿namespace Memebership.RefreshTokenManager.Memory;
 internal class RefreshTokenManager : IRefreshTokenManager
 {
     readonly ConcurrentDictionary<string, Token> Tokens = new();
@@ -10,10 +6,24 @@ internal class RefreshTokenManager : IRefreshTokenManager
 
     public RefreshTokenManager(IOptions<JwtConfigurationOptions> options) => Options = options.Value;
 
-    public Task<string> GetNewTokenAsync(string userName) 
+    public async Task ThrowIfNotCanGetNewTokenAsync(string refreshToken, string accessToken)
+    {
+        if (Tokens.TryGetValue(refreshToken, out Token token)) 
+        {
+            if(token.AccessToken != accessToken)
+                throw new RefreshTokenCompromisedException();
+            if (token.ExpiresAt < DateTime.UtcNow)
+                throw new RefreshTokenExpiredException();
+            await DeleteTokenAsync(refreshToken);
+        }
+        else
+            throw new RefreshTokenNotFoundException();
+    }
+
+    public Task<string> GetNewTokenAsync(string accessToken) 
     {
         string refreshToken = GenerateToken();        
-        Token token = GetToken(userName);
+        Token token = GetToken(accessToken);
         if(!Tokens.TryAdd(refreshToken, token)) refreshToken = null;
         return Task.FromResult(refreshToken);
     }
@@ -26,38 +36,16 @@ internal class RefreshTokenManager : IRefreshTokenManager
         return Convert.ToBase64String(buffer);
     }
 
-    private Token GetToken(string userName) =>
+    private Token GetToken(string accessToken) =>
         new Token
         {
-            UserName = userName,
+            AccessToken = accessToken,
             ExpiresAt = DateTime.UtcNow.AddMinutes(Options.RefreshTokenExpireInMinutes)
         };
 
-    public async Task<string> RotateTokenAsync(string userName, string refreshToken)
+    public Task DeleteTokenAsync(string refreshToken) 
     {
-        string result = null;
-        if(Tokens.TryGetValue(refreshToken, out Token token))
-        {
-            if(token.ExpiresAt > DateTime.UtcNow)
-            {
-                if(await DeleteTokenAsync(userName, refreshToken))
-                    result = await GetNewTokenAsync(userName);
-            }
-        }
-        return result;
-    }
-
-    public Task<bool> DeleteTokenAsync(string userName, string refreshToken) 
-    {
-        bool result = false;
-        if(Tokens.TryGetValue(refreshToken, out Token token))
-        {
-            if(token.UserName == userName) 
-            {
-                result = Tokens.TryRemove(refreshToken, out token);
-                //result = Tokens.TryRemove(refreshToken, out _);    //con el _ ignora el oout
-            }
-        }
-        return Task.FromResult(result);
+        Tokens.TryRemove(refreshToken, out _);    //con el _ ignora el oout
+        return Task.CompletedTask;
     }
 }

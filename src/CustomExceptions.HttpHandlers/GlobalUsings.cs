@@ -7,3 +7,4 @@ global using Microsoft.AspNetCore.Builder;
 global using Microsoft.Extensions.Hosting;
 global using System.Text.Json;
 global using Membership.Entities;
+global using Membership.Entities.Exceptions;

@@ -5,6 +5,7 @@ public static class DependencyContainer
     {
         services.AddScoped<IRegisterInputPort, RegisterInteractor>();
         services.AddScoped<ILoginInputPort, LoginInteractor>();
+        services.AddScoped<IRefreshTokenInputPort, RefreshTokenInteractor>();
         return services;
     }
 }

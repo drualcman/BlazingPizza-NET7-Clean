@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-
-namespace Membership.UserManager.AspNetIdentity;
+﻿namespace Membership.UserManager.AspNetIdentity;
 internal class UserManagerContext : IdentityUserContext<User>
 {
     readonly AspNetIdentityOptions Options;

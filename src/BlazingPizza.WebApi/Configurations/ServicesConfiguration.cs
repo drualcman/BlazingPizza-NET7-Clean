@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.WebApi.Configurations;
+﻿using Membership.Entities.Options;
+
+namespace BlazingPizza.WebApi.Configurations;
 
 internal static class ServicesConfiguration
 {
@@ -55,6 +57,10 @@ internal static class ServicesConfiguration
                 jwtConfigurationOptionsSection.Bind(options.TokenValidationParameters);
                 options.TokenValidationParameters.IssuerSigningKey =
                     new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfigurationOptionsSection["SecurityKey"]));
+                if(int.TryParse(jwtConfigurationOptionsSection["ClockSkewInMinutes"], out int value))
+                {
+                    options.TokenValidationParameters.ClockSkew = TimeSpan.FromMinutes(value);
+                }
             });
         builder.Services.AddAuthorization();
 

@@ -1,5 +1,5 @@
-﻿namespace Membership.Entities; 
-public interface ILoginController 
+﻿namespace Membership.Entities.Login;
+public interface ILoginController
 {
     Task<UserTokensDto> LoginAsync(UserCredentialsDto userCredentials);
 }

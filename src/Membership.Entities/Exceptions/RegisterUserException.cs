@@ -1,4 +1,4 @@
-﻿namespace Membership.Entities;
+﻿namespace Membership.Entities.Exceptions;
 public class RegisterUserException : Exception
 {
     public List<string> Errors { get; }

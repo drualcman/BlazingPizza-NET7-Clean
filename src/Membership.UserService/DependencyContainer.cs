@@ -1,4 +1,6 @@
-﻿namespace Membership.UserService;
+﻿using Membership.Entities.Interfaces;
+
+namespace Membership.UserService;
 public static class DependencyContainer
 {
     public static IServiceCollection AddUserService(this IServiceCollection services)
