@@ -8,7 +8,7 @@ internal static class JwtHelper
         return new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);
     }
 
-    public static List<Claim> GetClaims(UserDto userData) =>
+    public static List<Claim> GetUserClaims(UserDto userData) =>
     new List<Claim>
     {
         new Claim(ClaimTypes.Name, userData.Email),
@@ -23,18 +23,13 @@ internal static class JwtHelper
             expires: DateTime.Now.AddMinutes(Convert.ToDouble(options.ExpireInMinutes)),
             signingCredentials: signingCredentials);
 
-    public static List<Claim> GetClaimsFromToken(string accessToken)
+    public static List<Claim> GetUserClaimsFromToken(string accessToken)
     {
         JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();   
         JwtSecurityToken token = handler.ReadJwtToken(accessToken);
-        List<Claim> claims = token.Claims.ToList();
-        Claim aud = claims.FirstOrDefault(c => c.Type == "aud");
-        claims.Remove(aud);
-        Claim iss = claims.FirstOrDefault(c => c.Type == "iss");
-        claims.Remove(iss);  
-        Claim exp = claims.FirstOrDefault(c => c.Type == "exp");
-        claims.Remove(exp);
-        return claims;
+        return token.Claims.Where(c => c.Type == "FullName" || 
+                                  c.Type == ClaimTypes.Name )
+                           .ToList();
     }
 
     public static string GetAccessToken(JwtConfigurationOptions options, List<Claim> userClaims)

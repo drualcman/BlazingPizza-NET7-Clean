@@ -10,11 +10,11 @@ internal class RefreshTokenManager : IRefreshTokenManager
     {
         if (Tokens.TryGetValue(refreshToken, out Token token)) 
         {
+            await DeleteTokenAsync(refreshToken);
             if(token.AccessToken != accessToken)
                 throw new RefreshTokenCompromisedException();
             if (token.ExpiresAt < DateTime.UtcNow)
                 throw new RefreshTokenExpiredException();
-            await DeleteTokenAsync(refreshToken);
         }
         else
             throw new RefreshTokenNotFoundException();

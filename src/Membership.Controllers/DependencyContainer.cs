@@ -6,6 +6,7 @@ public static class DependencyContainer
         services.AddScoped<IRegisterController, RegisterController>();
         services.AddScoped<ILoginController, LoginController>();
         services.AddScoped<IRefreshTokenController, RefreshTokenController>();
+        services.AddScoped<ILogoutController, LogoutController>();
         return services;
     }
 }

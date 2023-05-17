@@ -4,3 +4,4 @@ global using Microsoft.Extensions.DependencyInjection;
 global using Membership.Entities.Login;
 global using Membership.Shared.Entities;
 global using Membership.Entities.RefreshToken;
+global using Membership.Entities.Logout;

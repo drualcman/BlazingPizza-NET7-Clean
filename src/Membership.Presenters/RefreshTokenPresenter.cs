@@ -14,7 +14,7 @@ internal class RefreshTokenPresenter : IRefreshTokenPresenter
 
     public async Task GenerateTokenAsync(string oldAccessToken)
     {
-        List<Claim> claims = JwtHelper.GetClaimsFromToken(oldAccessToken);
+        List<Claim> claims = JwtHelper.GetUserClaimsFromToken(oldAccessToken);
         string accessToken = JwtHelper.GetAccessToken(Options, claims);
         string refreshToken = await RefreshTokenManager.GetNewTokenAsync(accessToken);
         UserTokens = new UserTokensDto(accessToken, refreshToken);

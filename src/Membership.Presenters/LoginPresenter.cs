@@ -14,7 +14,7 @@ internal class LoginPresenter : ILoginPresenter
 
     public async Task HandleUserDataAsync(UserDto userData) 
     {
-        List<Claim> claims = JwtHelper.GetClaims(userData);
+        List<Claim> claims = JwtHelper.GetUserClaims(userData);
         string accessToken = JwtHelper.GetAccessToken(Options, claims);
         string refreshToken = await RefreshTokenManager.GetNewTokenAsync(accessToken);
         UserTokens = new UserTokensDto(accessToken, refreshToken);

@@ -1,4 +1,5 @@
-﻿using Membership.Entities.RefreshToken;
+﻿using Membership.Entities.Logout;
+using Membership.Entities.RefreshToken;
 using Membership.Shared.Entities;
 
 namespace BlazingPizza.WebApi.Endpoints;
@@ -21,6 +22,11 @@ internal static class OrUsersders
         {
             context.Response.Headers.Add("Cache-Control", "no-store");
             return Results.Ok(await controller.RefreshTokenAsync(userTokens));
+        }); 
+        app.MapPost("/user/logout", async (string refreshToken, ILogoutController controller) =>
+        {
+            await controller.LogoutAsync(refreshToken);
+            return Results.Ok();
         });
 
         return app;

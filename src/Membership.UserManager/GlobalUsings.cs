@@ -8,3 +8,5 @@ global using Membership.Entities.Register;
 global using Membership.Entities.RefreshToken;
 global using Membership.Shared.Entities;
 global using Membership.UserManager.RefreshToken;
+global using Membership.Entities.Logout;
+global using Membership.UserManager.Logout;
