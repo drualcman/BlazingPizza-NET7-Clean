@@ -5,6 +5,9 @@ public class RegisterInteractor : IRegisterInputPort
 
     public RegisterInteractor(IUserManagerService userManagerService) => UserManagerService = userManagerService;
 
-    public async Task RegisterAsync(UserForRegistrationDto userData) =>
-        await UserManagerService.ThrowIfUnableToResisterAsync(userData);
+    public async Task RegisterAsync(LocalUserForRegistrationDto userData)
+    {
+        await UserManagerService.ThrowIfUnableToResisterAsync(
+            new UserForRegistrationDto(userData.Email, userData.Email, userData.Password, userData.FirstName, userData.Password));
+    }
 }

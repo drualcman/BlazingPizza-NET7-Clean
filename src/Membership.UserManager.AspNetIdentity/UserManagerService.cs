@@ -9,7 +9,7 @@ internal class UserManagerService : IUserManagerService
     {
         User user = new User
         {
-            UserName = userData.Email,
+            UserName = userData.UserName,
             FirstName = userData.FirstName,
             LastName = userData.LastName,
             Email = userData.Email

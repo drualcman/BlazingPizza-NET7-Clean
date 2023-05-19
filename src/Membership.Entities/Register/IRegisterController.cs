@@ -1,7 +1,5 @@
-﻿using Membership.Entities.Dtos;
-
-namespace Membership.Entities.Register;
+﻿namespace Membership.Entities.Register;
 public interface IRegisterController
 {
-    Task RegisterAsync(UserForRegistrationDto userData);
+    Task RegisterAsync(LocalUserForRegistrationDto userData);
 }

@@ -5,6 +5,6 @@ public class RegisterController : IRegisterController
 
     public RegisterController(IRegisterInputPort inputPort) => InputPort = inputPort;
 
-    public Task RegisterAsync(UserForRegistrationDto userData) => 
+    public Task RegisterAsync(LocalUserForRegistrationDto userData) => 
         InputPort.RegisterAsync(userData);
 }
