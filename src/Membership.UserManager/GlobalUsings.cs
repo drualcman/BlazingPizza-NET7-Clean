@@ -10,3 +10,4 @@ global using Membership.Shared.Entities;
 global using Membership.UserManager.RefreshToken;
 global using Membership.Entities.Logout;
 global using Membership.UserManager.Logout;
+global using System.Text;

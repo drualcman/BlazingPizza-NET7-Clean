@@ -9,8 +9,8 @@ public interface IUserManagerService
             throw new RegisterUserException(errors);
     }
 
-    Task<UserDto> GetUserByCredentialsAsync(UserCredentialsDto userCredentials);
-    async Task<UserDto> ThrowIfUnableToGetUserByCredentialsAsync(UserCredentialsDto userCredentials)
+    Task<UserDto> GetUserByCredentialsAsync(LocalUserCredentialsDto userCredentials);
+    async Task<UserDto> ThrowIfUnableToGetUserByCredentialsAsync(LocalUserCredentialsDto userCredentials)
     {
         UserDto user = await GetUserByCredentialsAsync(userCredentials);
         if(user == default)

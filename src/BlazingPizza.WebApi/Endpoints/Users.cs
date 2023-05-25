@@ -12,8 +12,13 @@ internal static class OrUsersders
         {
             await controller.RegisterAsync(userData);
             return Results.Ok();
+        });  
+        app.MapPost("/user/external-register", async (ExternalUserForRegistrationDto userData, IExternalRegisterController controller) =>
+        {
+            await controller.RegisterAsync(userData);
+            return Results.Ok();
         });
-        app.MapPost("/user/login", async (UserCredentialsDto userCredentialsDto, ILoginController controller, HttpContext context) =>
+        app.MapPost("/user/login", async (LocalUserCredentialsDto userCredentialsDto, ILoginController controller, HttpContext context) =>
         {
             context.Response.Headers.Add("Cache-Control", "no-store");
             return Results.Ok(await controller.LoginAsync(userCredentialsDto));

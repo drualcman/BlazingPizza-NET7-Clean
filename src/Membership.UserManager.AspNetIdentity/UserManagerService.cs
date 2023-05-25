@@ -1,4 +1,6 @@
-﻿namespace Membership.UserManager.AspNetIdentity;
+﻿using Membership.Shared.Entities;
+
+namespace Membership.UserManager.AspNetIdentity;
 internal class UserManagerService : IUserManagerService
 {
     readonly UserManager<User> UserManager;
@@ -23,7 +25,7 @@ internal class UserManagerService : IUserManagerService
         return errors;
     }
 
-    public async Task<UserDto> GetUserByCredentialsAsync(UserCredentialsDto userCredentials)
+    public async Task<UserDto> GetUserByCredentialsAsync(LocalUserCredentialsDto userCredentials)
     {
         UserDto foundUser = default;
 
