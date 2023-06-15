@@ -1,5 +1,5 @@
 ﻿namespace Membership.Entities.Register;
 public interface IRegisterController
 {
-    Task RegisterAsync(LocalUserForRegistrationDto userData);
+    Task RegisterAsync(Shared.Entities.LocalUserForRegistrationDto userData);
 }

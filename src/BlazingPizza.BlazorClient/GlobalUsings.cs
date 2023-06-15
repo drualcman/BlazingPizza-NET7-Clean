@@ -5,3 +5,5 @@ global using Microsoft.AspNetCore.Components.Web;
 global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Options;
+global using Membership.Blazor.IoC;
+global using Membership.Blazor.WebApiGateway;

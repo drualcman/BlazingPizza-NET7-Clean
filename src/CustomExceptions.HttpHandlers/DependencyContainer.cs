@@ -22,8 +22,8 @@ public static class DependencyContainer
     internal static IApplicationBuilder UseHttpExceptionMiddlerware(this IApplicationBuilder app, 
         IHostEnvironment environment, IHttpExceptionHandlerHub hub)
     {
-        app.Use((context, next) => 
-            HttpExceptionHandlerMiddleware.WriteResponse(context, environment.IsDevelopment(), hub));
+        app.Use((context, next) =>
+            HttpExceptionHandlerMiddleware.WriteResponse(context, environment.IsDevelopment(), hub, next));
         return app;
     }
     

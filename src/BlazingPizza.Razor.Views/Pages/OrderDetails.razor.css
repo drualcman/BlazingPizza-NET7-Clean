@@ -1,11 +1,4 @@
-﻿.main {
-    flex-grow: 1;
-    overflow-y: auto;
-    background: linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,0.4) 80%);
-    padding: 1.5rem !important;
-}
-
-.track-order {
+﻿.track-order {
     background-color: white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.4);
     height: 100%;

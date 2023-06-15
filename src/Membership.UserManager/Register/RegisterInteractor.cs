@@ -8,6 +8,6 @@ public class RegisterInteractor : IRegisterInputPort
     public async Task RegisterAsync(LocalUserForRegistrationDto userData)
     {
         await UserManagerService.ThrowIfUnableToResisterAsync(
-            new UserForRegistrationDto(userData.Email, userData.Email, userData.Password, userData.FirstName, userData.Password));
+            new UserForRegistrationDto(userData.Email, userData.Email, userData.Password, userData.FirstName, userData.LastName));
     }
 }

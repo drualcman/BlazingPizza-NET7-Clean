@@ -1,6 +1,4 @@
-﻿using Membership.Entities.Logout;
-
-namespace Membership.Controllers;
+﻿namespace Membership.Controllers;
 internal class LogoutController : ILogoutController
 {
     readonly ILogoutInputPort InputPort;

@@ -18,3 +18,4 @@ global using Geolocation.Blazor;
 global using Geolocation.Blazor.Geocoding;
 global using ExceptionHandler.Razor;
 global using Toast.Blazor;
+global using Membership.Shared.Entities;

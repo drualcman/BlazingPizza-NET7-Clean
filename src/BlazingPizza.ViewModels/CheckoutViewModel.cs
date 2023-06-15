@@ -19,7 +19,7 @@ internal sealed class CheckoutViewModel : ICheckoutViewModel
 
     public Address Address { get; private set; } = new();
 
-    public async Task<int> PalceOrderAsync()
+    public async Task<int> PlaceOrderAsync()
     {
         int orderId = 0;
         IsSubmitting = true;
