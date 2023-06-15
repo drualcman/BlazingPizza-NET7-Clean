@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -16,11 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <ProjectReference Include="..\Membership.Blazor.WebApiGateway\Membership.Blazor.WebApiGateway.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SpecificationValidation.Entities\SpecificationValidation.Entities.csproj" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>
