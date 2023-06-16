@@ -1,13 +1,13 @@
-﻿.register {
+﻿.logout {
     display: flex;
     justify-content: center;
 }
 
-    .register h4 {
+    .logout h4 {
         margin: auto
     }
 
-    .register > div {
+    .logout > div {
         max-width: 500px;
         display: flex;
         flex: 1;

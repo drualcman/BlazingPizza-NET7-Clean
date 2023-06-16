@@ -5,10 +5,10 @@ public class UserWebApiGateway : IUserWebApiGateway
     readonly HttpClient Client;
     readonly UserEnpointOptions Options;
 
-    public UserWebApiGateway(IHttpClientFactory factory, IOptions<UserEnpointOptions> options)
+    public UserWebApiGateway(HttpClient client, IOptions<UserEnpointOptions> options)
     {
         Options = options.Value;
-        Client = factory.CreateClient(nameof(IUserWebApiGateway));
+        Client = client;
         Client.BaseAddress = new Uri(Options.WebApiBaseAddrerss);
     }
 

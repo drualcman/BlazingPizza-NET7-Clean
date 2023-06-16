@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HttpMessageHandlers\HttpMessageHandlers.csproj" />
     <ProjectReference Include="..\Membership.Blazo.Entities\Membership.Blazor.Entities.csproj" />
   </ItemGroup>
 

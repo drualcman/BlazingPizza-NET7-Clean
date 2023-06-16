@@ -1,43 +1,45 @@
-<EditForm Model=User OnValidSubmit=Register>
-    <DataAnnotationsValidator />
-    <div class="form-field-column">
-        <label>Nombre</label>
-        <div class="control">
-            <InputText @bind-Value=User.FirstName class="input"/>
-            <ValidationMessage For="() => User.FirstName" />
+<CustomErrorBoundary>
+    <EditForm Model=User OnValidSubmit=Register>
+        <DataAnnotationsValidator />
+        <div class="form-field-column">
+            <label>Nombre</label>
+            <div class="control">
+                <InputText @bind-Value=User.FirstName class="input" />
+                <ValidationMessage For="() => User.FirstName" />
+            </div>
         </div>
-    </div>
-    <div class="form-field-column">
-        <label>Apellidos</label>
-        <div class="control">
-            <InputText @bind-Value=User.LastName class="input" />
-            <ValidationMessage For="() => User.LastName" />
+        <div class="form-field-column">
+            <label>Apellidos</label>
+            <div class="control">
+                <InputText @bind-Value=User.LastName class="input" />
+                <ValidationMessage For="() => User.LastName" />
+            </div>
         </div>
-    </div>
-    <div class="form-field-column">
-        <label>Email</label>
-        <div class="control">
-            <InputText @bind-Value=User.UserName class="input" />
-            <ValidationMessage For="() => User.UserName" />
+        <div class="form-field-column">
+            <label>Email</label>
+            <div class="control">
+                <InputText @bind-Value=User.UserName class="input" />
+                <ValidationMessage For="() => User.UserName" />
+            </div>
         </div>
-    </div>
-    <div class="form-field-column">
-        <label>Contraseña</label>
-        <div class="control">
-            <InputText @bind-Value=User.Password type="password" class="input" />
-            <ValidationMessage For="() => User.Password" />
+        <div class="form-field-column">
+            <label>Contraseña</label>
+            <div class="control">
+                <InputText @bind-Value=User.Password type="password" class="input" />
+                <ValidationMessage For="() => User.Password" />
+            </div>
         </div>
-    </div>
-    <div class="form-field-column">
-        <label>Confirmar contraseña</label>
-        <div class="control">
-            <InputText @bind-Value=User.ConfirmPassword type="password" class="input" />
-            <ValidationMessage For="() => User.ConfirmPassword" />
-        </div> 
-    </div>
-    <div class="form-field-column">
-        <button class="button is-info">Registrar</button>
-    </div>
-        
+        <div class="form-field-column">
+            <label>Confirmar contraseña</label>
+            <div class="control">
+                <InputText @bind-Value=User.ConfirmPassword type="password" class="input" />
+                <ValidationMessage For="() => User.ConfirmPassword" />
+            </div>
+        </div>
+        <div class="form-field-column">
+            <button class="button is-info">Registrar</button>
+        </div>
 
-</EditForm>
+
+    </EditForm>
+</CustomErrorBoundary>

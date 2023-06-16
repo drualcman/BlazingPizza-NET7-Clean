@@ -5,6 +5,7 @@ public static class DependencyContainer
         Action<UserEnpointOptions> userEndpointsSetter)
     {
         services.AddMembershipWebApiGatewayServices(userEndpointsSetter);
+        services.AddMembershipAuthenticationServices();
         return services;
     }
 }

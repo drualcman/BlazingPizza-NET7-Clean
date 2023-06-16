@@ -1,13 +1,13 @@
-﻿.register {
+﻿.login {
     display: flex;
     justify-content: center;
 }
 
-    .register h4 {
+    .login h4 {
         margin: auto
     }
 
-    .register > div {
+    .login > div {
         max-width: 500px;
         display: flex;
         flex: 1;

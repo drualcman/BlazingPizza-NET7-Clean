@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Membership.Blazor.UI\Membership.Blazor.UI.csproj" />
     <ProjectReference Include="..\Membership.Blazor.WebApiGateway\Membership.Blazor.WebApiGateway.csproj" />
   </ItemGroup>
 
