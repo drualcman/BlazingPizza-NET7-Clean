@@ -1,7 +1,7 @@
 ﻿namespace CustomExceptions.HttpHandlers;
 internal class HttpExceptionHandlerMiddleware
 {
-    public static async Task<Task> WriteResponse(HttpContext context, bool includeDetails, IHttpExceptionHandlerHub hub, Func<Task> next)
+    public static async Task WriteResponse(HttpContext context, bool includeDetails, IHttpExceptionHandlerHub hub, Func<Task> next)
     {
         IExceptionHandlerFeature exceptionDetail = context.Features.Get<IExceptionHandlerFeature>();
         Exception exception = exceptionDetail.Error;
@@ -13,6 +13,5 @@ internal class HttpExceptionHandlerMiddleware
             Stream stream = context.Response.Body;
             await JsonSerializer.SerializeAsync(stream, problemDetails);
         }
-        return next();
     }
 }
