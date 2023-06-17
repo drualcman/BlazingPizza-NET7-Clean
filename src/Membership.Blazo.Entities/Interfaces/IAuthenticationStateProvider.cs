@@ -4,4 +4,5 @@ public interface IAuthenticationStateProvider
     Task<AuthenticationState> GetAuthenticationStateAsync();
     Task LoginAsync(UserTokensDto userTokens);
     Task LogoutAsync();
+    Task<UserTokensDto> GetUserTokenAsync();
 }

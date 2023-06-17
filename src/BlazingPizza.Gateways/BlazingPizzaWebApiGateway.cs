@@ -1,4 +1,6 @@
-﻿namespace BlazingPizza.Gateways;
+﻿using Membership.Blazor.Entities.Interfaces;
+
+namespace BlazingPizza.Gateways;
 internal sealed class BlazingPizzaWebApiGateway : IBlazingPizzaWebApiGateway
 {
     readonly HttpClient Client;

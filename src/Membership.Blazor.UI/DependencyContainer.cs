@@ -7,6 +7,7 @@ public static class DependencyContainer
         services.AddScoped<JWTAuthenticationStateProvider>();
         services.AddScoped<AuthenticationStateProvider, JWTAuthenticationStateProvider>(provider => provider.GetRequiredService<JWTAuthenticationStateProvider>());
         services.AddScoped<IAuthenticationStateProvider>(provider => provider.GetRequiredService<JWTAuthenticationStateProvider>());
+        services.AddScoped<IBearerTokenHander, BearerTokenHandler>();
         return services;
     }
 }
