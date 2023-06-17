@@ -1,7 +1,6 @@
-using BlazingPizza.Shared.BussinesObjects.Enums;
-
 namespace BlazingPizza.Razor.Views.Pages;
-
+      
+[Authorize]
 public partial class OrderDetails
 {
     [Inject] IOrderDetailsViewModel ViewModel { get; set; }

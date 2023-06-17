@@ -19,3 +19,5 @@ global using Geolocation.Blazor.Geocoding;
 global using ExceptionHandler.Razor;
 global using Toast.Blazor;
 global using Membership.Shared.Entities;
+global using Microsoft.AspNetCore.Authorization;
+global using BlazingPizza.Shared.BussinesObjects.Enums;
