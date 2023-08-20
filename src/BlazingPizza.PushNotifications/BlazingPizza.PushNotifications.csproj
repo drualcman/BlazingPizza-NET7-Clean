@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazingPizza.BussinesObjects\BlazingPizza.Backend.BussinesObjects.csproj" />
+    <ProjectReference Include="..\WebPush.Server\WebPush.Server.csproj" />
+  </ItemGroup>
+
+</Project>

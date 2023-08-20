@@ -1,8 +1,11 @@
-﻿namespace BlazingPizza.Ioc.Backend;
+﻿using BlazingPizza.PushNotifications.Options;
+
+namespace BlazingPizza.Ioc.Backend;
 
 public static class DependencyContainer
 {
-    public static IServiceCollection AddBlazingPizzaBackendServices(this IServiceCollection services)
+    public static IServiceCollection AddBlazingPizzaBackendServices(this IServiceCollection services,
+        Action<VapidInfoOptions> configurePushNotificationOptions)
     {           
         services.AddValidators();
         services.AddRepositoryServices();
@@ -11,6 +14,7 @@ public static class DependencyContainer
         services.AddPresenterServices();
         services.AddExceptionHandlers();
         services.AddMemberShipServices();
+        services.AddPushNotificatorService(configurePushNotificationOptions);
         return services;
     }
 }

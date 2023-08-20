@@ -1,8 +1,4 @@
-﻿using BlazingPizza.Shared.BussinesObjects.Dtos;
-using BlazingPizza.Shared.BussinesObjects.Entities;
-using BlazingPizza.Shared.BussinesObjects.ValueObjects;
-
-namespace BlazingPizza.Shared.BussinesObjects.Agregates;
+﻿namespace BlazingPizza.Shared.BussinesObjects.Agregates;
 public class Order : BaseOrder
 {
     readonly List<Pizza> PizzasField;
@@ -31,6 +27,13 @@ public class Order : BaseOrder
 
     public Address DeliveryAddress { get; private set; } = new();
     public LatLong DeliveryLocation { get; private set; } = new();
+    public WebPushSubscrition Subscription { get; private set; }
+    public Order SetSubscription(WebPushSubscrition subscription)
+    {
+        Subscription = subscription;
+        return this;
+    }
+
     public IReadOnlyCollection<Pizza> Pizzas => PizzasField;
 
     public Order AddPizza(Pizza pizza)
@@ -71,26 +74,9 @@ public class Order : BaseOrder
         UserId = order.UserId,
         DeliveryAddress = order.DeliveryAddress,
         DeliveryLocation = order.DeliveryLocation,
-        Pizzas = order.Pizzas.Select(p => (PlaceOrderPizzaDto)p).ToList()
+        Pizzas = order.Pizzas.Select(p => (PlaceOrderPizzaDto)p).ToList(),
+        Subscription = order.Subscription
     };
-
-    //public static implicit operator Order(GetOrderDto order) =>
-    //    Create(order.Id, order.CreatedTime, order.UserId)            
-    //        .AddPizzas(order.Pizzas
-    //            .Select(p => new Pizza(p.Special)
-    //                .SetSize(p.Size)
-    //                .AddToppings(p.Toppings)));
-
-
-    //public static implicit operator Order(GetOrderDto order)
-    //{
-    //    Order newOrder = Create(order.Id, order.CreatedTime, order.UserId);
-    //    foreach(PizzaDto item in order.Pizzas)
-    //    {
-    //        newOrder.AddPizza(item);
-    //    };
-    //    return newOrder;
-    //}
 
     public static implicit operator Order(GetOrderDto order)
     {

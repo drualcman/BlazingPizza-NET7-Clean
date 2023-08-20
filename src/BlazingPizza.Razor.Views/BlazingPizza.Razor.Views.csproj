@@ -14,7 +14,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.7" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.10" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -29,6 +29,7 @@
 		<ProjectReference Include="..\SweetAlert.Blazor\SweetAlert.Blazor.csproj" />
 		<ProjectReference Include="..\Toast.Blazor\Toast.Blazor.csproj" />
 		<ProjectReference Include="..\BlazingPizza.OrderTrackerSimulator\BlazingPizza.OrderTrackerSimulator.csproj" />
+		<ProjectReference Include="..\WebPush.Blazor\WebPush.Blazor.csproj" />
 	</ItemGroup>
 
   <ItemGroup>

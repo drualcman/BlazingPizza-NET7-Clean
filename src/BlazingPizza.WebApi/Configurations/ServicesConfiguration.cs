@@ -1,4 +1,6 @@
-﻿using Membership.Entities.Options;
+﻿using BlazingPizza.Ioc.Backend;
+using BlazingPizza.PushNotifications.Options;
+using Membership.Entities.Options;
 
 namespace BlazingPizza.WebApi.Configurations;
 
@@ -40,7 +42,7 @@ internal static class ServicesConfiguration
         IConfiguration jwtConfigurationOptionsSection = builder.Configuration.GetSection(JwtConfigurationOptions.SectionKey);
         builder.Services.Configure<JwtConfigurationOptions>(jwtConfigurationOptionsSection);
 
-        builder.Services.AddBlazingPizzaBackendServices();
+        builder.Services.AddBlazingPizzaBackendServices(vapidOptions => builder.Configuration.GetSection(VapidInfoOptions.SectionKey).Bind(vapidOptions));
         builder.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(policy =>

@@ -1,10 +1,13 @@
-﻿namespace BlazingPizza.Razor.Views.Pages;
+﻿using WebPush.Blazor;
+
+namespace BlazingPizza.Razor.Views.Pages;
 public partial class Checkout
 {
-    [Inject] public ICheckoutViewModel ViewModel { get; set; }
-    [Inject] public NavigationManager NavigationManager { get; set; }
-    [Inject] public IValidator<Address> AddressValidator { get; set; }
-    [Inject] public IToastService ToastService { get; set; }
+    [Inject] ICheckoutViewModel ViewModel { get; set; }
+    [Inject] NavigationManager NavigationManager { get; set; }
+    [Inject] IValidator<Address> AddressValidator { get; set; }
+    [Inject] IToastService ToastService { get; set; }
+    [Inject] WebPushService PushNotificationService { get; set; }
 
     void SetAddress(GeolocationAddress address)
     {
@@ -18,6 +21,12 @@ public partial class Checkout
 
     async Task PlaceOrder()
     {
+        PushSubscrition subscription = await PushNotificationService.GetSubscriptionAsync();
+        if (subscription != null)
+        {
+            ViewModel.Order.SetSubscription(new WebPushSubscrition(subscription.Endpoint, subscription.P256dh, subscription.Auth));
+        }
+
         int orderId = await ViewModel.PlaceOrderAsync();
         if(ViewModel.PlaceOrderSuccess)
         {
